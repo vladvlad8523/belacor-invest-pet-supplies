@@ -47,6 +47,9 @@ const translations = {
     clientsTitle: "Mūsų Klientai",
     clientsSub: "Dirbame su verslu visoje Lietuvoje",
     clients: ["🐾 Zoobutikai", "🏥 Veterinarijos klinikos", "🐄 Fermos", "🐴 Arklių žirgynai"],
+    shopCta: "🛒 Apsilankykite mūsų parduotuvėje",
+    shopCtaDesc: "Peržiūrėkite visą mūsų asortimentą ir užsisakykite tiesiogiai iš mūsų e-parduotuvės",
+    shopCtaBtn: "Eiti į parduotuvę →",
     footerDesc: "Premium kraikas gyvūnams B2B.\nDidmeninė prekyba visoje Lietuvoje.",
     footerContacts: "Kontaktai",
     footerSocial: "Socialiniai tinklai",
@@ -94,6 +97,9 @@ const translations = {
     clientsTitle: "Our Clients",
     clientsSub: "Working with businesses across Lithuania",
     clients: ["🐾 Pet shops", "🏥 Veterinary clinics", "🐄 Farms", "🐴 Horse stables"],
+    shopCta: "🛒 Visit Our Online Shop",
+    shopCtaDesc: "Browse our full range and order directly from our e-shop",
+    shopCtaBtn: "Go to Shop →",
     footerDesc: "Premium animal bedding B2B.\nWholesale across Lithuania.",
     footerContacts: "Contacts",
     footerSocial: "Social media",
@@ -453,7 +459,37 @@ const Index = () => {
         </tbody>
       </table>
 
-      {/* ===== FOOTER ===== */}
+      {/* ===== PARDUOTUVĖS CTA ===== */}
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: "linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)" }}>
+        <tbody>
+          <tr>
+            <td style={{ padding: "50px 30px", textAlign: "center" }}>
+              <h2 style={{ color: "#d4af37", fontSize: "30px", marginBottom: "12px", letterSpacing: "1px" }}>{t.shopCta}</h2>
+              <p style={{ color: "white", fontSize: "16px", opacity: 0.9, marginBottom: "28px", maxWidth: "500px", margin: "0 auto 28px auto" }}>{t.shopCtaDesc}</p>
+              <a
+                href="https://www.belacor.lt/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-block",
+                  padding: "14px 40px",
+                  backgroundColor: "#d4af37",
+                  color: "#1e3a8a",
+                  fontWeight: 700,
+                  fontSize: "17px",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 15px rgba(212,175,55,0.4)",
+                  transition: "transform 0.2s",
+                }}
+              >
+                {t.shopCtaBtn}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
       <table width="100%" cellPadding={0} cellSpacing={0} id="kontaktai" style={{ backgroundColor: "#1e3a8a" }}>
         <tbody>
           <tr>
