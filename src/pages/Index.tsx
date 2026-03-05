@@ -463,14 +463,21 @@ const Index = () => {
                   <tr>
                     <td width="33%" style={{ verticalAlign: "top", color: "white" }}>
                       <h3 style={{ color: "#d4af37", fontSize: "20px", marginTop: 0 }}>✦ Belacor invest</h3>
-                      <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.7, whiteSpace: "pre-line" }}>{t.footerDesc}</p>
+                      <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.7 }}>
+                        UAB "Belacor"<br />
+                        Islandijos pl. 95-57, LT-49176<br />
+                        Kaunas, Lietuva<br />
+                        {lang === "lt" ? "Įmonės kodas" : "Company code"}: 302555498<br />
+                        PVM: LT100005726715
+                      </p>
                     </td>
                     <td width="33%" style={{ verticalAlign: "top", color: "white", textAlign: "center" }}>
                       <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0 }}>{t.footerContacts}</h3>
                       <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.8 }}>
-                        📞 +370 688 53541<br />
-                        ✉ info@belacorinvest.lt<br />
-                        📍 Vilnius, Lietuva
+                        📞 <a href="tel:+37068853541" style={{ color: "white", textDecoration: "none" }}>+370 688 53541</a><br />
+                        ✉ <a href="mailto:info@belacor.lt" style={{ color: "white", textDecoration: "none" }}>info@belacor.lt</a><br />
+                        📍 Islandijos pl. 95-57, Kaunas<br />
+                        🕐 {lang === "lt" ? "Pirm.–Penkt.: 8:00–17:00" : "Mon–Fri: 8:00–17:00"}
                       </p>
                     </td>
                     <td width="33%" style={{ verticalAlign: "top", color: "white", textAlign: "right" }}>
