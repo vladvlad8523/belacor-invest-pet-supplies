@@ -471,6 +471,32 @@ const Index = () => {
           </tr>
         </tbody>
       </table>
+      {/* ===== SCROLL TO TOP ===== */}
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f0fdf4" }}>
+        <tbody>
+          <tr>
+            <td style={{ textAlign: "center", padding: "16px" }}>
+              <a
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                style={{
+                  display: "inline-block",
+                  backgroundColor: "#1e3a8a",
+                  color: "white",
+                  padding: "12px 28px",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                ⬆ {lang === "lt" ? "Grįžti į viršų" : "Back to top"}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };
