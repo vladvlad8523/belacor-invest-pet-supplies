@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroBedding from "@/assets/hero-bedding.jpg";
 import bentonite from "@/assets/bentonite.jpg";
 import flaxBedding from "@/assets/flax-bedding.jpg";
@@ -107,6 +107,28 @@ const Index = () => {
   const [lang, setLang] = useState<Lang>("lt");
   const t = translations[lang];
   const navAnchors = ["privalumai", "produktai", "kontaktai", "užsisakyti"];
+
+  const [showCookieModal, setShowCookieModal] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie_consent");
+    if (!consent) {
+      setShowCookieModal(true);
+    }
+  }, []);
+
+  const handleCookieAccept = () => {
+    localStorage.setItem("cookie_consent", "accepted");
+    setShowCookieModal(false);
+    if (typeof (window as any).loadGA === "function") {
+      (window as any).loadGA();
+    }
+  };
+
+  const handleCookieReject = () => {
+    localStorage.setItem("cookie_consent", "rejected");
+    setShowCookieModal(false);
+  };
 
   const [formData, setFormData] = useState({
     company: "",
@@ -497,6 +519,82 @@ const Index = () => {
           </tr>
         </tbody>
       </table>
+      {/* ===== COOKIE CONSENT MODAL ===== */}
+      {showCookieModal && (
+        <>
+          {/* Overlay */}
+          <table width="100%" cellPadding={0} cellSpacing={0} style={{
+            position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9998,
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}>
+            <tbody><tr><td></td></tr></tbody>
+          </table>
+          {/* Modal */}
+          <table cellPadding={0} cellSpacing={0} style={{
+            position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+            zIndex: 9999, backgroundColor: "white", borderRadius: "16px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.3)", width: "440px", maxWidth: "90%",
+          }}>
+            <tbody>
+              <tr>
+                <td style={{ padding: "32px 28px 20px", textAlign: "center" }}>
+                  <p style={{ fontSize: "36px", margin: "0 0 12px" }}>🍪</p>
+                  <h3 style={{ color: "#1e3a8a", fontSize: "20px", margin: "0 0 12px" }}>
+                    {lang === "lt" ? "Slapukų nustatymai" : "Cookie Settings"}
+                  </h3>
+                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6, margin: "0 0 8px" }}>
+                    {lang === "lt"
+                      ? "Mes naudojame būtinus slapukus kontaktinės formos veikimui ir Google Analytics slapukus svetainės lankomumo analizei."
+                      : "We use essential cookies for the contact form and Google Analytics cookies for website traffic analysis."}
+                  </p>
+                  <p style={{ color: "#94a3b8", fontSize: "12px", lineHeight: 1.5, margin: "0 0 20px" }}>
+                    {lang === "lt"
+                      ? "Būtini slapukai: saugomi jūsų formos duomenys sesijos metu. Analitiniai slapukai: Google Analytics rinks anoniminius lankytojų duomenis."
+                      : "Essential cookies: store your form data during session. Analytics cookies: Google Analytics collects anonymous visitor data."}
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: "0 28px 28px" }}>
+                  <table width="100%" cellPadding={0} cellSpacing={8}>
+                    <tbody>
+                      <tr>
+                        <td width="50%">
+                          <a
+                            href="#"
+                            onClick={(e) => { e.preventDefault(); handleCookieAccept(); }}
+                            style={{
+                              display: "block", textAlign: "center", backgroundColor: "#1e3a8a", color: "white",
+                              padding: "12px 0", borderRadius: "8px", textDecoration: "none",
+                              fontWeight: 700, fontSize: "14px",
+                            }}
+                          >
+                            {lang === "lt" ? "✓ Sutinku su visais" : "✓ Accept All"}
+                          </a>
+                        </td>
+                        <td width="50%">
+                          <a
+                            href="#"
+                            onClick={(e) => { e.preventDefault(); handleCookieReject(); }}
+                            style={{
+                              display: "block", textAlign: "center", backgroundColor: "transparent",
+                              color: "#1e3a8a", padding: "12px 0", borderRadius: "8px",
+                              textDecoration: "none", fontWeight: 700, fontSize: "14px",
+                              border: "2px solid #1e3a8a",
+                            }}
+                          >
+                            {lang === "lt" ? "Tik būtini" : "Essential Only"}
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      )}
     </>
   );
 };
