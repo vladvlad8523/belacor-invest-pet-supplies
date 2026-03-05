@@ -446,7 +446,7 @@ const Index = () => {
                     <td width="33%" style={{ verticalAlign: "top", color: "white", textAlign: "center" }}>
                       <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0 }}>{t.footerContacts}</h3>
                       <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.8 }}>
-                        📞 +370 600 00000<br />
+                        📞 +370 688 53541<br />
                         ✉ info@belacorinvest.lt<br />
                         📍 Vilnius, Lietuva
                       </p>
