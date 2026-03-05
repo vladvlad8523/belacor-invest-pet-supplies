@@ -32,6 +32,25 @@
       "description": "Aukštos kokybės kraikas gyvūnams didmeninėmis kainomis"
     }
     </script>
+    <!-- Google Analytics - loaded only after consent -->
+    <script>
+      window.GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your real GA ID
+      function loadGA() {
+        if (document.getElementById('ga-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga-script';
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', window.GA_MEASUREMENT_ID);
+      }
+      // Auto-load if consent was previously given
+      if (localStorage.getItem('cookie_consent') === 'accepted') { loadGA(); }
+    </script>
   </head>
 
   <body>
