@@ -3,10 +3,85 @@ import heroBedding from "@/assets/hero-bedding.jpg";
 import bentonite from "@/assets/bentonite.jpg";
 import flaxBedding from "@/assets/flax-bedding.jpg";
 import sawdustBriquettes from "@/assets/sawdust-briquettes.jpg";
+import belacorLogo from "@/assets/belacor-logo.png";
+
+const faqData = {
+  lt: [
+    {
+      q: "Kokie yra kačių kraikų tipai?",
+      a: "Populiariausi kačių kraikų tipai: Bentonitinis – pagamintas iš natūralaus molio, gerai sugeria kvapus. Silikoninis – pagamintas iš silikagelio, efektyviausias, puikiai sugeria drėgmę. TOFU augalinis – pagamintas iš 100% natūralios žirnių ląstelienos, ekologiškas ir biologiškai skaidus.",
+    },
+    {
+      q: "Kas yra TOFU kraikas?",
+      a: "TOFU – pagamintas iš 100% natūralios žirnių ląstelienos, be sintetinių priedų. Greitai sugeria drėgmę, neutralizuoja kvapus, švelnus katės pėdutėms. Panaudotą galima nuleisti į klozetą.",
+    },
+    {
+      q: "Kuris kačių kraikas yra geriausias?",
+      a: "Geriausias kačių kraikas yra tas, kuris labiausiai tinka jūsų katei. Kelioms katėms – silikagelio užpildas. Alergiškiems – natūralus kraikas. Stebėkite savo augintinės elgesį.",
+    },
+  ],
+  en: [
+    {
+      q: "What types of cat litter are there?",
+      a: "Most popular types: Bentonite – made from natural clay, absorbs odors well. Silicone – made from silica gel, most effective, excellent moisture absorption. TOFU plant-based – made from 100% natural pea fiber, eco-friendly and biodegradable.",
+    },
+    {
+      q: "What is TOFU litter?",
+      a: "TOFU litter is made from 100% natural pea fiber, no synthetic additives. It absorbs moisture quickly, neutralizes odors, and is gentle on cat paws. Used litter can be flushed down the toilet.",
+    },
+    {
+      q: "Which cat litter is the best?",
+      a: "The best cat litter is the one that suits your cat best. For multiple cats – silica gel. For allergies – natural litter. Observe your pet's behavior.",
+    },
+  ],
+  ru: [
+    {
+      q: "Какие бывают типы наполнителей для кошек?",
+      a: "Популярные типы: Бентонитовый – из натуральной глины, хорошо впитывает запахи. Силиконовый – из силикагеля, самый эффективный. ТОФУ растительный – из 100% натурального горохового волокна, экологичный.",
+    },
+    {
+      q: "Что такое наполнитель ТОФУ?",
+      a: "ТОФУ – из 100% натурального горохового волокна, без синтетических добавок. Быстро впитывает влагу, нейтрализует запахи. Использованный можно смывать в унитаз.",
+    },
+    {
+      q: "Какой наполнитель для кошек лучший?",
+      a: "Лучший наполнитель – тот, который подходит вашей кошке. Для нескольких кошек – силикагель. При аллергии – натуральный наполнитель.",
+    },
+  ],
+  lv: [
+    {
+      q: "Kādi ir kaķu pakaiši?",
+      a: "Populārākie veidi: Bentonīta – no dabīgā māla, labi absorbē smakas. Silikona – no silikagēla, efektīvākais. TOFU augu izcelsmes – no 100% dabīgās zirņu šķiedras, ekoloģisks.",
+    },
+    {
+      q: "Kas ir TOFU pakaiši?",
+      a: "TOFU – no 100% dabīgās zirņu šķiedras, bez sintētiskiem piedevām. Ātri absorbē mitrumu, neitralizē smakas. Izlietotos var noskalot tualetē.",
+    },
+    {
+      q: "Kuri kaķu pakaiši ir labākie?",
+      a: "Labākie pakaiši ir tie, kas vislabāk der jūsu kaķim. Vairākiem kaķiem – silikagēls. Alerģiķiem – dabīgie pakaiši.",
+    },
+  ],
+  et: [
+    {
+      q: "Millised on kasside allapanu tüübid?",
+      a: "Populaarsemad tüübid: Bentoniit – looduslikust savist, imab hästi lõhnu. Silikoon – silikageelist, kõige tõhusam. TOFU taimne – 100% looduslikust hernekiust, ökoloogiline.",
+    },
+    {
+      q: "Mis on TOFU allapanu?",
+      a: "TOFU – 100% looduslikust hernekiust, ilma sünteetiliste lisanditeta. Imab kiiresti niiskust, neutraliseerib lõhnu. Kasutatud saab WC-sse valada.",
+    },
+    {
+      q: "Milline kassi allapanu on parim?",
+      a: "Parim allapanu on see, mis sobib teie kassile kõige paremini. Mitmele kassile – silikageel. Allergikutele – looduslik allapanu.",
+    },
+  ],
+};
 
 const translations = {
   lt: {
-    nav: ["Privalumai", "Produktai", "Kontaktai", "Užsisakyti"],
+    nav: ["Privalumai", "Produktai", "DUK", "Kontaktai"],
+    login: "Prisijungti",
     heroTitle1: "Susisiekite Dėl ",
     heroTitle2: "Pasiūlymo",
     heroSubtitle: "Užpildykite formą ir mes susisieksime su jumis per 24 valandas",
@@ -47,6 +122,8 @@ const translations = {
     clientsTitle: "Mūsų Klientai",
     clientsSub: "Dirbame su verslu visoje Lietuvoje",
     clients: ["🐾 Zoobutikai", "🏥 Veterinarijos klinikos", "🐄 Fermos", "🐴 Arklių žirgynai"],
+    faqTitle: "Dažniausiai Užduodami Klausimai",
+    faqSub: "Atsakymai į populiariausius klausimus apie gyvūnų kraikus",
     shopCta: "🛒 Apsilankykite mūsų parduotuvėje",
     shopCtaDesc: "Peržiūrėkite visą mūsų asortimentą ir užsisakykite tiesiogiai iš mūsų e-parduotuvės",
     shopCtaBtn: "Eiti į parduotuvę →",
@@ -54,9 +131,30 @@ const translations = {
     footerContacts: "Kontaktai",
     footerSocial: "Socialiniai tinklai",
     footerCopy: "© 2025 visos teisės saugomos. BELACOR INVEST | Privatumo politika",
+    workHoursTitle: "Darbo laikas",
+    workHours1: "Pirm./Penkt.: 8:00 - 17:00 val.",
+    workHours2: "Šeštadienis - nedirbame",
+    workHours3: "Sekmadienis - nedirbame",
+    reqTitle: "Rekvizitai",
+    reqCompany: "UAB \"Belacor\"",
+    reqAddress: "Islandijos pl. 95-57, LT-49176\nKaunas, Lietuva",
+    reqCode: "Įmonės kodas: 302555498",
+    reqVat: "PVM kodas: LT100005726715",
+    contactTitle: "Kontaktams",
+    contactOrders: "Prekių užsakymai:",
+    contactEmail: "E-paštas:",
+    howToGet: "Kaip atvykti",
+    promoBanner: "🔥 Akcija! Nuolaidos didmeniniams užsakymams – susisiekite dėl individualaus pasiūlymo!",
+    loginTitle: "Prisijungimas",
+    loginEmail: "El. paštas",
+    loginPass: "Slaptažodis",
+    loginBtn: "Prisijungti",
+    loginClose: "Uždaryti",
+    backToTop: "Grįžti į viršų",
   },
   en: {
-    nav: ["Advantages", "Products", "Contacts", "Order"],
+    nav: ["Advantages", "Products", "FAQ", "Contacts"],
+    login: "Login",
     heroTitle1: "Contact Us For a ",
     heroTitle2: "Quote",
     heroSubtitle: "Fill in the form and we will contact you within 24 hours",
@@ -97,6 +195,8 @@ const translations = {
     clientsTitle: "Our Clients",
     clientsSub: "Working with businesses across Lithuania",
     clients: ["🐾 Pet shops", "🏥 Veterinary clinics", "🐄 Farms", "🐴 Horse stables"],
+    faqTitle: "Frequently Asked Questions",
+    faqSub: "Answers to the most popular questions about animal bedding",
     shopCta: "🛒 Visit Our Online Shop",
     shopCtaDesc: "Browse our full range and order directly from our e-shop",
     shopCtaBtn: "Go to Shop →",
@@ -104,17 +204,261 @@ const translations = {
     footerContacts: "Contacts",
     footerSocial: "Social media",
     footerCopy: "© 2025 all rights reserved. BELACOR INVEST | Privacy policy",
+    workHoursTitle: "Working Hours",
+    workHours1: "Mon/Fri: 8:00 - 17:00",
+    workHours2: "Saturday - closed",
+    workHours3: "Sunday - closed",
+    reqTitle: "Company Details",
+    reqCompany: "UAB \"Belacor\"",
+    reqAddress: "Islandijos pl. 95-57, LT-49176\nKaunas, Lithuania",
+    reqCode: "Company code: 302555498",
+    reqVat: "VAT code: LT100005726715",
+    contactTitle: "Contact Us",
+    contactOrders: "Product orders:",
+    contactEmail: "Email:",
+    howToGet: "How to reach us",
+    promoBanner: "🔥 Sale! Discounts on wholesale orders – contact us for a personalized offer!",
+    loginTitle: "Login",
+    loginEmail: "Email",
+    loginPass: "Password",
+    loginBtn: "Login",
+    loginClose: "Close",
+    backToTop: "Back to top",
+  },
+  ru: {
+    nav: ["Преимущества", "Продукты", "FAQ", "Контакты"],
+    login: "Войти",
+    heroTitle1: "Свяжитесь с нами для ",
+    heroTitle2: "предложения",
+    heroSubtitle: "Заполните форму, и мы свяжемся с вами в течение 24 часов",
+    success: "✓ Запрос успешно отправлен!",
+    formCompany: "Название компании *",
+    formContact: "Контактное лицо *",
+    formPhone: "Телефон *",
+    formEmail: "Эл. почта *",
+    formQty: "Количество (тонн/мес) *",
+    formType: "Тип наполнителя",
+    formMsg: "Сообщение",
+    formBtn: "✈ Отправить запрос",
+    phCompany: "ООО Ваша компания",
+    phContact: "Имя Фамилия",
+    phPhone: "+370...",
+    phEmail: "your@email.com",
+    phQty: "напр. 5",
+    phMsg: "Какой объём вас интересует? Для каких целей?",
+    typeOptions: ["Дерево", "Бентонит", "Лён"],
+    barTitle: "Belacor invest — Премиум наполнитель для животных B2B",
+    barSub: "Большие объёмы · Лучшие цены · Чистый, долговечный, экологичный наполнитель",
+    prodTitle: "Наша Продукция",
+    prodSub: "Высочайшее качество для каждой потребности",
+    products: [
+      { title: "Древесные гранулы", desc: "Сосновые и дубовые гранулы – натуральный, хорошо впитывающий наполнитель." },
+      { title: "Бентонитовый наполнитель", desc: "Комкующийся бентонит – идеален для кошачьих туалетов." },
+      { title: "Льняной наполнитель", desc: "Экологичный льняной наполнитель – гипоаллергенный и биоразлагаемый." },
+      { title: "Опилочные брикеты", desc: "Спрессованные опилочные брикеты – отлично подходят для лошадей." },
+    ],
+    advTitle: "Преимущества для B2B Партнёров",
+    advSub: "Почему стоит выбрать Belacor invest?",
+    advantages: [
+      { icon: "💰", title: "Лучшая цена за тонну", desc: "Конкурентные оптовые цены для крупных заказов" },
+      { icon: "🚚", title: "Доставка по всей Литве", desc: "Быстрая и надёжная доставка до вашего склада" },
+      { icon: "📋", title: "Лизинг", desc: "Гибкие условия оплаты для больших объёмов" },
+      { icon: "🏷️", title: "Private Label", desc: "Возможность производства под вашим брендом" },
+    ],
+    clientsTitle: "Наши Клиенты",
+    clientsSub: "Работаем с бизнесом по всей Литве",
+    clients: ["🐾 Зоомагазины", "🏥 Ветклиники", "🐄 Фермы", "🐴 Конюшни"],
+    faqTitle: "Часто Задаваемые Вопросы",
+    faqSub: "Ответы на популярные вопросы о наполнителях для животных",
+    shopCta: "🛒 Посетите наш магазин",
+    shopCtaDesc: "Ознакомьтесь с ассортиментом и закажите напрямую из нашего интернет-магазина",
+    shopCtaBtn: "Перейти в магазин →",
+    footerDesc: "Премиум наполнитель для животных B2B.\nОптовая торговля по всей Литве.",
+    footerContacts: "Контакты",
+    footerSocial: "Соц. сети",
+    footerCopy: "© 2025 все права защищены. BELACOR INVEST | Политика конфиденциальности",
+    workHoursTitle: "Режим работы",
+    workHours1: "Пн/Пт: 8:00 - 17:00",
+    workHours2: "Суббота - выходной",
+    workHours3: "Воскресенье - выходной",
+    reqTitle: "Реквизиты",
+    reqCompany: "UAB \"Belacor\"",
+    reqAddress: "Islandijos pl. 95-57, LT-49176\nКаунас, Литва",
+    reqCode: "Код компании: 302555498",
+    reqVat: "НДС код: LT100005726715",
+    contactTitle: "Для связи",
+    contactOrders: "Заказ товаров:",
+    contactEmail: "Эл. почта:",
+    howToGet: "Как добраться",
+    promoBanner: "🔥 Акция! Скидки на оптовые заказы – свяжитесь для индивидуального предложения!",
+    loginTitle: "Вход",
+    loginEmail: "Эл. почта",
+    loginPass: "Пароль",
+    loginBtn: "Войти",
+    loginClose: "Закрыть",
+    backToTop: "Наверх",
+  },
+  lv: {
+    nav: ["Priekšrocības", "Produkti", "BUJ", "Kontakti"],
+    login: "Ielogoties",
+    heroTitle1: "Sazinieties ar mums ",
+    heroTitle2: "piedāvājumam",
+    heroSubtitle: "Aizpildiet formu un mēs sazināsimies ar jums 24 stundu laikā",
+    success: "✓ Pieprasījums veiksmīgi nosūtīts!",
+    formCompany: "Uzņēmuma nosaukums *",
+    formContact: "Kontaktpersona *",
+    formPhone: "Tālrunis *",
+    formEmail: "E-pasts *",
+    formQty: "Daudzums (tonnas/mēn) *",
+    formType: "Pakaiša veids",
+    formMsg: "Ziņojums",
+    formBtn: "✈ Nosūtīt pieprasījumu",
+    phCompany: "SIA Jūsu uzņēmums",
+    phContact: "Vārds Uzvārds",
+    phPhone: "+371...",
+    phEmail: "jusu@email.lv",
+    phQty: "piem. 5",
+    phMsg: "Kāds daudzums jūs interesē? Kādam mērķim?",
+    typeOptions: ["Koks", "Bentonīts", "Lini"],
+    barTitle: "Belacor invest — Premium dzīvnieku pakaiši B2B",
+    barSub: "Lielākie apjomi · Labākās cenas biznesam · Tīri, ilgmūžīgi, ekoloģiski pakaiši",
+    prodTitle: "Mūsu Produkti",
+    prodSub: "Augstākās kvalitātes pakaiši katrai vajadzībai",
+    products: [
+      { title: "Koka granulas", desc: "Priedes un ozola granulas – dabīgs, labi absorbējošs pakaiši." },
+      { title: "Bentonīta pakaiši", desc: "Komkošanās bentonīts – ideāls kaķu tualetēm." },
+      { title: "Linu pakaiši", desc: "Ekoloģiski linu pakaiši – hipoalerģiski un bioloģiski noārdāmi." },
+      { title: "Skaidu briketes", desc: "Saspiestas skaidu briketes – lieliski piemērotas zirgiem." },
+    ],
+    advTitle: "Priekšrocības B2B Partneriem",
+    advSub: "Kāpēc izvēlēties Belacor invest?",
+    advantages: [
+      { icon: "💰", title: "Zemākā cena par tonnu", desc: "Konkurētspējīgas vairumtirdzniecības cenas" },
+      { icon: "🚚", title: "Piegāde visā Lietuvā", desc: "Ātra un uzticama piegāde līdz jūsu noliktavai" },
+      { icon: "📋", title: "Līzinga iespējas", desc: "Elastīgi maksājuma nosacījumi lieliem apjomiem" },
+      { icon: "🏷️", title: "Private Label", desc: "Iespēja ražot ar jūsu zīmolu" },
+    ],
+    clientsTitle: "Mūsu Klienti",
+    clientsSub: "Strādājam ar uzņēmumiem visā Lietuvā",
+    clients: ["🐾 Zoobutiki", "🏥 Veterinārklīnikas", "🐄 Fermas", "🐴 Zirgu staļļi"],
+    faqTitle: "Biežāk Uzdotie Jautājumi",
+    faqSub: "Atbildes uz populārākajiem jautājumiem par dzīvnieku pakaišiem",
+    shopCta: "🛒 Apmeklējiet mūsu veikalu",
+    shopCtaDesc: "Apskatiet visu mūsu sortimentu un pasūtiet tieši no mūsu e-veikala",
+    shopCtaBtn: "Doties uz veikalu →",
+    footerDesc: "Premium dzīvnieku pakaiši B2B.\nVairumtirdzniecība visā Lietuvā.",
+    footerContacts: "Kontakti",
+    footerSocial: "Sociālie tīkli",
+    footerCopy: "© 2025 visas tiesības aizsargātas. BELACOR INVEST | Privātuma politika",
+    workHoursTitle: "Darba laiks",
+    workHours1: "Pirmd./Piekt.: 8:00 - 17:00",
+    workHours2: "Sestdiena - nestrādājam",
+    workHours3: "Svētdiena - nestrādājam",
+    reqTitle: "Rekvizīti",
+    reqCompany: "UAB \"Belacor\"",
+    reqAddress: "Islandijos pl. 95-57, LT-49176\nKauņa, Lietuva",
+    reqCode: "Uzņēmuma kods: 302555498",
+    reqVat: "PVN kods: LT100005726715",
+    contactTitle: "Kontaktiem",
+    contactOrders: "Preču pasūtījumi:",
+    contactEmail: "E-pasts:",
+    howToGet: "Kā nokļūt",
+    promoBanner: "🔥 Akcija! Atlaides vairumtirdzniecības pasūtījumiem – sazinieties par individuālu piedāvājumu!",
+    loginTitle: "Ielogoties",
+    loginEmail: "E-pasts",
+    loginPass: "Parole",
+    loginBtn: "Ielogoties",
+    loginClose: "Aizvērt",
+    backToTop: "Atpakaļ uz augšu",
+  },
+  et: {
+    nav: ["Eelised", "Tooted", "KKK", "Kontaktid"],
+    login: "Logi sisse",
+    heroTitle1: "Võtke meiega ühendust ",
+    heroTitle2: "pakkumise saamiseks",
+    heroSubtitle: "Täitke vorm ja me võtame teiega ühendust 24 tunni jooksul",
+    success: "✓ Päring edukalt saadetud!",
+    formCompany: "Ettevõtte nimi *",
+    formContact: "Kontaktisik *",
+    formPhone: "Telefon *",
+    formEmail: "E-post *",
+    formQty: "Kogus (tonni/kuu) *",
+    formType: "Allapanu tüüp",
+    formMsg: "Sõnum",
+    formBtn: "✈ Saada päring",
+    phCompany: "OÜ Teie ettevõte",
+    phContact: "Eesnimi Perekonnanimi",
+    phPhone: "+372...",
+    phEmail: "teie@email.ee",
+    phQty: "nt. 5",
+    phMsg: "Milline kogus teid huvitab? Milleks kasutate?",
+    typeOptions: ["Puit", "Bentoniit", "Lina"],
+    barTitle: "Belacor invest — Premium loomade allapanu B2B",
+    barSub: "Suurimad kogused · Parimad hinnad ettevõtetele · Puhas, vastupidav, ökoloogiline allapanu",
+    prodTitle: "Meie Tooted",
+    prodSub: "Kõrgeima kvaliteediga allapanu igale vajadusele",
+    products: [
+      { title: "Puitgraanulid", desc: "Männi- ja tammepuidust graanulid – looduslik, hästi imav allapanu." },
+      { title: "Bentoniit allapanu", desc: "Paakuv bentoniit – ideaalne kasside tualettidele." },
+      { title: "Linaseemne allapanu", desc: "Ökoloogiline lina allapanu – hüpoallergeenne ja biolagunevalt." },
+      { title: "Saepuru briketid", desc: "Pressitud saepuru briketid – suurepärane hobustele." },
+    ],
+    advTitle: "Eelised B2B Partneritele",
+    advSub: "Miks valida Belacor invest?",
+    advantages: [
+      { icon: "💰", title: "Madalaim hind tonni kohta", desc: "Konkurentsivõimelised hulgimüügihinnad" },
+      { icon: "🚚", title: "Tarne üle kogu Leedu", desc: "Kiire ja usaldusväärne tarne teie lattu" },
+      { icon: "📋", title: "Liisingu võimalused", desc: "Paindlikud maksetingimused suurtele kogustele" },
+      { icon: "🏷️", title: "Private Label", desc: "Võimalus toota teie kaubamärgi all" },
+    ],
+    clientsTitle: "Meie Kliendid",
+    clientsSub: "Töötame ettevõtetega üle kogu Leedu",
+    clients: ["🐾 Loomapoed", "🏥 Veterinaarklinikud", "🐄 Farmid", "🐴 Hobustallidd"],
+    faqTitle: "Korduma Kippuvad Küsimused",
+    faqSub: "Vastused populaarseimatele küsimustele loomade allapanu kohta",
+    shopCta: "🛒 Külastage meie poodi",
+    shopCtaDesc: "Tutvuge kogu meie sortimendiga ja tellige otse meie e-poest",
+    shopCtaBtn: "Mine poodi →",
+    footerDesc: "Premium loomade allapanu B2B.\nHulgimüük üle kogu Leedu.",
+    footerContacts: "Kontaktid",
+    footerSocial: "Sotsiaalmeedia",
+    footerCopy: "© 2025 kõik õigused kaitstud. BELACOR INVEST | Privaatsuspoliitika",
+    workHoursTitle: "Tööaeg",
+    workHours1: "E/R: 8:00 - 17:00",
+    workHours2: "Laupäev - suletud",
+    workHours3: "Pühapäev - suletud",
+    reqTitle: "Rekvisiidid",
+    reqCompany: "UAB \"Belacor\"",
+    reqAddress: "Islandijos pl. 95-57, LT-49176\nKaunas, Leedu",
+    reqCode: "Ettevõtte kood: 302555498",
+    reqVat: "KMKR kood: LT100005726715",
+    contactTitle: "Kontaktideks",
+    contactOrders: "Toodete tellimused:",
+    contactEmail: "E-post:",
+    howToGet: "Kuidas kohale jõuda",
+    promoBanner: "🔥 Kampaania! Soodustused hulgitellimustele – võtke ühendust personaalse pakkumise saamiseks!",
+    loginTitle: "Sisselogimine",
+    loginEmail: "E-post",
+    loginPass: "Parool",
+    loginBtn: "Logi sisse",
+    loginClose: "Sulge",
+    backToTop: "Tagasi üles",
   },
 };
 
-type Lang = "lt" | "en";
+type Lang = "lt" | "en" | "ru" | "lv" | "et";
+const langLabels: Lang[] = ["lt", "en", "ru", "lv", "et"];
 
 const Index = () => {
   const [lang, setLang] = useState<Lang>("lt");
   const t = translations[lang];
-  const navAnchors = ["privalumai", "produktai", "kontaktai", "užsisakyti"];
+  const faq = faqData[lang];
+  const navAnchors = ["privalumai", "produktai", "duk", "kontaktai"];
 
   const [showCookieModal, setShowCookieModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showPromoBanner, setShowPromoBanner] = useState(true);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
@@ -142,10 +486,14 @@ const Index = () => {
     phone: "",
     email: "",
     quantity: "",
-    type: t.typeOptions[0],
+    type: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, type: t.typeOptions[0] }));
+  }, [lang]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -160,6 +508,31 @@ const Index = () => {
 
   return (
     <>
+      {/* ===== PROMO BANNER ===== */}
+      {showPromoBanner && (
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: "linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%)" }}>
+          <tbody>
+            <tr>
+              <td style={{ padding: "10px 40px", textAlign: "center", position: "relative" }}>
+                <p style={{ color: "white", fontSize: "14px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
+                  {t.promoBanner}
+                </p>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setShowPromoBanner(false); }}
+                  style={{
+                    position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)",
+                    color: "white", textDecoration: "none", fontSize: "18px", fontWeight: 700, opacity: 0.8,
+                  }}
+                >
+                  ✕
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+
       {/* ===== HEADER ===== */}
       <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a" }}>
         <tbody>
@@ -172,41 +545,30 @@ const Index = () => {
                       <table cellPadding={0} cellSpacing={0}>
                         <tbody>
                           <tr>
-                            <td>
-                              <h2 style={{ color: "#d4af37", margin: 0, fontSize: "28px", fontFamily: "'Playfair Display', serif", letterSpacing: "1px" }}>
-                                ✦ Belacor invest
-                              </h2>
+                            <td style={{ verticalAlign: "middle" }}>
+                              <img src={belacorLogo} alt="Belacor invest logo" style={{ height: "45px", display: "block" }} />
                             </td>
                             <td style={{ paddingLeft: "16px", verticalAlign: "middle" }}>
                               <table cellPadding={0} cellSpacing={0} style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.3)" }}>
                                 <tbody>
                                   <tr>
-                                    <td
-                                      onClick={() => setLang("lt")}
-                                      style={{
-                                        padding: "6px 12px",
-                                        cursor: "pointer",
-                                        backgroundColor: lang === "lt" ? "#d4af37" : "transparent",
-                                        color: lang === "lt" ? "#1e3a8a" : "white",
-                                        fontSize: "13px",
-                                        fontWeight: 700,
-                                      }}
-                                    >
-                                      LT
-                                    </td>
-                                    <td
-                                      onClick={() => setLang("en")}
-                                      style={{
-                                        padding: "6px 12px",
-                                        cursor: "pointer",
-                                        backgroundColor: lang === "en" ? "#d4af37" : "transparent",
-                                        color: lang === "en" ? "#1e3a8a" : "white",
-                                        fontSize: "13px",
-                                        fontWeight: 700,
-                                      }}
-                                    >
-                                      EN
-                                    </td>
+                                    {langLabels.map((l) => (
+                                      <td
+                                        key={l}
+                                        onClick={() => setLang(l)}
+                                        style={{
+                                          padding: "5px 8px",
+                                          cursor: "pointer",
+                                          backgroundColor: lang === l ? "#d4af37" : "transparent",
+                                          color: lang === l ? "#1e3a8a" : "white",
+                                          fontSize: "12px",
+                                          fontWeight: 700,
+                                          textTransform: "uppercase",
+                                        }}
+                                      >
+                                        {l}
+                                      </td>
+                                    ))}
                                   </tr>
                                 </tbody>
                               </table>
@@ -220,18 +582,18 @@ const Index = () => {
                         <tbody>
                           <tr>
                             {t.nav.map((item, i) => (
-                              <td key={item} style={{ padding: "0 6px" }}>
+                              <td key={item} style={{ padding: "0 4px" }}>
                                 <a
                                   href={`#${navAnchors[i]}`}
                                   style={{
-                                    color: i === 3 ? "#1e3a8a" : "white",
-                                    backgroundColor: i === 3 ? "#d4af37" : "transparent",
-                                    border: i === 3 ? "none" : "1px solid rgba(255,255,255,0.4)",
-                                    padding: "10px 22px",
+                                    color: "white",
+                                    backgroundColor: "transparent",
+                                    border: "1px solid rgba(255,255,255,0.4)",
+                                    padding: "9px 16px",
                                     borderRadius: "6px",
                                     textDecoration: "none",
                                     fontWeight: 600,
-                                    fontSize: "14px",
+                                    fontSize: "13px",
                                     display: "inline-block",
                                   }}
                                 >
@@ -239,6 +601,25 @@ const Index = () => {
                                 </a>
                               </td>
                             ))}
+                            <td style={{ padding: "0 4px" }}>
+                              <a
+                                href="#"
+                                onClick={(e) => { e.preventDefault(); setShowLoginModal(true); }}
+                                style={{
+                                  color: "#1e3a8a",
+                                  backgroundColor: "#d4af37",
+                                  border: "none",
+                                  padding: "9px 20px",
+                                  borderRadius: "6px",
+                                  textDecoration: "none",
+                                  fontWeight: 700,
+                                  fontSize: "13px",
+                                  display: "inline-block",
+                                }}
+                              >
+                                🔐 {t.login}
+                              </a>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -267,7 +648,7 @@ const Index = () => {
               {submitted ? (
                 <p style={{ color: "#16a34a", fontWeight: 700, fontSize: "18px" }}>{t.success}</p>
               ) : (
-                <form onSubmit={handleSubmit} id="užsisakyti">
+                <form onSubmit={handleSubmit}>
                   <table width="100%" cellPadding={0} cellSpacing={8}>
                     <tbody>
                       <tr>
@@ -423,8 +804,71 @@ const Index = () => {
         </tbody>
       </table>
 
+      {/* ===== DUK / FAQ ===== */}
+      <table width="100%" cellPadding={0} cellSpacing={0} id="duk" style={{ backgroundColor: "#f0fdf4" }}>
+        <tbody>
+          <tr>
+            <td style={{ padding: "50px 30px", textAlign: "center" }}>
+              <h2 style={{ color: "#1e3a8a", fontSize: "32px", marginBottom: "10px" }}>{t.faqTitle}</h2>
+              <p style={{ color: "#64748b", marginBottom: "40px" }}>{t.faqSub}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="70%" cellPadding={0} cellSpacing={12} style={{ margin: "0 auto" }}>
+                <tbody>
+                  {faq.map((item, i) => (
+                    <tr key={i}>
+                      <td>
+                        <table
+                          width="100%"
+                          cellPadding={0}
+                          cellSpacing={0}
+                          style={{
+                            backgroundColor: "white",
+                            borderRadius: "10px",
+                            boxShadow: "0 1px 8px rgba(0,0,0,0.06)",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        >
+                          <tbody>
+                            <tr>
+                              <td style={{ padding: "18px 24px" }}>
+                                <table width="100%" cellPadding={0} cellSpacing={0}>
+                                  <tbody>
+                                    <tr>
+                                      <td style={{ color: "#1e3a8a", fontSize: "16px", fontWeight: 700 }}>
+                                        {item.q}
+                                      </td>
+                                      <td width="30" style={{ textAlign: "right", color: "#d4af37", fontSize: "20px", fontWeight: 700 }}>
+                                        {openFaq === i ? "−" : "+"}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                {openFaq === i && (
+                                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.7, marginTop: "12px", marginBottom: 0 }}>
+                                    {item.a}
+                                  </p>
+                                )}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr><td style={{ height: "40px" }}></td></tr>
+        </tbody>
+      </table>
+
       {/* ===== KLIENTAI ===== */}
-      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f0fdf4" }}>
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white" }}>
         <tbody>
           <tr>
             <td style={{ padding: "40px 30px", textAlign: "center" }}>
@@ -439,7 +883,7 @@ const Index = () => {
                   <tr>
                     {t.clients.map((c) => (
                       <td key={c} width="25%" style={{ textAlign: "center" }}>
-                        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderRadius: "10px", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
+                        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f8fafc", borderRadius: "10px", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
                           <tbody>
                             <tr>
                               <td style={{ padding: "24px 12px" }}>
@@ -465,7 +909,7 @@ const Index = () => {
           <tr>
             <td style={{ padding: "50px 30px", textAlign: "center" }}>
               <h2 style={{ color: "#d4af37", fontSize: "30px", marginBottom: "12px", letterSpacing: "1px" }}>{t.shopCta}</h2>
-              <p style={{ color: "white", fontSize: "16px", opacity: 0.9, marginBottom: "28px", maxWidth: "500px", margin: "0 auto 28px auto" }}>{t.shopCtaDesc}</p>
+              <p style={{ color: "white", fontSize: "16px", opacity: 0.9, maxWidth: "500px", margin: "0 auto 28px auto" }}>{t.shopCtaDesc}</p>
               <a
                 href="https://www.belacor.lt/"
                 target="_blank"
@@ -480,7 +924,6 @@ const Index = () => {
                   borderRadius: "8px",
                   textDecoration: "none",
                   boxShadow: "0 4px 15px rgba(212,175,55,0.4)",
-                  transition: "transform 0.2s",
                 }}
               >
                 {t.shopCtaBtn}
@@ -490,35 +933,49 @@ const Index = () => {
         </tbody>
       </table>
 
+      {/* ===== KONTAKTAI / FOOTER ===== */}
       <table width="100%" cellPadding={0} cellSpacing={0} id="kontaktai" style={{ backgroundColor: "#1e3a8a" }}>
         <tbody>
           <tr>
-            <td style={{ padding: "30px 40px" }}>
+            <td style={{ padding: "40px 40px 20px" }}>
               <table width="100%" cellPadding={0} cellSpacing={0}>
                 <tbody>
                   <tr>
-                    <td width="33%" style={{ verticalAlign: "top", color: "white" }}>
-                      <h3 style={{ color: "#d4af37", fontSize: "20px", marginTop: 0 }}>✦ Belacor invest</h3>
-                      <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.7 }}>
-                        UAB "Belacor"<br />
-                        Islandijos pl. 95-57, LT-49176<br />
-                        Kaunas, Lietuva<br />
-                        {lang === "lt" ? "Įmonės kodas" : "Company code"}: 302555498<br />
-                        PVM: LT100005726715
+                    {/* Darbo laikas */}
+                    <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
+                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>🕐 {t.workHoursTitle}</h3>
+                      <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
+                        {t.workHours1}<br />
+                        {t.workHours2}<br />
+                        {t.workHours3}
                       </p>
                     </td>
-                    <td width="33%" style={{ verticalAlign: "top", color: "white", textAlign: "center" }}>
-                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0 }}>{t.footerContacts}</h3>
-                      <p style={{ fontSize: "13px", opacity: 0.8, lineHeight: 1.8 }}>
-                        📞 <a href="tel:+37068853541" style={{ color: "white", textDecoration: "none" }}>+370 688 53541</a><br />
-                        ✉ <a href="mailto:info@belacor.lt" style={{ color: "white", textDecoration: "none" }}>info@belacor.lt</a><br />
-                        📍 Islandijos pl. 95-57, Kaunas<br />
-                        🕐 {lang === "lt" ? "Pirm.–Penkt.: 8:00–17:00" : "Mon–Fri: 8:00–17:00"}
+                    {/* Rekvizitai */}
+                    <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
+                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📋 {t.reqTitle}</h3>
+                      <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
+                        {t.reqCompany}<br />
+                        {t.reqAddress.split("\n").map((line, i) => (
+                          <span key={i}>{line}<br /></span>
+                        ))}
+                        {t.reqCode}<br />
+                        {t.reqVat}
                       </p>
                     </td>
-                    <td width="33%" style={{ verticalAlign: "top", color: "white", textAlign: "right" }}>
-                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0 }}>{t.footerSocial}</h3>
-                      <p style={{ fontSize: "20px" }}>
+                    {/* Kontaktams */}
+                    <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
+                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
+                      <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
+                        {t.contactOrders}<br />
+                        <a href="tel:+37068853541" style={{ color: "#d4af37", textDecoration: "none" }}>+370 688 53541</a><br />
+                        {t.contactEmail}<br />
+                        <a href="mailto:info@belacor.lt" style={{ color: "#d4af37", textDecoration: "none" }}>info@belacor.lt</a>
+                      </p>
+                    </td>
+                    {/* Socialiniai tinklai */}
+                    <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "right" }}>
+                      <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
+                      <p style={{ fontSize: "20px", margin: 0 }}>
                         <a href="#" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>📘</a>
                         <a href="#" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>📸</a>
                         <a href="#" style={{ color: "white", textDecoration: "none" }}>🔗</a>
@@ -536,6 +993,7 @@ const Index = () => {
           </tr>
         </tbody>
       </table>
+
       {/* ===== SCROLL TO TOP ===== */}
       <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f0fdf4" }}>
         <tbody>
@@ -556,23 +1014,89 @@ const Index = () => {
                   letterSpacing: "0.5px",
                 }}
               >
-                ⬆ {lang === "lt" ? "Grįžti į viršų" : "Back to top"}
+                ⬆ {t.backToTop}
               </a>
             </td>
           </tr>
         </tbody>
       </table>
-      {/* ===== COOKIE CONSENT MODAL ===== */}
-      {showCookieModal && (
+
+      {/* ===== LOGIN MODAL ===== */}
+      {showLoginModal && (
         <>
-          {/* Overlay */}
           <table width="100%" cellPadding={0} cellSpacing={0} style={{
             position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9998,
             backgroundColor: "rgba(0,0,0,0.5)",
           }}>
             <tbody><tr><td></td></tr></tbody>
           </table>
-          {/* Modal */}
+          <table cellPadding={0} cellSpacing={0} style={{
+            position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+            zIndex: 9999, backgroundColor: "white", borderRadius: "16px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.3)", width: "400px", maxWidth: "90%",
+          }}>
+            <tbody>
+              <tr>
+                <td style={{ padding: "32px 28px 20px", position: "relative" }}>
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); setShowLoginModal(false); }}
+                    style={{
+                      position: "absolute", top: "12px", right: "16px",
+                      color: "#94a3b8", fontSize: "22px", textDecoration: "none",
+                      fontWeight: 700, lineHeight: 1,
+                    }}
+                  >
+                    ✕
+                  </a>
+                  <h3 style={{ color: "#1e3a8a", fontSize: "22px", margin: "0 0 6px", textAlign: "center" }}>🔐 {t.loginTitle}</h3>
+                  <p style={{ color: "#64748b", fontSize: "13px", textAlign: "center", marginBottom: "20px" }}>Belacor invest B2B</p>
+                  <table width="100%" cellPadding={0} cellSpacing={8}>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.loginEmail}</p>
+                          <input type="email" placeholder="info@company.com" style={inputStyle} />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.loginPass}</p>
+                          <input type="password" placeholder="••••••••" style={inputStyle} />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button
+                            onClick={() => setShowLoginModal(false)}
+                            style={{
+                              width: "100%", backgroundColor: "#1e3a8a", color: "white",
+                              border: "none", padding: "12px", borderRadius: "8px",
+                              fontSize: "15px", fontWeight: 700, cursor: "pointer",
+                            }}
+                          >
+                            {t.loginBtn}
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      )}
+
+      {/* ===== COOKIE CONSENT MODAL ===== */}
+      {showCookieModal && (
+        <>
+          <table width="100%" cellPadding={0} cellSpacing={0} style={{
+            position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9998,
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}>
+            <tbody><tr><td></td></tr></tbody>
+          </table>
           <table cellPadding={0} cellSpacing={0} style={{
             position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
             zIndex: 9999, backgroundColor: "white", borderRadius: "16px",
@@ -594,17 +1118,18 @@ const Index = () => {
                   </a>
                   <p style={{ fontSize: "36px", margin: "0 0 12px" }}>🍪</p>
                   <h3 style={{ color: "#1e3a8a", fontSize: "20px", margin: "0 0 12px" }}>
-                    {lang === "lt" ? "Slapukų nustatymai" : "Cookie Settings"}
+                    {lang === "lt" ? "Slapukų nustatymai" : lang === "ru" ? "Настройки файлов cookie" : lang === "lv" ? "Sīkdatņu iestatījumi" : lang === "et" ? "Küpsiste seaded" : "Cookie Settings"}
                   </h3>
-                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6, margin: "0 0 8px" }}>
+                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6, margin: "0 0 20px" }}>
                     {lang === "lt"
                       ? "Mes naudojame būtinus slapukus kontaktinės formos veikimui ir Google Analytics slapukus svetainės lankomumo analizei."
+                      : lang === "ru"
+                      ? "Мы используем необходимые файлы cookie для работы формы и Google Analytics для анализа посещаемости."
+                      : lang === "lv"
+                      ? "Mēs izmantojam nepieciešamās sīkdatnes kontaktformas darbībai un Google Analytics sīkdatnes apmeklētāju analīzei."
+                      : lang === "et"
+                      ? "Kasutame vajalikke küpsiseid kontaktivormi toimimiseks ja Google Analytics küpsiseid veebilehe külastatavuse analüüsimiseks."
                       : "We use essential cookies for the contact form and Google Analytics cookies for website traffic analysis."}
-                  </p>
-                  <p style={{ color: "#94a3b8", fontSize: "12px", lineHeight: 1.5, margin: "0 0 20px" }}>
-                    {lang === "lt"
-                      ? "Būtini slapukai: saugomi jūsų formos duomenys sesijos metu. Analitiniai slapukai: Google Analytics rinks anoniminius lankytojų duomenis."
-                      : "Essential cookies: store your form data during session. Analytics cookies: Google Analytics collects anonymous visitor data."}
                   </p>
                 </td>
               </tr>
@@ -623,7 +1148,7 @@ const Index = () => {
                               fontWeight: 700, fontSize: "14px",
                             }}
                           >
-                            {lang === "lt" ? "✓ Sutinku su visais" : "✓ Accept All"}
+                            {lang === "lt" ? "✓ Sutinku su visais" : lang === "ru" ? "✓ Принять все" : lang === "lv" ? "✓ Pieņemt visus" : lang === "et" ? "✓ Nõustu kõigiga" : "✓ Accept All"}
                           </a>
                         </td>
                         <td width="50%">
@@ -637,7 +1162,7 @@ const Index = () => {
                               border: "2px solid #1e3a8a",
                             }}
                           >
-                            {lang === "lt" ? "Tik būtini" : "Essential Only"}
+                            {lang === "lt" ? "Tik būtini" : lang === "ru" ? "Только необходимые" : lang === "lv" ? "Tikai nepieciešamie" : lang === "et" ? "Ainult vajalikud" : "Essential Only"}
                           </a>
                         </td>
                       </tr>
