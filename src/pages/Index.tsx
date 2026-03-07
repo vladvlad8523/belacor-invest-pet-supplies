@@ -3,7 +3,7 @@ import heroBedding from "@/assets/hero-bedding.jpg";
 import bentonite from "@/assets/bentonite.jpg";
 import flaxBedding from "@/assets/flax-bedding.jpg";
 import sawdustBriquettes from "@/assets/sawdust-briquettes.jpg";
-import belacorLogo from "@/assets/belacor-logo.png";
+import belacorLogo from "@/assets/belacor-logo.jpg";
 
 const faqData = {
   lt: [
