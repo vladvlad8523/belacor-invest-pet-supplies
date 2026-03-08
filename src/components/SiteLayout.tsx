@@ -457,7 +457,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           {t.contactOrders}<br />
                           <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                           {t.contactEmail}<br />
-                          <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest</a>
+                          <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                         </p>
                       </td>
                       <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "right" }}>
