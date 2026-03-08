@@ -297,13 +297,17 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               </td>
                             </tr>
                             <tr>
+                              <td style={{ padding: "10px 8px 14px", textAlign: "center" }}>
+                                <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
+                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "90px", height: "90px", borderRadius: "8px", objectFit: "contain", aspectRatio: "1/1" }} />
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
                               <td style={{ padding: "4px 8px 0", textAlign: "center" }}>
                                 <table cellPadding={0} cellSpacing={0} style={{ margin: "0 auto" }}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 8px 0 0" }}>
-                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "60px", height: "60px", borderRadius: "6px" }} /></a>
-                                      </td>
                                       <td style={{ padding: "0 6px" }}>
                                         <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
