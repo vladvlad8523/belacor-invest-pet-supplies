@@ -7,6 +7,7 @@ interface Order {
   id: number;
   date: string;
   company: string;
+  contact?: string;
   product: string;
   qty: number;
   unit: "kg" | "t";
@@ -68,6 +69,7 @@ const Kabinetas = () => {
     id: "",
     date: "",
     company: "",
+    contact: "",
     product: "",
     qty: "",
     unit: "",
@@ -99,6 +101,7 @@ const Kabinetas = () => {
     if (filters.id && !o.id.toString().includes(filters.id)) return false;
     if (filters.date && !o.date.includes(filters.date)) return false;
     if (filters.company && !o.company.toLowerCase().includes(filters.company.toLowerCase())) return false;
+    if (filters.contact && !(o.contact || "").toLowerCase().includes(filters.contact.toLowerCase())) return false;
     if (filters.product && !o.product.toLowerCase().includes(filters.product.toLowerCase())) return false;
     if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
     if (filters.unit && o.unit !== filters.unit) return false;
@@ -116,6 +119,7 @@ const Kabinetas = () => {
       "Nr.": o.id,
       "Data": o.date,
       "Įmonė": o.company,
+      "Kontaktinis asmuo": o.contact || "",
       "Produktas": o.product,
       "Kiekis": o.qty,
       "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
@@ -129,7 +133,7 @@ const Kabinetas = () => {
   };
 
   const clearFilters = () => {
-    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "", message: "" });
+    setFilters({ id: "", date: "", company: "", contact: "", product: "", qty: "", unit: "", status: "", message: "" });
   };
 
   const filterInputStyle: React.CSSProperties = { 
@@ -238,7 +242,7 @@ const Kabinetas = () => {
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
           <thead>
             <tr style={{ backgroundColor: "#1e3a8a" }}>
-              {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
+              {["Nr.", "Data", "Įmonė", "Kontaktinis asmuo", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
                 <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
               ))}
             </tr>
@@ -252,6 +256,9 @@ const Kabinetas = () => {
               </td>
               <td style={{ padding: "8px" }}>
                 <input type="text" placeholder="Įmonė" value={filters.company} onChange={(e) => setFilters({...filters, company: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Asmuo" value={filters.contact} onChange={(e) => setFilters({...filters, contact: e.target.value})} style={filterInputStyle} />
               </td>
               <td style={{ padding: "8px" }}>
                 <input type="text" placeholder="Produktas" value={filters.product} onChange={(e) => setFilters({...filters, product: e.target.value})} style={filterInputStyle} />
@@ -282,7 +289,7 @@ const Kabinetas = () => {
           <tbody>
             {filteredOrders.length === 0 ? (
               <tr>
-                <td colSpan={9} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+                <td colSpan={10} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
                   Nerasta užsakymų pagal pasirinktus filtrus
                 </td>
               </tr>
@@ -292,6 +299,7 @@ const Kabinetas = () => {
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.contact || "—"}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>
