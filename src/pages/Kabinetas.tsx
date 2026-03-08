@@ -231,17 +231,56 @@ const Kabinetas = () => {
         </table>
 
         {/* Orders table */}
-        <div style={{ overflowX: "auto", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
-          <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse" }}>
-            <thead>
-              <tr style={{ backgroundColor: "#1e3a8a" }}>
-                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
-                  <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
-                ))}
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+          <thead>
+            <tr style={{ backgroundColor: "#1e3a8a" }}>
+              {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
+                <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
+              ))}
+            </tr>
+            {/* Filter row */}
+            <tr style={{ backgroundColor: "#e2e8f0" }}>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Nr." value={filters.id} onChange={(e) => setFilters({...filters, id: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="date" value={filters.date} onChange={(e) => setFilters({...filters, date: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Įmonė" value={filters.company} onChange={(e) => setFilters({...filters, company: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Produktas" value={filters.product} onChange={(e) => setFilters({...filters, product: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Kiekis" value={filters.qty} onChange={(e) => setFilters({...filters, qty: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <select value={filters.unit} onChange={(e) => setFilters({...filters, unit: e.target.value})} style={filterInputStyle}>
+                  <option value="">Visi</option>
+                  <option value="kg">kg</option>
+                  <option value="t">Tonos</option>
+                </select>
+              </td>
+              <td style={{ padding: "8px" }}>
+                <select value={filters.status} onChange={(e) => setFilters({...filters, status: e.target.value})} style={filterInputStyle}>
+                  <option value="">Visi</option>
+                  <option value="laukiama">Laukiama</option>
+                  <option value="atlikta">Atlikta</option>
+                </select>
+              </td>
+              <td style={{ padding: "8px" }}></td>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredOrders.length === 0 ? (
+              <tr>
+                <td colSpan={8} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+                  Nerasta užsakymų pagal pasirinktus filtrus
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {orders.map((o, i) => (
+            ) : (
+              filteredOrders.map((o, i) => (
                 <tr key={o.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
@@ -289,10 +328,10 @@ const Kabinetas = () => {
                     </button>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              ))
+            )}
+          </tbody>
+        </table>
 
         {/* Expiry info card */}
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
