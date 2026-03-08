@@ -251,7 +251,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
               <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a", borderRadius: "16px 16px 0 0" }}>
                 <tbody>
                   <tr>
-                    <td style={{ padding: isMobile ? "12px 10px 6px" : "14px 20px 8px" }}>
+                    <td style={{ padding: isMobile ? "18px 14px 10px" : "22px 28px 14px" }}>
                       {isMobile ? (
                         <table width="100%" cellPadding={0} cellSpacing={0}>
                           <tbody>
