@@ -455,39 +455,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
       {/* ===== LOGIN MODAL ===== */}
       {showLoginModal && (
-        <>
-          <table width="100%" cellPadding={0} cellSpacing={0} style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9998, backgroundColor: "rgba(0,0,0,0.5)" }}>
-            <tbody><tr><td onClick={() => setShowLoginModal(false)}></td></tr></tbody>
-          </table>
-          <table cellPadding={0} cellSpacing={0} style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 9999, backgroundColor: "white", borderRadius: "16px", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", width: isMobile ? "95%" : "400px", maxWidth: "95%" }}>
-            <tbody>
-              <tr>
-                <td style={{ padding: "32px 28px 20px", position: "relative" }}>
-                  <a href="#" onClick={(e) => { e.preventDefault(); setShowLoginModal(false); }} style={{ position: "absolute", top: "12px", right: "16px", color: "#94a3b8", fontSize: "22px", textDecoration: "none", fontWeight: 700, lineHeight: 1 }}>✕</a>
-                  <h3 style={{ color: "#1e3a8a", fontSize: "22px", margin: "0 0 6px", textAlign: "center" }}>🔐 {t.loginTitle}</h3>
-                  <p style={{ color: "#64748b", fontSize: "13px", textAlign: "center", marginBottom: "20px" }}>Belacor invest B2B</p>
-                  <table width="100%" cellPadding={0} cellSpacing={8}>
-                    <tbody>
-                      <tr><td>
-                        <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.loginEmail}</p>
-                        <input type="email" placeholder="info@company.com" style={inputStyle} />
-                      </td></tr>
-                      <tr><td>
-                        <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.loginPass}</p>
-                        <input type="password" placeholder="••••••••" style={inputStyle} />
-                      </td></tr>
-                      <tr><td>
-                        <button onClick={() => setShowLoginModal(false)} style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "12px", borderRadius: "8px", fontSize: "15px", fontWeight: 700, cursor: "pointer" }}>
-                          {t.loginBtn}
-                        </button>
-                      </td></tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </>
+        <LoginModal isMobile={isMobile} t={t} onClose={() => setShowLoginModal(false)} navigate={navigate} />
       )}
 
       {/* ===== COOKIE CONSENT ===== */}
