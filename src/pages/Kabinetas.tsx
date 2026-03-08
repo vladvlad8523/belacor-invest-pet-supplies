@@ -196,7 +196,7 @@ const Kabinetas = () => {
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ backgroundColor: "#1e3a8a" }}>
-                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Būsena", "Veiksmas"].map(h => (
+                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
                   <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
                 ))}
               </tr>
