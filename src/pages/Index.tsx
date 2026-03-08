@@ -44,13 +44,23 @@ const Index = () => {
     
     // Save order to localStorage for Kabinetas
     const existingOrders = JSON.parse(localStorage.getItem("belacor_orders") || "[]");
+    
+    let finalQty = parseFloat(formData.quantity) || 0;
+    let finalUnit = unit;
+    
+    // Convert kg to tons if >= 1000kg
+    if (unit === "kg" && finalQty >= 1000) {
+      finalQty = finalQty / 1000;
+      finalUnit = "t";
+    }
+    
     const newOrder = {
       id: existingOrders.length > 0 ? Math.max(...existingOrders.map((o: any) => o.id)) + 1 : 1,
       date: new Date().toISOString().slice(0, 10),
       company: formData.company,
       product: formData.type || "Nenurodyta",
-      qty: parseFloat(formData.quantity) || 0,
-      unit: unit,
+      qty: finalQty,
+      unit: finalUnit,
       status: "laukiama" as const,
     };
     localStorage.setItem("belacor_orders", JSON.stringify([...existingOrders, newOrder]));
