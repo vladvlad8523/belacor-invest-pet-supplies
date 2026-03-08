@@ -220,7 +220,7 @@ const Kabinetas = () => {
       )}
 
       {/* Main content */}
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: isMobile ? "16px" : "32px" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: isMobile ? "16px" : "32px" }}>
         {/* Actions bar */}
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: "20px" }}>
           <tbody>
@@ -260,8 +260,9 @@ const Kabinetas = () => {
           </tbody>
         </table>
 
-        {/* Orders table */}
-        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+        {/* Orders table wrapper */}
+        <div style={{ overflowX: "auto", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", overflow: "hidden", tableLayout: "auto", minWidth: "1200px" }}>
           <thead>
             <tr style={{ backgroundColor: "#1e3a8a" }}>
               {["Nr.", "Data", "Įmonė", "Kontaktinis asmuo", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
@@ -390,6 +391,7 @@ const Kabinetas = () => {
             )}
           </tbody>
         </table>
+        </div>
 
         {/* Pagination */}
         {filteredOrders.length > ITEMS_PER_PAGE && (
