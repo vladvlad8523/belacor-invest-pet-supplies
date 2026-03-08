@@ -393,7 +393,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                <a href="mailto:lina.sirvele@belacorinvest">
+                <a href="mailto:lina.sirvele@belacorinvest.lt">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
