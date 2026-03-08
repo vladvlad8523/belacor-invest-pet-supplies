@@ -251,29 +251,29 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
               <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a", borderRadius: "16px 16px 0 0" }}>
                 <tbody>
                   <tr>
-                    <td style={{ padding: isMobile ? "12px 10px 6px" : "14px 20px 8px" }}>
+                    <td style={{ padding: isMobile ? "18px 14px 10px" : "22px 28px 14px" }}>
                       {isMobile ? (
                         <table width="100%" cellPadding={0} cellSpacing={0}>
                           <tbody>
                             <tr>
                               <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
-                                <p style={{ fontSize: "12px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
                                 </p>
                               </td>
                               <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
-                                <p style={{ fontSize: "12px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
-                                  <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none", fontSize: "11px" }}>lina.sirvele@belacorinvest.lt</a>
+                                  <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none", fontSize: "13px" }}>lina.sirvele@belacorinvest.lt</a>
                                 </p>
                               </td>
                             </tr>
                             <tr>
                               <td colSpan={2} style={{ paddingTop: "8px", color: "white", padding: "8px 8px 0" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 4px" }}>📋 {t.reqTitle}</p>
-                                <p style={{ fontSize: "12px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📋 {t.reqTitle}</p>
+                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   {t.reqCompany} · {t.reqCode} · {t.reqVat}
                                 </p>
                               </td>
@@ -284,16 +284,16 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <tbody>
                                     <tr>
                                       <td style={{ padding: "0 6px 0 0" }}>
-                                        <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "24px", height: "24px" }} /></a>
+                                        <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
-                                        <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "24px", height: "24px" }} /></a>
+                                        <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
-                                        <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "24px", height: "24px" }} /></a>
+                                        <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
-                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "44px", height: "44px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "52px", height: "52px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -307,22 +307,22 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           <tbody>
                             <tr>
                               <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
-                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 5px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
                                   {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
                                 </p>
                               </td>
                               <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📋 {t.reqTitle}</p>
-                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 5px" }}>📋 {t.reqTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
                                   {t.reqCompany}<br />
                                   {t.reqAddress.split("\n").map((line, i) => <span key={i}>{line}<br /></span>)}
                                   {t.reqCode}<br />{t.reqVat}
                                 </p>
                               </td>
                               <td width="23%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
-                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
                                   {t.contactOrders}<br />
                                   <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                                   {t.contactEmail}<br />
@@ -331,19 +331,19 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               </td>
                               <td width="8%" style={{ verticalAlign: "middle", textAlign: "center", padding: "0 4px" }}>
                                 <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "55px", height: "55px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
+                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "65px", height: "65px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
                                 </a>
                               </td>
                               <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
                                 <table cellPadding={0} cellSpacing={0}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 4px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px" }} /></a></td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -355,8 +355,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "6px 20px", textAlign: "center" }}>
-                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "10px", margin: 0 }}>{t.footerCopy}</p>
+                    <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "8px 20px", textAlign: "center" }}>
+                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", margin: 0 }}>{t.footerCopy}</p>
                     </td>
                   </tr>
                 </tbody>
