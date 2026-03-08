@@ -336,7 +336,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
       {children({ lang, t })}
 
       {/* ===== FOOTER ===== */}
-      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a" }}>
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a", borderRadius: "20px 20px 0 0" }}>
         <tbody>
           <tr>
             <td style={{ padding: isMobile ? "20px 12px 10px" : "24px 30px 14px" }}>
@@ -376,7 +376,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     <tr>
                       <td style={{ color: "white", paddingBottom: "6px" }}>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "white", padding: "3px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "rgba(255,255,255,0.15)", padding: "3px" }} />
                         </a>
                       </td>
                     </tr>
@@ -458,7 +458,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                       </td>
                       <td width="10%" style={{ verticalAlign: "top", color: "white", padding: "0 6px", textAlign: "center" }}>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "white", padding: "3px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "rgba(255,255,255,0.15)", padding: "3px" }} />
                         </a>
                       </td>
                       <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
