@@ -62,6 +62,17 @@ const Kabinetas = () => {
   const [pwdSuccess, setPwdSuccess] = useState(false);
   const [daysLeft, setDaysLeft] = useState(getDaysUntilExpiry());
 
+  // Filter state
+  const [filters, setFilters] = useState({
+    id: "",
+    date: "",
+    company: "",
+    product: "",
+    qty: "",
+    unit: "",
+    status: "",
+  });
+
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem("belacor_admin_logged_in");
     if (!isLoggedIn) {
@@ -81,12 +92,24 @@ const Kabinetas = () => {
     localStorage.setItem("belacor_orders", JSON.stringify(orders));
   }, [orders]);
 
+  // Filtered orders
+  const filteredOrders = orders.filter(o => {
+    if (filters.id && !o.id.toString().includes(filters.id)) return false;
+    if (filters.date && !o.date.includes(filters.date)) return false;
+    if (filters.company && !o.company.toLowerCase().includes(filters.company.toLowerCase())) return false;
+    if (filters.product && !o.product.toLowerCase().includes(filters.product.toLowerCase())) return false;
+    if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
+    if (filters.unit && o.unit !== filters.unit) return false;
+    if (filters.status && o.status !== filters.status) return false;
+    return true;
+  });
+
   const toggleStatus = (id: number) => {
     setOrders(prev => prev.map(o => o.id === id ? { ...o, status: o.status === "laukiama" ? "atlikta" : "laukiama" } : o));
   };
 
   const exportToExcel = () => {
-    const data = orders.map(o => ({
+    const data = filteredOrders.map(o => ({
       "Nr.": o.id,
       "Data": o.date,
       "Įmonė": o.company,
@@ -99,6 +122,19 @@ const Kabinetas = () => {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Užsakymai");
     XLSX.writeFile(wb, `uzsakymai_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  };
+
+  const clearFilters = () => {
+    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "" });
+  };
+
+  const filterInputStyle: React.CSSProperties = { 
+    width: "100%", 
+    padding: "6px 8px", 
+    borderRadius: "4px", 
+    border: "1px solid #cbd5e1", 
+    fontSize: "12px", 
+    boxSizing: "border-box" as const 
   };
 
   const handlePasswordChange = () => {
