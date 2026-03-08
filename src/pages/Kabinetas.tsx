@@ -320,6 +320,9 @@ const Kabinetas = () => {
                       {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
                     </span>
                   </td>
+                  <td style={{ padding: "12px 16px", fontSize: "13px", color: "#475569", maxWidth: "200px" }}>
+                    {o.message || "—"}
+                  </td>
                   <td style={{ padding: "12px 16px" }}>
                     <button onClick={() => toggleStatus(o.id)} style={{
                       backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
