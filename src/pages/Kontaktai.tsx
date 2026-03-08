@@ -22,7 +22,6 @@ const Kontaktai = () => {
                   <tbody>
                     {isMobile ? (
                       <>
-                        {/* Mobile: stacked */}
                         <tr>
                           <td style={{ verticalAlign: "top", paddingBottom: "30px" }}>
                             <h1 style={{ color: "#1e3a8a", fontSize: "24px", marginTop: 0, marginBottom: "24px" }}>{t.footerContacts}</h1>
@@ -31,7 +30,7 @@ const Kontaktai = () => {
                         </tr>
                         <tr>
                           <td style={{ verticalAlign: "top", backgroundColor: "#f0fdf4", padding: "24px 16px", borderRadius: "12px" }}>
-                            {renderContactForm(t, inputStyle)}
+                            <ContactForm t={t} />
                           </td>
                         </tr>
                       </>
@@ -42,7 +41,7 @@ const Kontaktai = () => {
                           {renderContactInfo(t)}
                         </td>
                         <td width="50%" style={{ verticalAlign: "top", backgroundColor: "#f0fdf4", padding: "30px", borderRadius: "12px" }}>
-                          {renderContactForm(t, inputStyle)}
+                          <ContactForm t={t} />
                         </td>
                       </tr>
                     )}
@@ -98,7 +97,80 @@ function renderContactInfo(t: any) {
   );
 }
 
-function renderContactForm(t: any, inputStyle: React.CSSProperties) {
+const errorStyle: React.CSSProperties = { color: "#dc2626", fontSize: "12px", margin: "4px 0 0", fontWeight: 600 };
+
+function ContactForm({ t }: { t: any }) {
+  const [company, setCompany] = useState("");
+  const [contact, setContact] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [qty, setQty] = useState("");
+  const [unit, setUnit] = useState<"kg" | "t">("t");
+  const [type, setType] = useState("");
+  const [msg, setMsg] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const validate = () => {
+    const errs: Record<string, string> = {};
+    if (!company.trim()) errs.company = "Privalomas laukas";
+    if (!contact.trim()) errs.contact = "Privalomas laukas";
+
+    // Phone: must contain digits, optional + at start, min 6 digits
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (!phone.trim()) {
+      errs.phone = "Privalomas laukas";
+    } else if (phoneDigits.length < 6 || !/^\+?[\d\s\-()]+$/.test(phone.trim())) {
+      errs.phone = "Neteisingas telefono numeris";
+    }
+
+    // Email validation
+    if (!email.trim()) {
+      errs.email = "Privalomas laukas";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      errs.email = "Neteisingas el. pašto adresas";
+    }
+
+    // Qty: numbers only
+    if (!qty.trim()) {
+      errs.qty = "Privalomas laukas";
+    } else if (!/^\d+([.,]\d+)?$/.test(qty.trim())) {
+      errs.qty = "Tik skaičiai";
+    }
+
+    return errs;
+  };
+
+  const handleSubmit = () => {
+    const errs = validate();
+    setErrors(errs);
+    if (Object.keys(errs).length === 0) {
+      setSubmitted(true);
+      // Reset
+      setCompany(""); setContact(""); setPhone(""); setEmail("");
+      setQty(""); setType(""); setMsg("");
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div style={{ textAlign: "center", padding: "40px 20px" }}>
+        <p style={{ fontSize: "48px", margin: "0 0 12px" }}>✅</p>
+        <h3 style={{ color: "#166534", fontSize: "20px", margin: "0 0 8px" }}>{t.success || "Užklausa išsiųsta!"}</h3>
+        <p style={{ color: "#475569", fontSize: "14px" }}>Susisieksime su jumis artimiausiu metu.</p>
+        <button onClick={() => setSubmitted(false)} style={{ marginTop: "16px", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "10px 24px", borderRadius: "8px", cursor: "pointer", fontWeight: 700 }}>
+          Nauja užklausa
+        </button>
+      </div>
+    );
+  }
+
+  const selectStyle: React.CSSProperties = {
+    ...inputStyle,
+    appearance: "auto" as const,
+    cursor: "pointer",
+  };
+
   return (
     <>
       <h2 style={{ color: "#1e3a8a", fontSize: "24px", marginTop: 0, marginBottom: "8px" }}>
@@ -109,33 +181,76 @@ function renderContactForm(t: any, inputStyle: React.CSSProperties) {
         <tbody>
           <tr><td>
             <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formCompany}</p>
-            <input placeholder={t.phCompany} style={inputStyle} />
+            <input value={company} onChange={e => setCompany(e.target.value)} placeholder={t.phCompany} style={{ ...inputStyle, borderColor: errors.company ? "#dc2626" : undefined }} />
+            {errors.company && <p style={errorStyle}>❌ {errors.company}</p>}
           </td></tr>
           <tr><td>
             <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formContact}</p>
-            <input placeholder={t.phContact} style={inputStyle} />
+            <input value={contact} onChange={e => setContact(e.target.value)} placeholder={t.phContact} style={{ ...inputStyle, borderColor: errors.contact ? "#dc2626" : undefined }} />
+            {errors.contact && <p style={errorStyle}>❌ {errors.contact}</p>}
           </td></tr>
           <tr><td>
             <table width="100%" cellPadding={0} cellSpacing={0}>
               <tbody><tr>
                 <td width="48%">
                   <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formPhone}</p>
-                  <input placeholder={t.phPhone} style={inputStyle} />
+                  <input value={phone} onChange={e => setPhone(e.target.value)} placeholder={t.phPhone} type="tel" style={{ ...inputStyle, borderColor: errors.phone ? "#dc2626" : undefined }} />
+                  {errors.phone && <p style={errorStyle}>❌ {errors.phone}</p>}
                 </td>
                 <td width="4%"></td>
                 <td width="48%">
                   <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formEmail}</p>
-                  <input type="email" placeholder={t.phEmail} style={inputStyle} />
+                  <input value={email} onChange={e => setEmail(e.target.value)} placeholder={t.phEmail} type="email" style={{ ...inputStyle, borderColor: errors.email ? "#dc2626" : undefined }} />
+                  {errors.email && <p style={errorStyle}>❌ {errors.email}</p>}
                 </td>
               </tr></tbody>
             </table>
           </td></tr>
           <tr><td>
-            <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formMsg}</p>
-            <textarea rows={3} placeholder={t.phMsg} style={{ ...inputStyle, resize: "vertical" as const }} />
+            <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formQty}</p>
+            <table width="100%" cellPadding={0} cellSpacing={0}>
+              <tbody><tr>
+                <td>
+                  <input
+                    value={qty}
+                    onChange={e => {
+                      const val = e.target.value;
+                      if (val === "" || /^\d*[.,]?\d*$/.test(val)) setQty(val);
+                    }}
+                    placeholder={t.phQty}
+                    inputMode="decimal"
+                    style={{ ...inputStyle, borderColor: errors.qty ? "#dc2626" : undefined, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: "none" }}
+                  />
+                </td>
+                <td width="100px">
+                  <select
+                    value={unit}
+                    onChange={e => setUnit(e.target.value as "kg" | "t")}
+                    style={{ ...selectStyle, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, height: "100%", width: "100%" }}
+                  >
+                    <option value="t">Tonos</option>
+                    <option value="kg">Kilogramai</option>
+                  </select>
+                </td>
+              </tr></tbody>
+            </table>
+            {errors.qty && <p style={errorStyle}>❌ {errors.qty}</p>}
           </td></tr>
           <tr><td>
-            <button style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "14px", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: "pointer" }}>
+            <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formType}</p>
+            <select value={type} onChange={e => setType(e.target.value)} style={selectStyle}>
+              <option value="">-- Pasirinkite --</option>
+              {(t.typeOptions || []).map((opt: string) => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
+          </td></tr>
+          <tr><td>
+            <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formMsg}</p>
+            <textarea value={msg} onChange={e => setMsg(e.target.value)} rows={3} placeholder={t.phMsg} style={{ ...inputStyle, resize: "vertical" as const }} />
+          </td></tr>
+          <tr><td>
+            <button onClick={handleSubmit} style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "14px", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: "pointer" }}>
               {t.formBtn}
             </button>
           </td></tr>
