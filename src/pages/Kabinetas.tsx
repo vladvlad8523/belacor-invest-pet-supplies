@@ -133,7 +133,7 @@ const Kabinetas = () => {
   };
 
   const clearFilters = () => {
-    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "", message: "" });
+    setFilters({ id: "", date: "", company: "", contact: "", product: "", qty: "", unit: "", status: "", message: "" });
   };
 
   const filterInputStyle: React.CSSProperties = { 
