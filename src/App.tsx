@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Privalumai from "./pages/Privalumai";
 import Produktai from "./pages/Produktai";
 import Kontaktai from "./pages/Kontaktai";
+import Kabinetas from "./pages/Kabinetas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
