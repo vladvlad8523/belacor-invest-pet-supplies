@@ -289,7 +289,7 @@ const Kabinetas = () => {
           <tbody>
             {filteredOrders.length === 0 ? (
               <tr>
-                <td colSpan={9} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+                <td colSpan={10} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
                   Nerasta užsakymų pagal pasirinktus filtrus
                 </td>
               </tr>
