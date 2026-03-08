@@ -145,6 +145,19 @@ function ContactForm({ t }: { t: any }) {
     const errs = validate();
     setErrors(errs);
     if (Object.keys(errs).length === 0) {
+      // Save order to localStorage for Kabinetas
+      const existingOrders = JSON.parse(localStorage.getItem("belacor_orders") || "[]");
+      const newOrder = {
+        id: existingOrders.length > 0 ? Math.max(...existingOrders.map((o: any) => o.id)) + 1 : 1,
+        date: new Date().toISOString().slice(0, 10),
+        company: company,
+        product: type || "Nenurodyta",
+        qty: parseFloat(qty) || 0,
+        unit: unit,
+        status: "laukiama" as const,
+      };
+      localStorage.setItem("belacor_orders", JSON.stringify([...existingOrders, newOrder]));
+      
       setSubmitted(true);
       // Reset
       setCompany(""); setContact(""); setPhone(""); setEmail("");

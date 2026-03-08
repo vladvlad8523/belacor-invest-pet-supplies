@@ -38,7 +38,25 @@ const Index = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Save order to localStorage for Kabinetas
+    const existingOrders = JSON.parse(localStorage.getItem("belacor_orders") || "[]");
+    const newOrder = {
+      id: existingOrders.length > 0 ? Math.max(...existingOrders.map((o: any) => o.id)) + 1 : 1,
+      date: new Date().toISOString().slice(0, 10),
+      company: formData.company,
+      product: formData.type || "Nenurodyta",
+      qty: parseFloat(formData.quantity) || 0,
+      unit: unit,
+      status: "laukiama" as const,
+    };
+    localStorage.setItem("belacor_orders", JSON.stringify([...existingOrders, newOrder]));
+    
+    setSubmitted(true);
+  };
 
   return (
     <SiteLayout>
