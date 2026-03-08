@@ -179,6 +179,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                     <tr>
+                                      <td style={{ padding: "0 3px" }}>
+                                        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} style={{ fontSize: "20px", textDecoration: "none", cursor: "pointer", display: "inline-block", verticalAlign: "middle" }} title="Pradžia">👑</a>
+                                      </td>
                                       {t.nav.map((item, i) => (
                                         <td key={item} style={{ padding: "0 3px" }}>
                                           <a href={navRoutes[i]} onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); }} style={{ color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569", backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "transparent", border: "1px solid " + (location.pathname === navRoutes[i] ? "#1e3a8a" : "#cbd5e1"), padding: "7px 14px", borderRadius: "6px", textDecoration: "none", fontWeight: 600, fontSize: "12px", display: "inline-block" }}>{item}</a>
@@ -214,6 +217,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                     </tr>
                                   </tbody>
                                 </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); setShowMobileMenu(false); }} style={{ display: "block", padding: "8px 16px", color: "#d4af37", backgroundColor: "#f8fafc", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textAlign: "center" }}>👑 Pradžia</a>
                               </td>
                             </tr>
                             {t.nav.map((item, i) => (
