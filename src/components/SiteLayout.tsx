@@ -352,7 +352,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                           <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                                         </p>
                                       </td>
-                                      <td style={{ verticalAlign: "top", paddingLeft: "60px" }}>
+                                      <td style={{ verticalAlign: "top", paddingLeft: "40px" }}>
                                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
                                           <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "95px", height: "95px", borderRadius: "6px", objectFit: "contain", aspectRatio: "1/1" }} />
                                         </a>
