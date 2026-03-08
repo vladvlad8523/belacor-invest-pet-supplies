@@ -120,6 +120,7 @@ const Kabinetas = () => {
       "Kiekis": o.qty,
       "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
       "Būsena": o.status === "atlikta" ? "Atlikta ✅" : "Laukiama ⏳",
+      "Žinutė": o.message || "",
     }));
     const ws = XLSX.utils.json_to_sheet(data);
     const wb = XLSX.utils.book_new();
