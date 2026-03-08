@@ -40,9 +40,9 @@ const Privalumai = () => {
                         <tr>
                           {t.advantages.map((a) => (
                             <td key={a.title} width="25%" style={{ textAlign: "center", verticalAlign: "top" }}>
-                              <p style={{ fontSize: "40px", margin: "0 0 12px" }}>{a.icon}</p>
-                              <h3 style={{ color: "#1e3a8a", fontSize: "16px", margin: "0 0 8px" }}>{a.title}</h3>
-                              <p style={{ color: "#64748b", fontSize: "13px", margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
+                              <p style={{ fontSize: "32px", margin: "0 0 6px" }}>{a.icon}</p>
+                              <h3 style={{ color: "#1e3a8a", fontSize: "15px", margin: "0 0 4px" }}>{a.title}</h3>
+                              <p style={{ color: "#64748b", fontSize: "12px", margin: 0, lineHeight: 1.4 }}>{a.desc}</p>
                             </td>
                           ))}
                         </tr>
