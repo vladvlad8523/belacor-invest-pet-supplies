@@ -261,7 +261,7 @@ const Kabinetas = () => {
         </table>
 
         {/* Orders table */}
-        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden", tableLayout: "auto", minWidth: "1200px" }}>
           <thead>
             <tr style={{ backgroundColor: "#1e3a8a" }}>
               {["Nr.", "Data", "Įmonė", "Kontaktinis asmuo", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
