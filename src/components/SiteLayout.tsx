@@ -448,7 +448,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           {t.reqCode}<br />{t.reqVat}
                         </p>
                       </td>
-                      <td width="28%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
+                      <td width="23%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
                         <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
                           {t.contactOrders}<br />
@@ -456,48 +456,39 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           {t.contactEmail}<br />
                           <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                         </p>
-                        <br />
+                      </td>
+                      <td width="12%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "center" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "14px", marginTop: 0, marginBottom: "8px" }}>📇 Rekvizitai.lt</h3>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "100px", height: "100px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "90px", height: "90px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
                         </a>
                       </td>
-                      <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
+                      <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
                         <table cellPadding={0} cellSpacing={0}>
                           <tbody>
                             <tr>
-                              <td style={{ padding: "0 6px 0 0" }}>
+                              <td style={{ padding: "0 5px 0 0" }}>
                                 <a href={fbUrl} target="_blank" rel="noopener noreferrer">
                                   <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
-                              <td style={{ padding: "0 6px" }}>
+                              <td style={{ padding: "0 5px" }}>
                                 <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer">
                                   <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
-                              <td style={{ padding: "0 6px" }}>
+                              <td style={{ padding: "0 5px" }}>
                                 <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer">
                                   <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
-                              <td style={{ padding: "0 6px" }}>
-                                <a href="https://twitter.com/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 6px" }}>
-                                <a href="https://www.youtube.com/@belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 6px" }}>
+                              <td style={{ padding: "0 5px" }}>
                                 <a href="mailto:lina.sirvele@belacorinvest.lt">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
-                              <td style={{ padding: "0 6px" }}>
+                              <td style={{ padding: "0 5px" }}>
                                 <a href="tel:+37068577907">
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
                                 </a>
