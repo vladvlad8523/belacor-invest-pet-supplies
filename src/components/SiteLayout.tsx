@@ -393,12 +393,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="mailto:info@belacor.lt">
+                <a href="mailto:lina.sirvele@belacorinvest">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="tel:+37068853541">
+                                <a href="tel:+37068577907">
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
