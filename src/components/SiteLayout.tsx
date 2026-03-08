@@ -331,12 +331,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "95px", height: "95px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
                                 </a>
                               </td>
-                              <td width="20%" style={{ verticalAlign: "middle", color: "white", padding: "0 8px", textAlign: "right" }}>
+                              <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 8px", textAlign: "right" }}>
                                 <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
-                                      <td style={{ padding: "0 5px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 6px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "36px", height: "36px" }} /></a></td>
+                                      <td style={{ padding: "0 6px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "36px", height: "36px" }} /></a></td>
                                     </tr>
                                   </tbody>
                                 </table>
