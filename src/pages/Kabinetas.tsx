@@ -258,6 +258,9 @@ const Kabinetas = () => {
                 <input type="text" placeholder="Įmonė" value={filters.company} onChange={(e) => setFilters({...filters, company: e.target.value})} style={filterInputStyle} />
               </td>
               <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Asmuo" value={filters.contact} onChange={(e) => setFilters({...filters, contact: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
                 <input type="text" placeholder="Produktas" value={filters.product} onChange={(e) => setFilters({...filters, product: e.target.value})} style={filterInputStyle} />
               </td>
               <td style={{ padding: "8px" }}>
