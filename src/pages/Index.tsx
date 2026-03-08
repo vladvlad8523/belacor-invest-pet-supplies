@@ -62,6 +62,7 @@ const Index = () => {
       qty: finalQty,
       unit: finalUnit,
       status: "laukiama" as const,
+      message: formData.message || "",
     };
     localStorage.setItem("belacor_orders", JSON.stringify([...existingOrders, newOrder]));
     
