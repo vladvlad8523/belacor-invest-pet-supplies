@@ -30,7 +30,7 @@ const Index = () => {
   }, [hoveredFaq]);
 
   const [formData, setFormData] = useState({
-    company: "", contact: "", phone: "", email: "", quantity: "", type: "", message: "",
+    company: "", contact: "", phone: "", email: "", quantity: "", type: "Medis", message: "",
   });
   const [unit, setUnit] = useState<"t" | "kg">("t");
   const [submitted, setSubmitted] = useState(false);
