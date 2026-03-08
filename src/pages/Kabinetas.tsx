@@ -98,6 +98,9 @@ const Kabinetas = () => {
     localStorage.setItem("belacor_orders", JSON.stringify(orders));
   }, [orders]);
 
+  // Reset page when filters change
+  useEffect(() => { setCurrentPage(1); }, [filters]);
+
   // Filtered orders
   const filteredOrders = orders.filter(o => {
     if (filters.id && !o.id.toString().includes(filters.id)) return false;
