@@ -110,7 +110,8 @@ const Index = () => {
                       <td style={{ backgroundColor: "#f8fafc", padding: "30px 16px", verticalAlign: "top" }}>
                         <h2 style={{ color: "#1e3a8a", fontSize: "22px", marginTop: 0, marginBottom: "8px" }}>{t.faqTitle}</h2>
                         <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "20px" }}>{t.faqSub}</p>
-                        {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderBrands(t, true)}
                       </td>
                     </tr>
                   </>
@@ -121,6 +122,7 @@ const Index = () => {
                       <h1 style={{ color: "#1e3a8a", fontSize: "28px", marginTop: 0, marginBottom: "8px" }}>{t.faqTitle}</h1>
                       <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "24px" }}>{t.faqSub}</p>
                       {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderBrands(t, false)}
                     </td>
 
                     {/* RIGHT: Form */}
@@ -185,27 +187,6 @@ const Index = () => {
               </tbody>
             </table>
 
-            {/* ===== BRAND LOGOS ===== */}
-            <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white" }}>
-              <tbody>
-                <tr>
-                  <td style={{ padding: isMobile ? "30px 16px" : "40px 30px", textAlign: "center" }}>
-                    <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "24px", marginTop: 0, marginBottom: "24px" }}>{t.brandsTitle}</h2>
-                    <table cellPadding={0} cellSpacing={isMobile ? 8 : 20} style={{ margin: "0 auto" }}>
-                      <tbody>
-                        <tr>
-                          {brandLogos.map((logo) => (
-                            <td key={logo.alt} style={{ padding: isMobile ? "4px" : "8px", verticalAlign: "middle" }}>
-                              <img src={logo.src} alt={logo.alt} style={{ height: isMobile ? "40px" : "60px", maxWidth: isMobile ? "70px" : "124px", objectFit: "contain", opacity: 0.8 }} />
-                            </td>
-                          ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </>
         );
       }}
@@ -269,6 +250,50 @@ function renderFaq(
             </td>
           </tr>
         ))}
+      </tbody>
+    </table>
+  );
+}
+
+function renderBrands(t: any, isMobile: boolean) {
+  return (
+    <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px" }}>
+      <tbody>
+        <tr>
+          <td style={{ textAlign: "center" }}>
+            <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "22px", marginTop: 0, marginBottom: "16px" }}>{t.brandsTitle}</h2>
+            <table cellPadding={0} cellSpacing={isMobile ? 6 : 12} style={{ margin: "0 auto" }}>
+              <tbody>
+                {isMobile ? (
+                  <>
+                    <tr>
+                      {brandLogos.slice(0, 3).map((logo) => (
+                        <td key={logo.alt} style={{ padding: "4px", verticalAlign: "middle" }}>
+                          <img src={logo.src} alt={logo.alt} style={{ height: "36px", maxWidth: "65px", objectFit: "contain", opacity: 0.8 }} />
+                        </td>
+                      ))}
+                    </tr>
+                    <tr>
+                      {brandLogos.slice(3).map((logo) => (
+                        <td key={logo.alt} style={{ padding: "4px", verticalAlign: "middle" }}>
+                          <img src={logo.src} alt={logo.alt} style={{ height: "36px", maxWidth: "65px", objectFit: "contain", opacity: 0.8 }} />
+                        </td>
+                      ))}
+                    </tr>
+                  </>
+                ) : (
+                  <tr>
+                    {brandLogos.map((logo) => (
+                      <td key={logo.alt} style={{ padding: "6px", verticalAlign: "middle" }}>
+                        <img src={logo.src} alt={logo.alt} style={{ height: "50px", maxWidth: "100px", objectFit: "contain", opacity: 0.8 }} />
+                      </td>
+                    ))}
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </td>
+        </tr>
       </tbody>
     </table>
   );
