@@ -316,17 +316,27 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     <tr>
                       <td style={{ color: "white", paddingBottom: "10px" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
-                        <p style={{ fontSize: "20px", margin: 0 }}>
-                          <a href={fbUrl} target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                          </a>
-                          <a href="mailto:info@belacor.lt" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                          </a>
-                          <a href="tel:+37068853541" style={{ color: "white", textDecoration: "none" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                          </a>
-                        </p>
+                        <table cellPadding={0} cellSpacing={0}>
+                          <tbody>
+                            <tr>
+                              <td style={{ padding: "0 8px 0 0" }}>
+                                <a href={fbUrl} target="_blank" rel="noopener noreferrer">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href="mailto:info@belacor.lt">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href="tel:+37068853541">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </td>
                     </tr>
                   </tbody>
@@ -361,17 +371,27 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                       </td>
                       <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "right" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
-                        <p style={{ fontSize: "20px", margin: 0 }}>
-                          <a href={fbUrl} target="_blank" rel="noopener noreferrer" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
-                          </a>
-                          <a href="mailto:info@belacor.lt" style={{ color: "white", textDecoration: "none", marginRight: "12px" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
-                          </a>
-                          <a href="tel:+37068853541" style={{ color: "white", textDecoration: "none" }}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
-                          </a>
-                        </p>
+                        <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
+                          <tbody>
+                            <tr>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href={fbUrl} target="_blank" rel="noopener noreferrer">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href="mailto:info@belacor.lt">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href="tel:+37068853541">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </td>
                     </tr>
                   </tbody>
