@@ -187,27 +187,6 @@ const Index = () => {
               </tbody>
             </table>
 
-            {/* ===== BRAND LOGOS ===== */}
-            <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white" }}>
-              <tbody>
-                <tr>
-                  <td style={{ padding: isMobile ? "30px 16px" : "40px 30px", textAlign: "center" }}>
-                    <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "24px", marginTop: 0, marginBottom: "24px" }}>{t.brandsTitle}</h2>
-                    <table cellPadding={0} cellSpacing={isMobile ? 8 : 20} style={{ margin: "0 auto" }}>
-                      <tbody>
-                        <tr>
-                          {brandLogos.map((logo) => (
-                            <td key={logo.alt} style={{ padding: isMobile ? "4px" : "8px", verticalAlign: "middle" }}>
-                              <img src={logo.src} alt={logo.alt} style={{ height: isMobile ? "40px" : "60px", maxWidth: isMobile ? "70px" : "124px", objectFit: "contain", opacity: 0.8 }} />
-                            </td>
-                          ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </>
         );
       }}
