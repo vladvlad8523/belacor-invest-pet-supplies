@@ -220,7 +220,7 @@ const Kabinetas = () => {
       )}
 
       {/* Main content */}
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: isMobile ? "16px" : "32px" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: isMobile ? "16px" : "32px" }}>
         {/* Actions bar */}
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: "20px" }}>
           <tbody>
