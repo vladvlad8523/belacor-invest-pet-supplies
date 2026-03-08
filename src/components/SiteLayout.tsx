@@ -416,6 +416,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           </table>
         </>
       )}
+      {isMobile && showScrollTop && (
+        <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "20px", right: "16px", width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.7)", color: "#d4af37", fontSize: "24px", textAlign: "center", lineHeight: "48px", textDecoration: "none", zIndex: 99999, boxShadow: "0 4px 12px rgba(0,0,0,0.4)", border: "2px solid rgba(212,175,55,0.5)" }}>↑</a>
+      )}
     </>
   );
 };
