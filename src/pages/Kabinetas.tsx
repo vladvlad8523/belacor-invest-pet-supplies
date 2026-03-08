@@ -337,18 +337,51 @@ const Kabinetas = () => {
                     {o.message || "—"}
                   </td>
                   <td style={{ padding: "12px 16px" }}>
-                    <button onClick={() => toggleStatus(o.id)} style={{
-                      backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
-                      color: "white",
-                      border: "none",
-                      padding: "6px 14px",
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                      fontWeight: 600,
-                      fontSize: "12px",
-                    }}>
-                      {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
-                    </button>
+                    <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+                      <button onClick={() => toggleStatus(o.id)} style={{
+                        backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
+                        color: "white",
+                        border: "none",
+                        padding: "6px 14px",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        fontWeight: 600,
+                        fontSize: "12px",
+                      }}>
+                        {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
+                      </button>
+                      {o.status === "atlikta" ? (
+                        <button onClick={() => {
+                          if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
+                            setOrders(prev => prev.filter(order => order.id !== o.id));
+                          }
+                        }} style={{
+                          backgroundColor: "#dc2626",
+                          color: "white",
+                          border: "none",
+                          padding: "6px 10px",
+                          borderRadius: "6px",
+                          cursor: "pointer",
+                          fontWeight: 600,
+                          fontSize: "12px",
+                        }}>
+                          🗑️
+                        </button>
+                      ) : (
+                        <button disabled style={{
+                          backgroundColor: "#e2e8f0",
+                          color: "#94a3b8",
+                          border: "none",
+                          padding: "6px 10px",
+                          borderRadius: "6px",
+                          cursor: "not-allowed",
+                          fontWeight: 600,
+                          fontSize: "12px",
+                        }}>
+                          🗑️
+                        </button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))
