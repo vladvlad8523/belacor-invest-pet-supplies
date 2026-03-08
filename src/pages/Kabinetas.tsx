@@ -229,14 +229,21 @@ const Kabinetas = () => {
                 <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai ({filteredOrders.length}/{orders.length})</h2>
               </td>
               <td style={{ textAlign: "right" }}>
-                {orders.some(o => o.status === "atlikta") && (
+                {orders.length > 0 && (
                   <button onClick={() => {
                     const completedCount = orders.filter(o => o.status === "atlikta").length;
-                    if (window.confirm(`Ar tikrai norite ištrinti visus atliktus užsakymus (${completedCount} vnt.)?`)) {
-                      setOrders(prev => prev.filter(o => o.status !== "atlikta"));
+                    const msg = completedCount > 0 
+                      ? `Ar tikrai norite ištrinti atliktus užsakymus (${completedCount} vnt.)?`
+                      : `Ar tikrai norite ištrinti VISUS užsakymus (${orders.length} vnt.)?`;
+                    if (window.confirm(msg)) {
+                      if (completedCount > 0) {
+                        setOrders(prev => prev.filter(o => o.status !== "atlikta"));
+                      } else {
+                        setOrders([]);
+                      }
                     }
                   }} style={{ backgroundColor: "#dc2626", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
-                    🗑️ Ištrinti atliktus ({orders.filter(o => o.status === "atlikta").length})
+                    🗑️ Ištrinti {orders.some(o => o.status === "atlikta") ? `atliktus (${orders.filter(o => o.status === "atlikta").length})` : `visus (${orders.length})`}
                   </button>
                 )}
                 <button onClick={clearFilters} style={{ backgroundColor: "#64748b", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
