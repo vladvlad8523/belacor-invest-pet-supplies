@@ -122,9 +122,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                             {t.promoBanner}
                           </p>
                         ) : (
-                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "12px", fontWeight: 700, margin: 0 }}>
+                          <p style={{ color: "white", fontSize: isMobile ? "9px" : "12px", fontWeight: 700, margin: 0, whiteSpace: isMobile ? "nowrap" : undefined }}>
                             {t.shopCta}{" "}
-                            <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "8px" }}>
+                            <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "4px" }}>
                               {t.shopCtaBtn}
                             </a>
                           </p>
