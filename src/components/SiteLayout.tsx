@@ -107,40 +107,46 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   return (
     <>
       {/* ===== ROOT VIEWPORT TABLE ===== */}
-      <table width="100%" cellPadding={0} cellSpacing={0} style={{ height: "100vh", maxHeight: "100vh" }}>
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ height: "100vh", maxHeight: "100vh", tableLayout: "fixed" }}>
         <tbody>
-      {/* ===== PROMO BANNER / SHOP CTA ===== */}
-      {showPromoBanner && (
-        <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: hasPromo ? "linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%)" : "linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)" }}>
-          <tbody>
+          {/* ===== PROMO BANNER ROW ===== */}
+          {showPromoBanner && (
             <tr>
-              <td style={{ padding: isMobile ? "8px 12px" : "10px 40px", textAlign: "center", position: "relative" }}>
-                {hasPromo ? (
-                  <p style={{ color: "white", fontSize: isMobile ? "12px" : "14px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
-                    {t.promoBanner}
-                  </p>
-                ) : (
-                  <p style={{ color: "white", fontSize: isMobile ? "12px" : "14px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
-                    {t.shopCta}{" "}
-                    <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "8px" }}>
-                      {t.shopCtaBtn}
-                    </a>
-                  </p>
-                )}
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); setShowPromoBanner(false); }}
-                  style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: "white", textDecoration: "none", fontSize: "18px", fontWeight: 700, opacity: 0.8 }}
-                >
-                  ✕
-                </a>
+              <td style={{ padding: 0, height: "1px" }}>
+                <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: hasPromo ? "linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%)" : "linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)" }}>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: isMobile ? "6px 12px" : "8px 40px", textAlign: "center", position: "relative" }}>
+                        {hasPromo ? (
+                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "13px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
+                            {t.promoBanner}
+                          </p>
+                        ) : (
+                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "13px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
+                            {t.shopCta}{" "}
+                            <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "8px" }}>
+                              {t.shopCtaBtn}
+                            </a>
+                          </p>
+                        )}
+                        <a
+                          href="#"
+                          onClick={(e) => { e.preventDefault(); setShowPromoBanner(false); }}
+                          style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: 700, opacity: 0.8 }}
+                        >
+                          ✕
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
-          </tbody>
-        </table>
-      )}
+          )}
 
-      {/* ===== HEADER (WHITE) ===== */}
+          {/* ===== HEADER ROW ===== */}
+          <tr>
+            <td style={{ padding: 0, height: "1px" }}>
       <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderBottom: "2px solid #e2e8f0" }}>
         <tbody>
           <tr>
