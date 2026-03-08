@@ -188,9 +188,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 3px" }}>
-                                        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} style={{ fontSize: "20px", textDecoration: "none", cursor: "pointer", display: "inline-block", verticalAlign: "middle" }} title="Pradžia">👑</a>
-                                      </td>
                                       {t.nav.map((item, i) => (
                                         <td key={item} style={{ padding: "0 3px" }}>
                                           <a href={navRoutes[i]} onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); }} style={{ color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569", backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "transparent", border: "1px solid " + (location.pathname === navRoutes[i] ? "#1e3a8a" : "#cbd5e1"), padding: "7px 14px", borderRadius: "6px", textDecoration: "none", fontWeight: 600, fontSize: "12px", display: "inline-block" }}>{item}</a>
@@ -255,7 +252,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
             <td ref={contentRef} style={{ height: "auto", verticalAlign: "top", overflow: "auto", position: "relative" }}>
               {children({ lang, t })}
               {isMobile && showScrollTop && (
-                <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "70px", right: "16px", width: "44px", height: "44px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.5)", color: "#d4af37", fontSize: "22px", textAlign: "center", lineHeight: "44px", textDecoration: "none", zIndex: 999, boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}>↑</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "20px", right: "16px", width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.6)", color: "#d4af37", fontSize: "24px", textAlign: "center", lineHeight: "48px", textDecoration: "none", zIndex: 9990, boxShadow: "0 4px 12px rgba(0,0,0,0.3)", border: "2px solid rgba(212,175,55,0.4)" }}>↑</a>
               )}
             </td>
           </tr>
@@ -274,7 +271,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               <td style={{ color: "white", padding: "0 8px 10px" }}>
                                 <p style={{ color: "#d4af37", fontSize: "15px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
                                 <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                                  {t.workHours1} · {t.workHours2} · {t.workHours3}
+                                  {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
                                 </p>
                               </td>
                             </tr>
