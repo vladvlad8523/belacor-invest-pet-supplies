@@ -103,6 +103,7 @@ const Kabinetas = () => {
     if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
     if (filters.unit && o.unit !== filters.unit) return false;
     if (filters.status && o.status !== filters.status) return false;
+    if (filters.message && !(o.message || "").toLowerCase().includes(filters.message.toLowerCase())) return false;
     return true;
   });
 
