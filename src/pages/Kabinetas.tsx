@@ -266,7 +266,7 @@ const Kabinetas = () => {
           <thead>
             <tr style={{ backgroundColor: "#1e3a8a" }}>
               {["Nr.", "Data", "Įmonė", "Kontaktinis asmuo", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
-                <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
+                <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap", minWidth: h === "Žinutė" ? "200px" : h === "Įmonė" || h === "Produktas" || h === "Kontaktinis asmuo" ? "160px" : undefined }}>{h}</th>
               ))}
             </tr>
             {/* Filter row */}
