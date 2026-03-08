@@ -72,6 +72,7 @@ const Kabinetas = () => {
     qty: "",
     unit: "",
     status: "",
+    message: "",
   });
 
   useEffect(() => {
