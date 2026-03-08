@@ -90,16 +90,17 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   }, []);
 
   useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
-    const onScroll = () => setShowScrollTop(el.scrollTop > 150);
-    el.addEventListener("scroll", onScroll);
-    // Also listen on window in case scroll bubbles differently
-    const onWindowScroll = () => setShowScrollTop(window.scrollY > 150);
-    window.addEventListener("scroll", onWindowScroll);
+    const checkScroll = () => {
+      const el = contentRef.current;
+      const scrolled = window.scrollY > 150 || document.documentElement.scrollTop > 150 || (el ? el.scrollTop > 150 : false);
+      setShowScrollTop(scrolled);
+    };
+    // Listen on all possible scroll targets
+    window.addEventListener("scroll", checkScroll, true); // capture phase catches all
+    const interval = setInterval(checkScroll, 500); // fallback polling
     return () => {
-      el.removeEventListener("scroll", onScroll);
-      window.removeEventListener("scroll", onWindowScroll);
+      window.removeEventListener("scroll", checkScroll, true);
+      clearInterval(interval);
     };
   }, []);
   useEffect(() => {
@@ -416,8 +417,15 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           </table>
         </>
       )}
-      {isMobile && showScrollTop && (
-        <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "20px", right: "16px", width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.7)", color: "#d4af37", fontSize: "24px", textAlign: "center", lineHeight: "48px", textDecoration: "none", zIndex: 99999, boxShadow: "0 4px 12px rgba(0,0,0,0.4)", border: "2px solid rgba(212,175,55,0.5)" }}>↑</a>
+      {showScrollTop && (
+        <div
+          onClick={() => { 
+            contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); 
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            document.documentElement.scrollTop = 0;
+          }}
+          style={{ position: "fixed", bottom: "24px", right: "20px", width: "50px", height: "50px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.75)", color: "#d4af37", fontSize: "22px", textAlign: "center", lineHeight: "50px", cursor: "pointer", zIndex: 99999, boxShadow: "0 4px 16px rgba(0,0,0,0.4)", border: "2px solid rgba(212,175,55,0.6)", userSelect: "none" }}
+        >↑</div>
       )}
     </>
   );
