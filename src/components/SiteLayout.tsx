@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import belacorLogo from "@/assets/belacor-logo.jpg";
 import { translations, langLabels, inputStyle, type Lang } from "@/data/translations";
@@ -78,6 +78,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   const [showCookieModal, setShowCookieModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [hasPromo] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const contentRef = useRef<HTMLTableCellElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -87,6 +89,13 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const onScroll = () => setShowScrollTop(el.scrollTop > 200);
+    el.addEventListener("scroll", onScroll);
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) setShowCookieModal(true);
@@ -219,11 +228,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </table>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); setShowMobileMenu(false); }} style={{ display: "block", padding: "8px 16px", color: "#d4af37", backgroundColor: "#f8fafc", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textAlign: "center" }}>👑 Pradžia</a>
-                              </td>
-                            </tr>
                             {t.nav.map((item, i) => (
                               <tr key={item}>
                                 <td>
@@ -248,8 +252,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
           {/* ===== CONTENT ROW (fills remaining space, scrollable) ===== */}
           <tr>
-            <td style={{ height: "auto", verticalAlign: "top", overflow: "auto" }}>
+            <td ref={contentRef} style={{ height: "auto", verticalAlign: "top", overflow: "auto", position: "relative" }}>
               {children({ lang, t })}
+              {isMobile && showScrollTop && (
+                <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "70px", right: "16px", width: "44px", height: "44px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.5)", color: "#d4af37", fontSize: "22px", textAlign: "center", lineHeight: "44px", textDecoration: "none", zIndex: 999, boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}>↑</a>
+              )}
             </td>
           </tr>
 
