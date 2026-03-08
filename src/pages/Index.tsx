@@ -32,6 +32,7 @@ const Index = () => {
   const [formData, setFormData] = useState({
     company: "", contact: "", phone: "", email: "", quantity: "", type: "", message: "",
   });
+  const [unit, setUnit] = useState<"t" | "kg">("t");
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
