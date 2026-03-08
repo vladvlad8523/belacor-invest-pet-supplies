@@ -321,8 +321,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </p>
                               </td>
                               <td width="23%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
-                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
                                   {t.contactOrders}<br />
                                   <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                                   {t.contactEmail}<br />
