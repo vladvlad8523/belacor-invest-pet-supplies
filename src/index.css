@@ -85,5 +85,11 @@
   td {
     overflow-wrap: break-word;
     word-break: break-word;
+    overflow: hidden;
+  }
+
+  a {
+    overflow-wrap: break-word;
+    word-break: break-all;
   }
 }
