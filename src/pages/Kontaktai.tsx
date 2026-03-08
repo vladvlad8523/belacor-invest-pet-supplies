@@ -250,9 +250,14 @@ function ContactForm({ t }: { t: any }) {
             <textarea value={msg} onChange={e => setMsg(e.target.value)} rows={3} placeholder={t.phMsg} style={{ ...inputStyle, resize: "vertical" as const }} />
           </td></tr>
           <tr><td>
-            <button onClick={handleSubmit} style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "14px", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: "pointer" }}>
+            <button type="button" onClick={handleSubmit} style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "14px", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: "pointer" }}>
               {t.formBtn}
             </button>
+            {Object.keys(errors).length > 0 && (
+              <div style={{ marginTop: "12px", padding: "12px", backgroundColor: "#fef2f2", border: "1px solid #fca5a5", borderRadius: "8px" }}>
+                <p style={{ margin: 0, color: "#dc2626", fontSize: "13px", fontWeight: 600 }}>⚠️ Prašome pataisyti klaidas aukščiau pažymėtuose laukuose</p>
+              </div>
+            )}
           </td></tr>
         </tbody>
       </table>
