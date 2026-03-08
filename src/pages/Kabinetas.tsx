@@ -101,6 +101,7 @@ const Kabinetas = () => {
     if (filters.id && !o.id.toString().includes(filters.id)) return false;
     if (filters.date && !o.date.includes(filters.date)) return false;
     if (filters.company && !o.company.toLowerCase().includes(filters.company.toLowerCase())) return false;
+    if (filters.contact && !(o.contact || "").toLowerCase().includes(filters.contact.toLowerCase())) return false;
     if (filters.product && !o.product.toLowerCase().includes(filters.product.toLowerCase())) return false;
     if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
     if (filters.unit && o.unit !== filters.unit) return false;
