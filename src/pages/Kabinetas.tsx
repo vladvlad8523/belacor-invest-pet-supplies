@@ -355,16 +355,17 @@ const Kabinetas = () => {
                     {o.message || "—"}
                   </td>
                   <td style={{ padding: "12px 16px" }}>
-                    <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+                    <div style={{ display: "flex", gap: "6px", alignItems: "center", whiteSpace: "nowrap" }}>
                       <button onClick={() => toggleStatus(o.id)} style={{
                         backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
                         color: "white",
                         border: "none",
-                        padding: "6px 14px",
+                        padding: "6px 18px",
                         borderRadius: "6px",
                         cursor: "pointer",
                         fontWeight: 600,
                         fontSize: "12px",
+                        whiteSpace: "nowrap",
                       }}>
                         {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
                       </button>
