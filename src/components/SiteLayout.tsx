@@ -256,37 +256,38 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         <table width="100%" cellPadding={0} cellSpacing={0}>
                           <tbody>
                             <tr>
-                              <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>🕐 {t.workHoursTitle}</p>
-                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                                  {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
-                                </p>
-                              </td>
-                              <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
-                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "14px", height: "14px", verticalAlign: "middle" }} /> +370 685 77907</a><br />
-                                  <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none", fontSize: "13px" }}>lina.sirvele@belacorinvest.lt</a>
+                              <td style={{ color: "white", padding: "0 8px 10px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "15px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                  {t.workHours1} · {t.workHours2} · {t.workHours3}
                                 </p>
                               </td>
                             </tr>
                             <tr>
-                              <td colSpan={2} style={{ paddingTop: "8px", color: "white", padding: "8px 8px 0" }}>
-                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📋 {t.reqTitle}</p>
-                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                              <td style={{ color: "white", padding: "0 8px 10px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "15px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a> · <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style={{ color: "white", padding: "0 8px 10px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "15px", fontWeight: 700, margin: "0 0 4px" }}>📋 {t.reqTitle}</p>
+                                <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   {t.reqCompany} · {t.reqCode} · {t.reqVat}
                                 </p>
                               </td>
                             </tr>
                             <tr>
-                              <td colSpan={2} style={{ paddingTop: "8px", padding: "8px 8px 0" }}>
-                                <table cellPadding={0} cellSpacing={0}>
+                              <td style={{ padding: "4px 8px 0", textAlign: "center" }}>
+                                <table cellPadding={0} cellSpacing={0} style={{ margin: "0 auto" }}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 10px 0 0" }}>
-                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "75px", height: "75px", borderRadius: "6px", padding: "2px" }} /></a>
+                                      <td style={{ padding: "0 8px 0 0" }}>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "60px", height: "60px", borderRadius: "6px" }} /></a>
                                       </td>
-                                      <td style={{ padding: "0 6px 0 0" }}>
+                                      <td style={{ padding: "0 6px" }}>
                                         <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
