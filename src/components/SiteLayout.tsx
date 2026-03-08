@@ -90,6 +90,13 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   }, []);
 
   useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const onScroll = () => setShowScrollTop(el.scrollTop > 200);
+    el.addEventListener("scroll", onScroll);
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) setShowCookieModal(true);
   }, []);
