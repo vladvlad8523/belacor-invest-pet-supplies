@@ -374,7 +374,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
             <tbody>
               <tr>
                 <td style={{ padding: "32px 28px 20px", textAlign: "center", position: "relative" }}>
-                  <a href="#" onClick={(e) => { e.preventDefault(); setShowCookieModal(false); }} style={{ position: "absolute", top: "12px", right: "16px", color: "#94a3b8", fontSize: "22px", textDecoration: "none", fontWeight: 700, lineHeight: 1 }}>✕</a>
+                  <a href="#" onClick={(e) => { e.preventDefault(); localStorage.setItem("cookie_consent", "dismissed"); setShowCookieModal(false); }} style={{ position: "absolute", top: "12px", right: "16px", color: "#94a3b8", fontSize: "22px", textDecoration: "none", fontWeight: 700, lineHeight: 1 }}>✕</a>
                   <p style={{ fontSize: "36px", margin: "0 0 12px" }}>🍪</p>
                   <h3 style={{ color: "#1e3a8a", fontSize: "20px", margin: "0 0 12px" }}>{t.cookieTitle}</h3>
                   <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6, margin: "0 0 20px" }}>{t.cookieText}</p>
