@@ -83,7 +83,7 @@ function renderContactInfo(t: any) {
           <h3 style={{ color: "#1e3a8a", fontSize: "18px", margin: "0 0 10px" }}>📞 {t.contactTitle}</h3>
           <p style={{ color: "#475569", fontSize: "14px", lineHeight: 1.8, margin: 0 }}>
             {t.contactOrders} <a href="tel:+37068577907" style={{ color: "#1e3a8a", fontWeight: 700 }}>+370 685 77907</a><br />
-            {t.contactEmail} <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#1e3a8a", fontWeight: 700 }}>lina.sirvele@belacorinvest</a>
+            {t.contactEmail} <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#1e3a8a", fontWeight: 700 }}>lina.sirvele@belacorinvest.lt</a>
           </p>
         </td></tr></tbody>
       </table>
