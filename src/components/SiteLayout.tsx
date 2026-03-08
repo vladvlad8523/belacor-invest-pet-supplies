@@ -112,30 +112,24 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
           {/* ===== PROMO BANNER ROW ===== */}
           {showPromoBanner && (
             <tr>
-              <td style={{ padding: 0, height: "1px" }}>
+              <td style={{ height: "1px" }}>
                 <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: hasPromo ? "linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%)" : "linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)" }}>
                   <tbody>
                     <tr>
-                      <td style={{ padding: isMobile ? "6px 12px" : "8px 40px", textAlign: "center", position: "relative" }}>
+                      <td style={{ padding: isMobile ? "5px 12px" : "7px 40px", textAlign: "center", position: "relative" }}>
                         {hasPromo ? (
-                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "13px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
+                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "12px", fontWeight: 700, margin: 0 }}>
                             {t.promoBanner}
                           </p>
                         ) : (
-                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "13px", fontWeight: 700, margin: 0, letterSpacing: "0.5px" }}>
+                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "12px", fontWeight: 700, margin: 0 }}>
                             {t.shopCta}{" "}
                             <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "8px" }}>
                               {t.shopCtaBtn}
                             </a>
                           </p>
                         )}
-                        <a
-                          href="#"
-                          onClick={(e) => { e.preventDefault(); setShowPromoBanner(false); }}
-                          style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: 700, opacity: 0.8 }}
-                        >
-                          ✕
-                        </a>
+                        <a href="#" onClick={(e) => { e.preventDefault(); setShowPromoBanner(false); }} style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", color: "white", textDecoration: "none", fontSize: "14px", fontWeight: 700, opacity: 0.8 }}>✕</a>
                       </td>
                     </tr>
                   </tbody>
@@ -146,104 +140,205 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
           {/* ===== HEADER ROW ===== */}
           <tr>
-            <td style={{ padding: 0, height: "1px" }}>
-      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderBottom: "2px solid #e2e8f0" }}>
-        <tbody>
-          <tr>
-            <td style={{ padding: isMobile ? "10px 12px" : "12px 20px" }}>
-              <table width="100%" cellPadding={0} cellSpacing={0}>
+            <td style={{ height: "1px" }}>
+              <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderBottom: "2px solid #e2e8f0" }}>
                 <tbody>
                   <tr>
-                    <td width={isMobile ? "70%" : "40%"} style={{ verticalAlign: "middle" }}>
-                      <table cellPadding={0} cellSpacing={0}>
+                    <td style={{ padding: isMobile ? "8px 12px" : "10px 20px" }}>
+                      <table width="100%" cellPadding={0} cellSpacing={0}>
                         <tbody>
                           <tr>
-                            <td style={{ verticalAlign: "middle", cursor: "pointer" }} onClick={() => navigate("/")}>
-                              <img src={belacorLogo} alt="Belacor invest logo" style={{ height: isMobile ? "35px" : "45px", display: "block" }} />
+                            <td width={isMobile ? "70%" : "40%"} style={{ verticalAlign: "middle" }}>
+                              <table cellPadding={0} cellSpacing={0}>
+                                <tbody>
+                                  <tr>
+                                    <td style={{ verticalAlign: "middle", cursor: "pointer" }} onClick={() => navigate("/")}>
+                                      <img src={belacorLogo} alt="Belacor invest logo" style={{ height: isMobile ? "30px" : "40px", display: "block" }} />
+                                    </td>
+                                    {!isMobile && (
+                                      <td style={{ paddingLeft: "16px", verticalAlign: "middle" }}>
+                                        <table cellPadding={0} cellSpacing={0} style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid #cbd5e1" }}>
+                                          <tbody>
+                                            <tr>
+                                              {langLabels.map((l) => (
+                                                <td key={l} onClick={() => setLang(l)} style={{ padding: "4px 6px", cursor: "pointer", backgroundColor: lang === l ? "#1e3a8a" : "transparent", color: lang === l ? "white" : "#1e3a8a", fontSize: "10px", fontWeight: 700, textTransform: "uppercase" }}>{l}</td>
+                                              ))}
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    )}
+                                  </tr>
+                                </tbody>
+                              </table>
                             </td>
-                            {!isMobile && (
-                              <td style={{ paddingLeft: "16px", verticalAlign: "middle" }}>
-                                <table cellPadding={0} cellSpacing={0} style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid #cbd5e1" }}>
+                            <td width={isMobile ? "30%" : "60%"} style={{ textAlign: "right", verticalAlign: "middle" }}>
+                              {isMobile ? (
+                                <a href="#" onClick={(e) => { e.preventDefault(); setShowMobileMenu(!showMobileMenu); }} style={{ fontSize: "24px", textDecoration: "none", color: "#1e3a8a" }}>☰</a>
+                              ) : (
+                                <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
+                                  <tbody>
+                                    <tr>
+                                      {t.nav.map((item, i) => (
+                                        <td key={item} style={{ padding: "0 3px" }}>
+                                          <a href={navRoutes[i]} onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); }} style={{ color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569", backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "transparent", border: "1px solid " + (location.pathname === navRoutes[i] ? "#1e3a8a" : "#cbd5e1"), padding: "7px 14px", borderRadius: "6px", textDecoration: "none", fontWeight: 600, fontSize: "12px", display: "inline-block" }}>{item}</a>
+                                        </td>
+                                      ))}
+                                      <td style={{ padding: "0 3px" }}>
+                                        <a href="#" onClick={(e) => { e.preventDefault(); setShowLoginModal(true); }} style={{ color: "white", backgroundColor: "#1e3a8a", border: "none", padding: "7px 16px", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "12px", display: "inline-block" }}>🔐 {t.login}</a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              )}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  {/* Mobile menu */}
+                  {isMobile && showMobileMenu && (
+                    <tr>
+                      <td style={{ padding: "0 12px 10px", backgroundColor: "white" }}>
+                        <table width="100%" cellPadding={0} cellSpacing={3}>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table cellPadding={0} cellSpacing={0} style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid #cbd5e1", margin: "0 auto 6px" }}>
                                   <tbody>
                                     <tr>
                                       {langLabels.map((l) => (
-                                        <td
-                                          key={l}
-                                          onClick={() => setLang(l)}
-                                          style={{
-                                            padding: "5px 7px",
-                                            cursor: "pointer",
-                                            backgroundColor: lang === l ? "#1e3a8a" : "transparent",
-                                            color: lang === l ? "white" : "#1e3a8a",
-                                            fontSize: "11px",
-                                            fontWeight: 700,
-                                            textTransform: "uppercase",
-                                          }}
-                                        >
-                                          {l}
-                                        </td>
+                                        <td key={l} onClick={() => setLang(l)} style={{ padding: "5px 9px", cursor: "pointer", backgroundColor: lang === l ? "#1e3a8a" : "transparent", color: lang === l ? "white" : "#1e3a8a", fontSize: "11px", fontWeight: 700, textTransform: "uppercase" }}>{l}</td>
                                       ))}
                                     </tr>
                                   </tbody>
                                 </table>
                               </td>
-                            )}
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                    <td width={isMobile ? "30%" : "60%"} style={{ textAlign: "right", verticalAlign: "middle" }}>
+                            </tr>
+                            {t.nav.map((item, i) => (
+                              <tr key={item}>
+                                <td>
+                                  <a href={navRoutes[i]} onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); setShowMobileMenu(false); }} style={{ display: "block", padding: "8px 16px", color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569", backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "#f8fafc", borderRadius: "6px", textDecoration: "none", fontWeight: 600, fontSize: "13px", textAlign: "center" }}>{item}</a>
+                                </td>
+                              </tr>
+                            ))}
+                            <tr>
+                              <td>
+                                <a href="#" onClick={(e) => { e.preventDefault(); setShowLoginModal(true); setShowMobileMenu(false); }} style={{ display: "block", padding: "8px 16px", color: "white", backgroundColor: "#1e3a8a", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "13px", textAlign: "center" }}>🔐 {t.login}</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          {/* ===== CONTENT ROW (fills remaining space, scrollable) ===== */}
+          <tr>
+            <td style={{ height: "auto", verticalAlign: "top", overflow: "auto" }}>
+              {children({ lang, t })}
+            </td>
+          </tr>
+
+          {/* ===== FOOTER ROW ===== */}
+          <tr>
+            <td style={{ height: "1px" }}>
+              <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a", borderRadius: "16px 16px 0 0" }}>
+                <tbody>
+                  <tr>
+                    <td style={{ padding: isMobile ? "12px 10px 6px" : "14px 20px 8px" }}>
                       {isMobile ? (
-                        <a
-                          href="#"
-                          onClick={(e) => { e.preventDefault(); setShowMobileMenu(!showMobileMenu); }}
-                          style={{ fontSize: "28px", textDecoration: "none", color: "#1e3a8a" }}
-                        >
-                          ☰
-                        </a>
-                      ) : (
-                        <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
+                        <table width="100%" cellPadding={0} cellSpacing={0}>
                           <tbody>
                             <tr>
-                              {t.nav.map((item, i) => (
-                                <td key={item} style={{ padding: "0 4px" }}>
-                                  <a
-                                    href={navRoutes[i]}
-                                    onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); }}
-                                    style={{
-                                      color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569",
-                                      backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "transparent",
-                                      border: "1px solid " + (location.pathname === navRoutes[i] ? "#1e3a8a" : "#cbd5e1"),
-                                      padding: "9px 16px",
-                                      borderRadius: "6px",
-                                      textDecoration: "none",
-                                      fontWeight: 600,
-                                      fontSize: "13px",
-                                      display: "inline-block",
-                                    }}
-                                  >
-                                    {item}
-                                  </a>
-                                </td>
-                              ))}
-                              <td style={{ padding: "0 4px" }}>
-                                <a
-                                  href="#"
-                                  onClick={(e) => { e.preventDefault(); setShowLoginModal(true); }}
-                                  style={{
-                                    color: "white",
-                                    backgroundColor: "#1e3a8a",
-                                    border: "none",
-                                    padding: "9px 20px",
-                                    borderRadius: "6px",
-                                    textDecoration: "none",
-                                    fontWeight: 700,
-                                    fontSize: "13px",
-                                    display: "inline-block",
-                                  }}
-                                >
-                                  🔐 {t.login}
+                              <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 6px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "10px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                  {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
+                                </p>
+                              </td>
+                              <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 6px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "10px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
+                                  <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none", fontSize: "9px" }}>lina.sirvele@belacorinvest.lt</a>
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colSpan={2} style={{ paddingTop: "6px" }}>
+                                <table cellPadding={0} cellSpacing={0}>
+                                  <tbody>
+                                    <tr>
+                                      <td style={{ padding: "0 4px 0 6px" }}>
+                                        <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "18px", height: "18px" }} /></a>
+                                      </td>
+                                      <td style={{ padding: "0 4px" }}>
+                                        <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "18px", height: "18px" }} /></a>
+                                      </td>
+                                      <td style={{ padding: "0 4px" }}>
+                                        <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "18px", height: "18px" }} /></a>
+                                      </td>
+                                      <td style={{ padding: "0 4px" }}>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "30px", height: "30px", borderRadius: "4px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      ) : (
+                        <table width="100%" cellPadding={0} cellSpacing={0}>
+                          <tbody>
+                            <tr>
+                              <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                  {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
+                                </p>
+                              </td>
+                              <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📋 {t.reqTitle}</p>
+                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                  {t.reqCompany}<br />
+                                  {t.reqAddress.split("\n").map((line, i) => <span key={i}>{line}<br /></span>)}
+                                  {t.reqCode}<br />{t.reqVat}
+                                </p>
+                              </td>
+                              <td width="23%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 4px" }}>📞 {t.contactTitle}</p>
+                                <p style={{ fontSize: "11px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
+                                  {t.contactOrders}<br />
+                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
+                                  {t.contactEmail}<br />
+                                  <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
+                                </p>
+                              </td>
+                              <td width="8%" style={{ verticalAlign: "middle", textAlign: "center", padding: "0 4px" }}>
+                                <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
+                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "55px", height: "55px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
                                 </a>
+                              </td>
+                              <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
+                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
+                                <table cellPadding={0} cellSpacing={0}>
+                                  <tbody>
+                                    <tr>
+                                      <td style={{ padding: "0 4px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 4px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 4px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 4px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 4px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "20px", height: "20px" }} /></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
                               </td>
                             </tr>
                           </tbody>
@@ -251,268 +346,13 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                       )}
                     </td>
                   </tr>
+                  <tr>
+                    <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "6px 20px", textAlign: "center" }}>
+                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "10px", margin: 0 }}>{t.footerCopy}</p>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
-            </td>
-          </tr>
-          {/* Mobile menu */}
-          {isMobile && showMobileMenu && (
-            <tr>
-              <td style={{ padding: "0 12px 12px", backgroundColor: "white" }}>
-                <table width="100%" cellPadding={0} cellSpacing={4}>
-                  <tbody>
-                    {/* Language selector row */}
-                    <tr>
-                      <td>
-                        <table cellPadding={0} cellSpacing={0} style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid #cbd5e1", margin: "0 auto 8px" }}>
-                          <tbody>
-                            <tr>
-                              {langLabels.map((l) => (
-                                <td
-                                  key={l}
-                                  onClick={() => setLang(l)}
-                                  style={{
-                                    padding: "6px 10px",
-                                    cursor: "pointer",
-                                    backgroundColor: lang === l ? "#1e3a8a" : "transparent",
-                                    color: lang === l ? "white" : "#1e3a8a",
-                                    fontSize: "12px",
-                                    fontWeight: 700,
-                                    textTransform: "uppercase",
-                                  }}
-                                >
-                                  {l}
-                                </td>
-                              ))}
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    {t.nav.map((item, i) => (
-                      <tr key={item}>
-                        <td>
-                          <a
-                            href={navRoutes[i]}
-                            onClick={(e) => { e.preventDefault(); navigate(navRoutes[i]); setShowMobileMenu(false); }}
-                            style={{
-                              display: "block",
-                              padding: "10px 16px",
-                              color: location.pathname === navRoutes[i] ? "#1e3a8a" : "#475569",
-                              backgroundColor: location.pathname === navRoutes[i] ? "#f0f4ff" : "#f8fafc",
-                              borderRadius: "6px",
-                              textDecoration: "none",
-                              fontWeight: 600,
-                              fontSize: "14px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {item}
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
-                    <tr>
-                      <td>
-                        <a
-                          href="#"
-                          onClick={(e) => { e.preventDefault(); setShowLoginModal(true); setShowMobileMenu(false); }}
-                          style={{
-                            display: "block",
-                            padding: "10px 16px",
-                            color: "white",
-                            backgroundColor: "#1e3a8a",
-                            borderRadius: "6px",
-                            textDecoration: "none",
-                            fontWeight: 700,
-                            fontSize: "14px",
-                            textAlign: "center",
-                          }}
-                        >
-                          🔐 {t.login}
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-
-      {/* ===== PAGE CONTENT ===== */}
-      {children({ lang, t })}
-
-      {/* ===== FOOTER ===== */}
-      <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a", borderRadius: "20px 20px 0 0" }}>
-        <tbody>
-          <tr>
-            <td style={{ padding: isMobile ? "20px 12px 10px" : "24px 30px 14px" }}>
-              {isMobile ? (
-                // Mobile footer - stacked
-                <table width="100%" cellPadding={0} cellSpacing={0}>
-                  <tbody>
-                    <tr>
-                      <td style={{ color: "white", paddingBottom: "20px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>🕐 {t.workHoursTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ color: "white", paddingBottom: "20px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📋 {t.reqTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.reqCompany}<br />
-                          {t.reqAddress.split("\n").map((line, i) => <span key={i}>{line}<br /></span>)}
-                          {t.reqCode}<br />{t.reqVat}
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ color: "white", paddingBottom: "20px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.contactOrders}<br />
-                          <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
-                          {t.contactEmail}<br />
-                          <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ color: "white", paddingBottom: "6px" }}>
-                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "rgba(255,255,255,0.15)", padding: "3px" }} />
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ color: "white", paddingBottom: "10px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
-                        <table cellPadding={0} cellSpacing={0}>
-                          <tbody>
-                            <tr>
-                              <td style={{ padding: "0 5px 0 0" }}>
-                                <a href={fbUrl} target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://twitter.com/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://www.youtube.com/@belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="mailto:lina.sirvele@belacorinvest.lt">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="tel:+37068577907">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              ) : (
-                // Desktop footer
-                <table width="100%" cellPadding={0} cellSpacing={0}>
-                  <tbody>
-                    <tr>
-                      <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>🕐 {t.workHoursTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
-                        </p>
-                      </td>
-                      <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📋 {t.reqTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.reqCompany}<br />
-                          {t.reqAddress.split("\n").map((line, i) => <span key={i}>{line}<br /></span>)}
-                          {t.reqCode}<br />{t.reqVat}
-                        </p>
-                      </td>
-                      <td width="23%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
-                        <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
-                          {t.contactOrders}<br />
-                          <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
-                          {t.contactEmail}<br />
-                          <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
-                        </p>
-                      </td>
-                      <td width="10%" style={{ verticalAlign: "top", color: "white", padding: "0 6px", textAlign: "center" }}>
-                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "rgba(255,255,255,0.15)", padding: "3px" }} />
-                        </a>
-                      </td>
-                      <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
-                        <table cellPadding={0} cellSpacing={0}>
-                          <tbody>
-                            <tr>
-                              <td style={{ padding: "0 5px 0 0" }}>
-                                <a href={fbUrl} target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="mailto:lina.sirvele@belacorinvest.lt">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                              <td style={{ padding: "0 5px" }}>
-                                <a href="tel:+37068577907">
-                                  <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px", verticalAlign: "middle" }} />
-                                </a>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              )}
-            </td>
-          </tr>
-          <tr>
-            <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "16px 40px", textAlign: "center" }}>
-              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", margin: 0 }}>{t.footerCopy}</p>
             </td>
           </tr>
         </tbody>
@@ -545,14 +385,10 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     <tbody>
                       <tr>
                         <td width="50%">
-                          <a href="#" onClick={(e) => { e.preventDefault(); handleCookieAccept(); }} style={{ display: "block", textAlign: "center", backgroundColor: "#1e3a8a", color: "white", padding: "12px 0", borderRadius: "8px", textDecoration: "none", fontWeight: 700, fontSize: "14px" }}>
-                            {t.cookieAccept}
-                          </a>
+                          <a href="#" onClick={(e) => { e.preventDefault(); handleCookieAccept(); }} style={{ display: "block", textAlign: "center", backgroundColor: "#1e3a8a", color: "white", padding: "12px 0", borderRadius: "8px", textDecoration: "none", fontWeight: 700, fontSize: "14px" }}>{t.cookieAccept}</a>
                         </td>
                         <td width="50%">
-                          <a href="#" onClick={(e) => { e.preventDefault(); handleCookieReject(); }} style={{ display: "block", textAlign: "center", backgroundColor: "transparent", color: "#1e3a8a", padding: "12px 0", borderRadius: "8px", textDecoration: "none", fontWeight: 700, fontSize: "14px", border: "2px solid #1e3a8a" }}>
-                            {t.cookieReject}
-                          </a>
+                          <a href="#" onClick={(e) => { e.preventDefault(); handleCookieReject(); }} style={{ display: "block", textAlign: "center", backgroundColor: "transparent", color: "#1e3a8a", padding: "12px 0", borderRadius: "8px", textDecoration: "none", fontWeight: 700, fontSize: "14px", border: "2px solid #1e3a8a" }}>{t.cookieReject}</a>
                         </td>
                       </tr>
                     </tbody>
