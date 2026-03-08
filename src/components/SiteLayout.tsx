@@ -252,8 +252,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
           {/* ===== CONTENT ROW (fills remaining space, scrollable) ===== */}
           <tr>
-            <td style={{ height: "auto", verticalAlign: "top", overflow: "auto" }}>
+            <td ref={contentRef} style={{ height: "auto", verticalAlign: "top", overflow: "auto", position: "relative" }}>
               {children({ lang, t })}
+              {isMobile && showScrollTop && (
+                <a href="#" onClick={(e) => { e.preventDefault(); contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ position: "fixed", bottom: "70px", right: "16px", width: "44px", height: "44px", borderRadius: "50%", backgroundColor: "rgba(30, 58, 138, 0.5)", color: "#d4af37", fontSize: "22px", textAlign: "center", lineHeight: "44px", textDecoration: "none", zIndex: 999, boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}>↑</a>
+              )}
             </td>
           </tr>
 
