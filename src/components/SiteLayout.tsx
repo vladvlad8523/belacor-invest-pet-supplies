@@ -271,7 +271,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               <td style={{ color: "white", padding: "0 8px 10px" }}>
                                 <p style={{ color: "#d4af37", fontSize: "15px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
                                 <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                                  {t.workHours1} · {t.workHours2} · {t.workHours3}
+                                  {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
                                 </p>
                               </td>
                             </tr>
