@@ -329,20 +329,17 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                                 </p>
                               </td>
-                              <td width="8%" style={{ verticalAlign: "middle", textAlign: "center", padding: "0 4px" }}>
+                              <td width="10%" style={{ verticalAlign: "middle", textAlign: "center", padding: "0 4px" }}>
                                 <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "65px", height: "65px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
+                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
                                 </a>
                               </td>
-                              <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
+                              <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
                                 <table cellPadding={0} cellSpacing={0}>
                                   <tbody>
                                     <tr>
                                       <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
                                       <td style={{ padding: "0 5px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px" }} /></a></td>
-                                      <td style={{ padding: "0 5px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "26px", height: "26px" }} /></a></td>
-                                      <td style={{ padding: "0 5px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "26px", height: "26px" }} /></a></td>
                                       <td style={{ padding: "0 5px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px" }} /></a></td>
                                     </tr>
                                   </tbody>
