@@ -92,9 +92,15 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
-    const onScroll = () => setShowScrollTop(el.scrollTop > 200);
+    const onScroll = () => setShowScrollTop(el.scrollTop > 150);
     el.addEventListener("scroll", onScroll);
-    return () => el.removeEventListener("scroll", onScroll);
+    // Also listen on window in case scroll bubbles differently
+    const onWindowScroll = () => setShowScrollTop(window.scrollY > 150);
+    window.addEventListener("scroll", onWindowScroll);
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onWindowScroll);
+    };
   }, []);
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
