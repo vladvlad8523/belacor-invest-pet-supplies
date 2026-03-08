@@ -289,9 +289,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                       <td style={{ padding: "0 6px" }}>
                                         <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
-                                      <td style={{ padding: "0 6px" }}>
-                                        <a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px" }} /></a>
-                                      </td>
                                       <td style={{ padding: "0 10px" }}>
                                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "65px", height: "65px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
                                       </td>
