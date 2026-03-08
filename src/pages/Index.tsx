@@ -336,11 +336,10 @@ function renderFaq(
 
 function renderBrands(t: any, isMobile: boolean) {
   return (
-    <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px" }}>
+    <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "8px", marginBottom: "4px" }}>
       <tbody>
         <tr>
           <td style={{ textAlign: "center" }}>
-            <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "22px", marginTop: 0, marginBottom: "16px" }}>{t.brandsTitle}</h2>
             <table cellPadding={0} cellSpacing={isMobile ? 6 : 12} style={{ margin: "0 auto" }}>
               <tbody>
                 {isMobile ? (
