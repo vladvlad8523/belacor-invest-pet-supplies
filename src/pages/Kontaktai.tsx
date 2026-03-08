@@ -49,7 +49,7 @@ const Kontaktai = () => {
                 </table>
               </td>
             </tr>
-            <tr><td style={{ height: "40px" }}></td></tr>
+            <tr><td style={{ height: "12px" }}></td></tr>
           </tbody>
         </table>
       )}
