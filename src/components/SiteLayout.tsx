@@ -3,6 +3,66 @@ import { useNavigate, useLocation } from "react-router-dom";
 import belacorLogo from "@/assets/belacor-logo.jpg";
 import { translations, langLabels, inputStyle, type Lang } from "@/data/translations";
 
+const PASSWORD_KEY = "belacor_admin_password";
+
+const LoginModal = ({ isMobile, t, onClose, navigate }: { isMobile: boolean; t: any; onClose: () => void; navigate: (path: string) => void }) => {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = () => {
+    const savedPassword = localStorage.getItem(PASSWORD_KEY) || "admin";
+    if (login === "admin" && password === savedPassword) {
+      sessionStorage.setItem("belacor_admin_logged_in", "true");
+      onClose();
+      navigate("/kabinetas");
+    } else {
+      setError("Neteisingas prisijungimo vardas arba slaptažodis");
+    }
+  };
+
+  return (
+    <>
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9998, backgroundColor: "rgba(0,0,0,0.5)" }}>
+        <tbody><tr><td onClick={onClose}></td></tr></tbody>
+      </table>
+      <table cellPadding={0} cellSpacing={0} style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 9999, backgroundColor: "white", borderRadius: "16px", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", width: isMobile ? "95%" : "400px", maxWidth: "95%" }}>
+        <tbody>
+          <tr>
+            <td style={{ padding: "32px 28px 20px", position: "relative" }}>
+              <a href="#" onClick={(e) => { e.preventDefault(); onClose(); }} style={{ position: "absolute", top: "12px", right: "16px", color: "#94a3b8", fontSize: "22px", textDecoration: "none", fontWeight: 700, lineHeight: 1 }}>✕</a>
+              <h3 style={{ color: "#1e3a8a", fontSize: "22px", margin: "0 0 6px", textAlign: "center" }}>🔐 {t.loginTitle}</h3>
+              <p style={{ color: "#64748b", fontSize: "13px", textAlign: "center", marginBottom: "20px" }}>Belacor invest B2B</p>
+              <table width="100%" cellPadding={0} cellSpacing={8}>
+                <tbody>
+                  <tr><td>
+                    <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>Prisijungimo vardas</p>
+                    <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} placeholder="admin" style={inputStyle} />
+                  </td></tr>
+                  <tr><td>
+                    <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.loginPass}</p>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" style={inputStyle} onKeyDown={(e) => e.key === "Enter" && handleLogin()} />
+                  </td></tr>
+                  {error && (
+                    <tr><td>
+                      <p style={{ color: "#dc2626", fontSize: "13px", margin: 0, fontWeight: 600, textAlign: "center" }}>❌ {error}</p>
+                    </td></tr>
+                  )}
+                  <tr><td>
+                    <button onClick={handleLogin} style={{ width: "100%", backgroundColor: "#1e3a8a", color: "white", border: "none", padding: "12px", borderRadius: "8px", fontSize: "15px", fontWeight: 700, cursor: "pointer" }}>
+                      {t.loginBtn}
+                    </button>
+                  </td></tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
+};
+
 interface SiteLayoutProps {
   children: (props: { lang: Lang; t: typeof translations["lt"] }) => React.ReactNode;
 }
