@@ -8,7 +8,8 @@ interface Order {
   date: string;
   company: string;
   product: string;
-  qty: string;
+  qty: number;
+  unit: "kg" | "t";
   status: "laukiama" | "atlikta";
 }
 
