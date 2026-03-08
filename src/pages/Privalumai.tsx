@@ -59,9 +59,9 @@ const Privalumai = () => {
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f8fafc" }}>
             <tbody>
               <tr>
-                <td style={{ padding: isMobile ? "30px 16px" : "40px 30px", textAlign: "center" }}>
-                  <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "22px" : "28px", marginBottom: "10px" }}>{t.clientsTitle}</h2>
-                  <p style={{ color: "#64748b", marginBottom: "30px" }}>{t.clientsSub}</p>
+                <td style={{ padding: isMobile ? "16px 16px 8px" : "24px 30px 12px", textAlign: "center" }}>
+                  <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "24px", marginBottom: "6px" }}>{t.clientsTitle}</h2>
+                  <p style={{ color: "#64748b", marginBottom: "16px", fontSize: isMobile ? "13px" : "14px" }}>{t.clientsSub}</p>
                 </td>
               </tr>
               <tr>
