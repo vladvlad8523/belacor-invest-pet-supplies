@@ -122,9 +122,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                             {t.promoBanner}
                           </p>
                         ) : (
-                          <p style={{ color: "white", fontSize: isMobile ? "11px" : "12px", fontWeight: 700, margin: 0 }}>
+                          <p style={{ color: "white", fontSize: isMobile ? "9px" : "12px", fontWeight: 700, margin: 0, whiteSpace: isMobile ? "nowrap" : undefined }}>
                             {t.shopCta}{" "}
-                            <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "8px" }}>
+                            <a href="https://kraikai.lt/shop/" target="_blank" rel="noopener noreferrer" style={{ color: "#d4af37", textDecoration: "underline", marginLeft: "4px" }}>
                               {t.shopCtaBtn}
                             </a>
                           </p>
@@ -265,7 +265,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
                                 <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
                                 <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
-                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>📱 +370 685 77907</a><br />
+                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "14px", height: "14px", verticalAlign: "middle" }} /> +370 685 77907</a><br />
                                   <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none", fontSize: "13px" }}>lina.sirvele@belacorinvest.lt</a>
                                 </p>
                               </td>
@@ -288,9 +288,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
                                         <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "28px", height: "28px" }} /></a>
-                                      </td>
-                                      <td style={{ padding: "0 6px" }}>
-                                        <a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 10px" }}>
                                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "65px", height: "65px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
@@ -324,7 +321,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 5px" }}>📞 {t.contactTitle}</p>
                                 <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.6, margin: 0 }}>
                                   {t.contactOrders}<br />
-                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>📱 +370 685 77907</a><br />
+                                  <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "14px", height: "14px", verticalAlign: "middle" }} /> +370 685 77907</a><br />
                                   {t.contactEmail}<br />
                                   <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                                 </p>
@@ -340,7 +337,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                     <tr>
                                       <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
                                       <td style={{ padding: "0 5px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px" }} /></a></td>
-                                      <td style={{ padding: "0 5px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px" }} /></a></td>
                                     </tr>
                                   </tbody>
                                 </table>
