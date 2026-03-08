@@ -7,6 +7,7 @@ interface Order {
   id: number;
   date: string;
   company: string;
+  contact?: string;
   product: string;
   qty: number;
   unit: "kg" | "t";
