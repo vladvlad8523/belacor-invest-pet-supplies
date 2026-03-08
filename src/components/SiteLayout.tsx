@@ -339,7 +339,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
       <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a" }}>
         <tbody>
           <tr>
-            <td style={{ padding: isMobile ? "30px 16px 16px" : "40px 40px 20px" }}>
+            <td style={{ padding: isMobile ? "20px 12px 10px" : "24px 30px 14px" }}>
               {isMobile ? (
                 // Mobile footer - stacked
                 <table width="100%" cellPadding={0} cellSpacing={0}>
@@ -374,10 +374,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                       </td>
                     </tr>
                     <tr>
-                      <td style={{ color: "white", paddingBottom: "12px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "14px", marginTop: "8px", marginBottom: "8px" }}>📇 Rekvizitai.lt</h3>
+                      <td style={{ color: "white", paddingBottom: "6px" }}>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "100px", height: "100px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "white", padding: "3px" }} />
                         </a>
                       </td>
                     </tr>
@@ -457,10 +456,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                         </p>
                       </td>
-                      <td width="12%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "center" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "14px", marginTop: 0, marginBottom: "8px" }}>📇 Rekvizitai.lt</h3>
+                      <td width="10%" style={{ verticalAlign: "top", color: "white", padding: "0 6px", textAlign: "center" }}>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "90px", height: "90px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "white", padding: "3px" }} />
                         </a>
                       </td>
                       <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 10px" }}>
