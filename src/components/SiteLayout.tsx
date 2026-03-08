@@ -297,7 +297,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: "10px 8px 14px", textAlign: "right" }}>
+                              <td style={{ padding: "10px 0 14px", textAlign: "right", paddingRight: "0" }}>
                                 <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
                                   <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "90px", height: "90px", borderRadius: "16px", objectFit: "contain", aspectRatio: "1/1" }} />
                                 </a>
