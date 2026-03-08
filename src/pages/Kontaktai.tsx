@@ -208,32 +208,26 @@ function ContactForm({ t }: { t: any }) {
           </td></tr>
           <tr><td>
             <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formQty}</p>
-            <table width="100%" cellPadding={0} cellSpacing={0}>
-              <tbody><tr>
-                <td>
-                  <input
-                    value={qty}
-                    onChange={e => {
-                      const val = e.target.value;
-                      if (val === "" || /^\d*[.,]?\d*$/.test(val)) setQty(val);
-                    }}
-                    placeholder={t.phQty}
-                    inputMode="decimal"
-                    style={{ ...inputStyle, borderColor: errors.qty ? "#dc2626" : undefined, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: "none" }}
-                  />
-                </td>
-                <td width="100px">
-                  <select
-                    value={unit}
-                    onChange={e => setUnit(e.target.value as "kg" | "t")}
-                    style={{ ...selectStyle, borderTopLeftRadius: 0, borderBottomLeftRadius: 0, height: "100%", width: "100%" }}
-                  >
-                    <option value="t">Tonos</option>
-                    <option value="kg">Kilogramai</option>
-                  </select>
-                </td>
-              </tr></tbody>
-            </table>
+            <div style={{ display: "flex", gap: "16px", marginBottom: "8px" }}>
+              <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", fontSize: "14px", fontWeight: unit === "t" ? 700 : 400, color: unit === "t" ? "#1e3a8a" : "#475569" }}>
+                <input type="radio" name="unit" value="t" checked={unit === "t"} onChange={() => setUnit("t")} style={{ accentColor: "#1e3a8a", width: "16px", height: "16px" }} />
+                Tonos (t)
+              </label>
+              <label style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", fontSize: "14px", fontWeight: unit === "kg" ? 700 : 400, color: unit === "kg" ? "#1e3a8a" : "#475569" }}>
+                <input type="radio" name="unit" value="kg" checked={unit === "kg"} onChange={() => setUnit("kg")} style={{ accentColor: "#1e3a8a", width: "16px", height: "16px" }} />
+                Kilogramai (kg)
+              </label>
+            </div>
+            <input
+              value={qty}
+              onChange={e => {
+                const val = e.target.value;
+                if (val === "" || /^\d*[.,]?\d*$/.test(val)) setQty(val);
+              }}
+              placeholder={`Įveskite kiekį (${unit})`}
+              inputMode="decimal"
+              style={{ ...inputStyle, borderColor: errors.qty ? "#dc2626" : undefined }}
+            />
             {errors.qty && <p style={errorStyle}>❌ {errors.qty}</p>}
           </td></tr>
           <tr><td>

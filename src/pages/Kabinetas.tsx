@@ -8,7 +8,8 @@ interface Order {
   date: string;
   company: string;
   product: string;
-  qty: string;
+  qty: number;
+  unit: "kg" | "t";
   status: "laukiama" | "atlikta";
 }
 
@@ -17,10 +18,10 @@ const PASSWORD_CHANGED_KEY = "belacor_password_changed_at";
 const PASSWORD_EXPIRY_DAYS = 30;
 
 const defaultOrders: Order[] = [
-  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: "500 kg", status: "laukiama" },
-  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: "1000 kg", status: "atlikta" },
-  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: "300 kg", status: "laukiama" },
-  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: "200 kg", status: "laukiama" },
+  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama" },
+  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: 1, unit: "t", status: "atlikta" },
+  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: 300, unit: "kg", status: "laukiama" },
+  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: 200, unit: "kg", status: "laukiama" },
 ];
 
 function getPasswordData() {
@@ -91,6 +92,7 @@ const Kabinetas = () => {
       "Įmonė": o.company,
       "Produktas": o.product,
       "Kiekis": o.qty,
+      "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
       "Būsena": o.status === "atlikta" ? "Atlikta ✅" : "Laukiama ⏳",
     }));
     const ws = XLSX.utils.json_to_sheet(data);
@@ -194,7 +196,7 @@ const Kabinetas = () => {
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ backgroundColor: "#1e3a8a" }}>
-                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Būsena", "Veiksmas"].map(h => (
+                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
                   <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
                 ))}
               </tr>
@@ -206,7 +208,20 @@ const Kabinetas = () => {
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
-                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.qty}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>
+                    <span style={{
+                      display: "inline-block",
+                      padding: "2px 8px",
+                      borderRadius: "4px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      backgroundColor: o.unit === "t" ? "#dbeafe" : "#f0fdf4",
+                      color: o.unit === "t" ? "#1e40af" : "#166534",
+                    }}>
+                      {o.unit === "t" ? "Tonos" : "kg"}
+                    </span>
+                  </td>
                   <td style={{ padding: "12px 16px" }}>
                     <span style={{
                       display: "inline-block",
