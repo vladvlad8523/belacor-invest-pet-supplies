@@ -213,9 +213,12 @@ const Kabinetas = () => {
           <tbody>
             <tr>
               <td>
-                <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai</h2>
+                <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai ({filteredOrders.length}/{orders.length})</h2>
               </td>
               <td style={{ textAlign: "right" }}>
+                <button onClick={clearFilters} style={{ backgroundColor: "#64748b", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
+                  🔄 Išvalyti filtrus
+                </button>
                 <button onClick={exportToExcel} style={{ backgroundColor: "#16a34a", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
                   📊 Eksportuoti Excel
                 </button>
