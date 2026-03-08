@@ -219,11 +219,6 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </table>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); setShowMobileMenu(false); }} style={{ display: "block", padding: "8px 16px", color: "#d4af37", backgroundColor: "#f8fafc", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textAlign: "center" }}>👑 Pradžia</a>
-                              </td>
-                            </tr>
                             {t.nav.map((item, i) => (
                               <tr key={item}>
                                 <td>
