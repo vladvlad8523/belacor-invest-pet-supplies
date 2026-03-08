@@ -353,6 +353,37 @@ const Kabinetas = () => {
           </tbody>
         </table>
 
+        {/* Pagination */}
+        {filteredOrders.length > ITEMS_PER_PAGE && (
+          <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "16px" }}>
+            <tbody>
+              <tr>
+                <td style={{ textAlign: "center" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                    <button
+                      onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                      style={{ padding: "8px 16px", borderRadius: "6px", border: "1px solid #cbd5e1", backgroundColor: currentPage === 1 ? "#f1f5f9" : "white", cursor: currentPage === 1 ? "default" : "pointer", fontWeight: 600, fontSize: "13px", color: currentPage === 1 ? "#94a3b8" : "#1e3a8a" }}
+                    >
+                      ← Atgal
+                    </button>
+                    <span style={{ fontSize: "14px", color: "#475569", fontWeight: 600 }}>
+                      {currentPage} / {Math.ceil(filteredOrders.length / ITEMS_PER_PAGE)} psl. (iš viso: {filteredOrders.length})
+                    </span>
+                    <button
+                      onClick={() => setCurrentPage(p => Math.min(Math.ceil(filteredOrders.length / ITEMS_PER_PAGE), p + 1))}
+                      disabled={currentPage >= Math.ceil(filteredOrders.length / ITEMS_PER_PAGE)}
+                      style={{ padding: "8px 16px", borderRadius: "6px", border: "1px solid #cbd5e1", backgroundColor: currentPage >= Math.ceil(filteredOrders.length / ITEMS_PER_PAGE) ? "#f1f5f9" : "white", cursor: currentPage >= Math.ceil(filteredOrders.length / ITEMS_PER_PAGE) ? "default" : "pointer", fontWeight: 600, fontSize: "13px", color: currentPage >= Math.ceil(filteredOrders.length / ITEMS_PER_PAGE) ? "#94a3b8" : "#1e3a8a" }}
+                    >
+                      Pirmyn →
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
+
         {/* Expiry info card */}
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
           <tbody>
