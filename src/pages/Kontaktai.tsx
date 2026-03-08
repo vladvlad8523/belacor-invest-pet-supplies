@@ -82,15 +82,15 @@ function renderContactInfo(t: any) {
         <tbody><tr><td>
           <h3 style={{ color: "#1e3a8a", fontSize: "18px", margin: "0 0 10px" }}>📞 {t.contactTitle}</h3>
           <p style={{ color: "#475569", fontSize: "14px", lineHeight: 1.8, margin: 0 }}>
-            {t.contactOrders} <a href="tel:+37068853541" style={{ color: "#1e3a8a", fontWeight: 700 }}>+370 688 53541</a><br />
-            {t.contactEmail} <a href="mailto:info@belacor.lt" style={{ color: "#1e3a8a", fontWeight: 700 }}>info@belacor.lt</a>
+            {t.contactOrders} <a href="tel:+37068577907" style={{ color: "#1e3a8a", fontWeight: 700 }}>+370 685 77907</a><br />
+            {t.contactEmail} <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#1e3a8a", fontWeight: 700 }}>lina.sirvele@belacorinvest</a>
           </p>
         </td></tr></tbody>
       </table>
       <table width="100%" cellPadding={0} cellSpacing={0}>
         <tbody><tr><td>
           <h3 style={{ color: "#1e3a8a", fontSize: "18px", margin: "0 0 10px" }}>📍 {t.howToGet}</h3>
-          <p style={{ color: "#475569", fontSize: "14px", margin: 0 }}>Islandijos pl. 95-57, LT-49176 Kaunas</p>
+          <p style={{ color: "#475569", fontSize: "14px", margin: 0 }}>Veiverių g. 9B-41, LT-11346 Vilnius</p>
         </td></tr></tbody>
       </table>
     </>

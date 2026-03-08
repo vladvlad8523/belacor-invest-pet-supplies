@@ -367,10 +367,18 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
                         <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
                           {t.contactOrders}<br />
-                          <a href="tel:+37068853541" style={{ color: "#d4af37", textDecoration: "none" }}>+370 688 53541</a><br />
+                          <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                           {t.contactEmail}<br />
-                          <a href="mailto:info@belacor.lt" style={{ color: "#d4af37", textDecoration: "none" }}>info@belacor.lt</a>
+                          <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest</a>
                         </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={{ color: "white", paddingBottom: "16px" }}>
+                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📇 Rekvizitai.lt</h3>
+                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "120px", height: "120px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                        </a>
                       </td>
                     </tr>
                     <tr>
@@ -385,12 +393,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="mailto:info@belacor.lt">
+                <a href="mailto:lina.sirvele@belacorinvest">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="tel:+37068853541">
+                                <a href="tel:+37068577907">
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
@@ -447,12 +455,20 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
                         <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
                           {t.contactOrders}<br />
-                          <a href="tel:+37068853541" style={{ color: "#d4af37", textDecoration: "none" }}>+370 688 53541</a><br />
+                          <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                           {t.contactEmail}<br />
-                          <a href="mailto:info@belacor.lt" style={{ color: "#d4af37", textDecoration: "none" }}>info@belacor.lt</a>
+                          <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest</a>
                         </p>
                       </td>
                       <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "right" }}>
+                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📇 Rekvizitai.lt</h3>
+                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block" }}>
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "120px", height: "120px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colSpan={4} style={{ verticalAlign: "top", color: "white", padding: "20px 10px 0" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
                         <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                           <tbody>
@@ -463,12 +479,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="mailto:info@belacor.lt">
+                                <a href="mailto:lina.sirvele@belacorinvest">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="tel:+37068853541">
+                                <a href="tel:+37068577907">
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
