@@ -62,6 +62,17 @@ const Kabinetas = () => {
   const [pwdSuccess, setPwdSuccess] = useState(false);
   const [daysLeft, setDaysLeft] = useState(getDaysUntilExpiry());
 
+  // Filter state
+  const [filters, setFilters] = useState({
+    id: "",
+    date: "",
+    company: "",
+    product: "",
+    qty: "",
+    unit: "",
+    status: "",
+  });
+
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem("belacor_admin_logged_in");
     if (!isLoggedIn) {
@@ -81,12 +92,24 @@ const Kabinetas = () => {
     localStorage.setItem("belacor_orders", JSON.stringify(orders));
   }, [orders]);
 
+  // Filtered orders
+  const filteredOrders = orders.filter(o => {
+    if (filters.id && !o.id.toString().includes(filters.id)) return false;
+    if (filters.date && !o.date.includes(filters.date)) return false;
+    if (filters.company && !o.company.toLowerCase().includes(filters.company.toLowerCase())) return false;
+    if (filters.product && !o.product.toLowerCase().includes(filters.product.toLowerCase())) return false;
+    if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
+    if (filters.unit && o.unit !== filters.unit) return false;
+    if (filters.status && o.status !== filters.status) return false;
+    return true;
+  });
+
   const toggleStatus = (id: number) => {
     setOrders(prev => prev.map(o => o.id === id ? { ...o, status: o.status === "laukiama" ? "atlikta" : "laukiama" } : o));
   };
 
   const exportToExcel = () => {
-    const data = orders.map(o => ({
+    const data = filteredOrders.map(o => ({
       "Nr.": o.id,
       "Data": o.date,
       "Įmonė": o.company,
@@ -99,6 +122,19 @@ const Kabinetas = () => {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Užsakymai");
     XLSX.writeFile(wb, `uzsakymai_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  };
+
+  const clearFilters = () => {
+    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "" });
+  };
+
+  const filterInputStyle: React.CSSProperties = { 
+    width: "100%", 
+    padding: "6px 8px", 
+    borderRadius: "4px", 
+    border: "1px solid #cbd5e1", 
+    fontSize: "12px", 
+    boxSizing: "border-box" as const 
   };
 
   const handlePasswordChange = () => {
@@ -177,9 +213,12 @@ const Kabinetas = () => {
           <tbody>
             <tr>
               <td>
-                <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai</h2>
+                <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai ({filteredOrders.length}/{orders.length})</h2>
               </td>
               <td style={{ textAlign: "right" }}>
+                <button onClick={clearFilters} style={{ backgroundColor: "#64748b", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
+                  🔄 Išvalyti filtrus
+                </button>
                 <button onClick={exportToExcel} style={{ backgroundColor: "#16a34a", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
                   📊 Eksportuoti Excel
                 </button>
@@ -192,17 +231,56 @@ const Kabinetas = () => {
         </table>
 
         {/* Orders table */}
-        <div style={{ overflowX: "auto", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
-          <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse" }}>
-            <thead>
-              <tr style={{ backgroundColor: "#1e3a8a" }}>
-                {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
-                  <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
-                ))}
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+          <thead>
+            <tr style={{ backgroundColor: "#1e3a8a" }}>
+              {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
+                <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
+              ))}
+            </tr>
+            {/* Filter row */}
+            <tr style={{ backgroundColor: "#e2e8f0" }}>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Nr." value={filters.id} onChange={(e) => setFilters({...filters, id: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="date" value={filters.date} onChange={(e) => setFilters({...filters, date: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Įmonė" value={filters.company} onChange={(e) => setFilters({...filters, company: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Produktas" value={filters.product} onChange={(e) => setFilters({...filters, product: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Kiekis" value={filters.qty} onChange={(e) => setFilters({...filters, qty: e.target.value})} style={filterInputStyle} />
+              </td>
+              <td style={{ padding: "8px" }}>
+                <select value={filters.unit} onChange={(e) => setFilters({...filters, unit: e.target.value})} style={filterInputStyle}>
+                  <option value="">Visi</option>
+                  <option value="kg">kg</option>
+                  <option value="t">Tonos</option>
+                </select>
+              </td>
+              <td style={{ padding: "8px" }}>
+                <select value={filters.status} onChange={(e) => setFilters({...filters, status: e.target.value})} style={filterInputStyle}>
+                  <option value="">Visi</option>
+                  <option value="laukiama">Laukiama</option>
+                  <option value="atlikta">Atlikta</option>
+                </select>
+              </td>
+              <td style={{ padding: "8px" }}></td>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredOrders.length === 0 ? (
+              <tr>
+                <td colSpan={8} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+                  Nerasta užsakymų pagal pasirinktus filtrus
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {orders.map((o, i) => (
+            ) : (
+              filteredOrders.map((o, i) => (
                 <tr key={o.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
@@ -250,10 +328,10 @@ const Kabinetas = () => {
                     </button>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              ))
+            )}
+          </tbody>
+        </table>
 
         {/* Expiry info card */}
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
