@@ -255,4 +255,48 @@ function renderFaq(
   );
 }
 
+function renderBrands(t: any, isMobile: boolean) {
+  return (
+    <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px" }}>
+      <tbody>
+        <tr>
+          <td style={{ textAlign: "center" }}>
+            <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "22px", marginTop: 0, marginBottom: "16px" }}>{t.brandsTitle}</h2>
+            <table cellPadding={0} cellSpacing={isMobile ? 6 : 12} style={{ margin: "0 auto" }}>
+              <tbody>
+                {isMobile ? (
+                  <>
+                    <tr>
+                      {brandLogos.slice(0, 3).map((logo) => (
+                        <td key={logo.alt} style={{ padding: "4px", verticalAlign: "middle" }}>
+                          <img src={logo.src} alt={logo.alt} style={{ height: "36px", maxWidth: "65px", objectFit: "contain", opacity: 0.8 }} />
+                        </td>
+                      ))}
+                    </tr>
+                    <tr>
+                      {brandLogos.slice(3).map((logo) => (
+                        <td key={logo.alt} style={{ padding: "4px", verticalAlign: "middle" }}>
+                          <img src={logo.src} alt={logo.alt} style={{ height: "36px", maxWidth: "65px", objectFit: "contain", opacity: 0.8 }} />
+                        </td>
+                      ))}
+                    </tr>
+                  </>
+                ) : (
+                  <tr>
+                    {brandLogos.map((logo) => (
+                      <td key={logo.alt} style={{ padding: "6px", verticalAlign: "middle" }}>
+                        <img src={logo.src} alt={logo.alt} style={{ height: "50px", maxWidth: "100px", objectFit: "contain", opacity: 0.8 }} />
+                      </td>
+                    ))}
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
+
 export default Index;
