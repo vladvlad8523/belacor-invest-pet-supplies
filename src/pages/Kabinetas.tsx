@@ -299,6 +299,7 @@ const Kabinetas = () => {
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.contact || "—"}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>

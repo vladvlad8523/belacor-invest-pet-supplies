@@ -66,6 +66,7 @@ const Index = () => {
       id: existingOrders.length > 0 ? Math.max(...existingOrders.map((o: any) => o.id)) + 1 : 1,
       date: new Date().toISOString().slice(0, 10),
       company: formData.company,
+      contact: formData.contact || "",
       product: formData.type || "Nenurodyta",
       qty: finalQty,
       unit: finalUnit,
