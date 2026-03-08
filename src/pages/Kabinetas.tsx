@@ -367,8 +367,7 @@ const Kabinetas = () => {
                       }}>
                         {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
                       </button>
-                      {o.status === "atlikta" ? (
-                        <button onClick={() => {
+                      <button onClick={() => {
                           if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
                             setOrders(prev => prev.filter(order => order.id !== o.id));
                           }
@@ -384,20 +383,6 @@ const Kabinetas = () => {
                         }}>
                           🗑️
                         </button>
-                      ) : (
-                        <button disabled style={{
-                          backgroundColor: "#e2e8f0",
-                          color: "#94a3b8",
-                          border: "none",
-                          padding: "6px 10px",
-                          borderRadius: "6px",
-                          cursor: "not-allowed",
-                          fontWeight: 600,
-                          fontSize: "12px",
-                        }}>
-                          🗑️
-                        </button>
-                      )}
                     </div>
                   </td>
                 </tr>
