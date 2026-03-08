@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import belacorLogo from "@/assets/belacor-logo.jpg";
 import { translations, langLabels, inputStyle, type Lang } from "@/data/translations";
