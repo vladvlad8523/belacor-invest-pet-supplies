@@ -284,7 +284,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <tbody>
                                     <tr>
                                       <td style={{ padding: "0 10px 0 0" }}>
-                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "75px", height: "75px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "75px", height: "75px", borderRadius: "6px", padding: "2px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px 0 0" }}>
                                         <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
