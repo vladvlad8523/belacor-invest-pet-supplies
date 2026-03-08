@@ -272,8 +272,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                             </tr>
                             <tr>
                               <td colSpan={2} style={{ paddingTop: "8px", color: "white", padding: "8px 8px 0" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 4px" }}>📋 {t.reqTitle}</p>
-                                <p style={{ fontSize: "12px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>📋 {t.reqTitle}</p>
+                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   {t.reqCompany} · {t.reqCode} · {t.reqVat}
                                 </p>
                               </td>
