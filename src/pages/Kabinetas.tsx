@@ -19,10 +19,10 @@ const PASSWORD_CHANGED_KEY = "belacor_password_changed_at";
 const PASSWORD_EXPIRY_DAYS = 30;
 
 const defaultOrders: Order[] = [
-  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama" },
-  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: 1, unit: "t", status: "atlikta" },
-  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: 300, unit: "kg", status: "laukiama" },
-  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: 200, unit: "kg", status: "laukiama" },
+  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama", message: "Pageidaujame pristatymo iki kovo 10 d." },
+  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: 1, unit: "t", status: "atlikta", message: "" },
+  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: 300, unit: "kg", status: "laukiama", message: "Skubiai reikia" },
+  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: 200, unit: "kg", status: "laukiama", message: "" },
 ];
 
 function getPasswordData() {
