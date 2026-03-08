@@ -92,6 +92,7 @@ const Kabinetas = () => {
       "Įmonė": o.company,
       "Produktas": o.product,
       "Kiekis": o.qty,
+      "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
       "Būsena": o.status === "atlikta" ? "Atlikta ✅" : "Laukiama ⏳",
     }));
     const ws = XLSX.utils.json_to_sheet(data);
