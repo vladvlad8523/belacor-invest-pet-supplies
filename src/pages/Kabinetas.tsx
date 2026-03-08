@@ -63,6 +63,8 @@ const Kabinetas = () => {
   const [pwdErrors, setPwdErrors] = useState<string[]>([]);
   const [pwdSuccess, setPwdSuccess] = useState(false);
   const [daysLeft, setDaysLeft] = useState(getDaysUntilExpiry());
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 20;
 
   // Filter state
   const [filters, setFilters] = useState({
