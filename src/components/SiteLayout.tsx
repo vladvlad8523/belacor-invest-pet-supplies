@@ -339,11 +339,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <table cellPadding={0} cellSpacing={0}>
                                   <tbody>
                                     <tr>
-                                      <td style={{ padding: "0 4px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "20px", height: "20px" }} /></a></td>
-                                      <td style={{ padding: "0 4px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "20px", height: "20px" }} /></a></td>
+                                      <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="mailto:lina.sirvele@belacorinvest.lt"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "26px", height: "26px" }} /></a></td>
+                                      <td style={{ padding: "0 5px" }}><a href="tel:+37068577907"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "26px", height: "26px" }} /></a></td>
                                     </tr>
                                   </tbody>
                                 </table>
