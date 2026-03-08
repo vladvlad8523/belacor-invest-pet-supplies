@@ -96,7 +96,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
     el.addEventListener("scroll", onScroll);
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
-
+  useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) setShowCookieModal(true);
   }, []);
