@@ -391,6 +391,7 @@ const Kabinetas = () => {
             )}
           </tbody>
         </table>
+        </div>
 
         {/* Pagination */}
         {filteredOrders.length > ITEMS_PER_PAGE && (
