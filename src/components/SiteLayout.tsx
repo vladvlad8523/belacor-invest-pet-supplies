@@ -339,7 +339,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
       <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#1e3a8a" }}>
         <tbody>
           <tr>
-            <td style={{ padding: isMobile ? "30px 16px 16px" : "40px 40px 20px" }}>
+            <td style={{ padding: isMobile ? "20px 12px 10px" : "24px 30px 14px" }}>
               {isMobile ? (
                 // Mobile footer - stacked
                 <table width="100%" cellPadding={0} cellSpacing={0}>
