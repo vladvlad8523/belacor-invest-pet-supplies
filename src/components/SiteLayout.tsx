@@ -374,10 +374,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                       </td>
                     </tr>
                     <tr>
-                      <td style={{ color: "white", paddingBottom: "12px" }}>
-                        <h3 style={{ color: "#d4af37", fontSize: "14px", marginTop: "8px", marginBottom: "8px" }}>📇 Rekvizitai.lt</h3>
+                      <td style={{ color: "white", paddingBottom: "6px" }}>
                         <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "100px", height: "100px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "8px", backgroundColor: "white", padding: "3px" }} />
                         </a>
                       </td>
                     </tr>
