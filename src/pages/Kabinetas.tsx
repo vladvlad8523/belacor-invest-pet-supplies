@@ -208,7 +208,20 @@ const Kabinetas = () => {
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
-                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.qty}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
+                  <td style={{ padding: "12px 16px", fontSize: "14px" }}>
+                    <span style={{
+                      display: "inline-block",
+                      padding: "2px 8px",
+                      borderRadius: "4px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      backgroundColor: o.unit === "t" ? "#dbeafe" : "#f0fdf4",
+                      color: o.unit === "t" ? "#1e40af" : "#166534",
+                    }}>
+                      {o.unit === "t" ? "Tonos" : "kg"}
+                    </span>
+                  </td>
                   <td style={{ padding: "12px 16px" }}>
                     <span style={{
                       display: "inline-block",
