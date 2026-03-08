@@ -69,6 +69,7 @@ const Kabinetas = () => {
     id: "",
     date: "",
     company: "",
+    contact: "",
     product: "",
     qty: "",
     unit: "",
