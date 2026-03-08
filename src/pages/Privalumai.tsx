@@ -66,7 +66,7 @@ const Privalumai = () => {
               </tr>
               <tr>
                 <td>
-                  <table width={isMobile ? "100%" : "70%"} cellPadding={isMobile ? 8 : 15} cellSpacing={0} style={{ margin: "0 auto" }}>
+                  <table width={isMobile ? "100%" : "70%"} cellPadding={isMobile ? 6 : 10} cellSpacing={0} style={{ margin: "0 auto" }}>
                     <tbody>
                       {isMobile ? (
                         t.clients.map((c) => (
