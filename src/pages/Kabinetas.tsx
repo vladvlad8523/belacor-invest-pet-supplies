@@ -296,7 +296,7 @@ const Kabinetas = () => {
                 </td>
               </tr>
             ) : (
-              filteredOrders.map((o, i) => (
+              filteredOrders.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((o, i) => (
                 <tr key={o.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
                   <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
                   <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
