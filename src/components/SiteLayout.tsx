@@ -367,9 +367,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📞 {t.contactTitle}</h3>
                         <p style={{ fontSize: "13px", opacity: 0.85, lineHeight: 1.8, margin: 0 }}>
                           {t.contactOrders}<br />
-                          <a href="tel:+37068853541" style={{ color: "#d4af37", textDecoration: "none" }}>+370 688 53541</a><br />
+                          <a href="tel:+37068577907" style={{ color: "#d4af37", textDecoration: "none" }}>+370 685 77907</a><br />
                           {t.contactEmail}<br />
-                          <a href="mailto:info@belacor.lt" style={{ color: "#d4af37", textDecoration: "none" }}>info@belacor.lt</a>
+                          <a href="mailto:lina.sirvele@belacorinvest" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest</a>
                         </p>
                       </td>
                     </tr>
