@@ -106,6 +106,9 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
 
   return (
     <>
+      {/* ===== ROOT VIEWPORT TABLE ===== */}
+      <table width="100%" cellPadding={0} cellSpacing={0} style={{ height: "100vh", maxHeight: "100vh" }}>
+        <tbody>
       {/* ===== PROMO BANNER / SHOP CTA ===== */}
       {showPromoBanner && (
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ background: hasPromo ? "linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%)" : "linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)" }}>
