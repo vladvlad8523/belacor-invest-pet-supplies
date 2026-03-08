@@ -24,7 +24,7 @@ const Privalumai = () => {
               </tr>
               <tr>
                 <td>
-                  <table width={isMobile ? "100%" : "80%"} cellPadding={isMobile ? 12 : 20} cellSpacing={0} style={{ margin: "0 auto" }}>
+                  <table width={isMobile ? "100%" : "80%"} cellPadding={isMobile ? 8 : 14} cellSpacing={0} style={{ margin: "0 auto" }}>
                     <tbody>
                       {isMobile ? (
                         t.advantages.map((a) => (
