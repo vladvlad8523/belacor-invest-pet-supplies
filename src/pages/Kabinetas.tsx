@@ -11,6 +11,7 @@ interface Order {
   qty: number;
   unit: "kg" | "t";
   status: "laukiama" | "atlikta";
+  message?: string;
 }
 
 const PASSWORD_KEY = "belacor_admin_password";
@@ -18,10 +19,10 @@ const PASSWORD_CHANGED_KEY = "belacor_password_changed_at";
 const PASSWORD_EXPIRY_DAYS = 30;
 
 const defaultOrders: Order[] = [
-  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama" },
-  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: 1, unit: "t", status: "atlikta" },
-  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: 300, unit: "kg", status: "laukiama" },
-  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: 200, unit: "kg", status: "laukiama" },
+  { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama", message: "Pageidaujame pristatymo iki kovo 10 d." },
+  { id: 2, date: "2026-03-03", company: "UAB Mangusta", product: "Pjuvenų briketai", qty: 1, unit: "t", status: "atlikta", message: "" },
+  { id: 3, date: "2026-03-05", company: "Šiaurės centras", product: "Linų kraikas", qty: 300, unit: "kg", status: "laukiama", message: "Skubiai reikia" },
+  { id: 4, date: "2026-03-07", company: "UAB PetShop", product: "TOFU kraikas", qty: 200, unit: "kg", status: "laukiama", message: "" },
 ];
 
 function getPasswordData() {
@@ -71,6 +72,7 @@ const Kabinetas = () => {
     qty: "",
     unit: "",
     status: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -101,6 +103,7 @@ const Kabinetas = () => {
     if (filters.qty && !o.qty.toString().includes(filters.qty)) return false;
     if (filters.unit && o.unit !== filters.unit) return false;
     if (filters.status && o.status !== filters.status) return false;
+    if (filters.message && !(o.message || "").toLowerCase().includes(filters.message.toLowerCase())) return false;
     return true;
   });
 
@@ -117,6 +120,7 @@ const Kabinetas = () => {
       "Kiekis": o.qty,
       "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
       "Būsena": o.status === "atlikta" ? "Atlikta ✅" : "Laukiama ⏳",
+      "Žinutė": o.message || "",
     }));
     const ws = XLSX.utils.json_to_sheet(data);
     const wb = XLSX.utils.book_new();
@@ -125,7 +129,7 @@ const Kabinetas = () => {
   };
 
   const clearFilters = () => {
-    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "" });
+    setFilters({ id: "", date: "", company: "", product: "", qty: "", unit: "", status: "", message: "" });
   };
 
   const filterInputStyle: React.CSSProperties = { 
@@ -234,7 +238,7 @@ const Kabinetas = () => {
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)", overflow: "hidden" }}>
           <thead>
             <tr style={{ backgroundColor: "#1e3a8a" }}>
-              {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Veiksmas"].map(h => (
+              {["Nr.", "Data", "Įmonė", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
                 <th key={h} style={{ padding: "14px 16px", color: "white", fontSize: "13px", fontWeight: 700, textAlign: "left", whiteSpace: "nowrap" }}>{h}</th>
               ))}
             </tr>
@@ -269,13 +273,16 @@ const Kabinetas = () => {
                   <option value="atlikta">Atlikta</option>
                 </select>
               </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Žinutė" value={filters.message} onChange={(e) => setFilters({...filters, message: e.target.value})} style={filterInputStyle} />
+              </td>
               <td style={{ padding: "8px" }}></td>
             </tr>
           </thead>
           <tbody>
             {filteredOrders.length === 0 ? (
               <tr>
-                <td colSpan={8} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+                <td colSpan={9} style={{ padding: "24px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
                   Nerasta užsakymų pagal pasirinktus filtrus
                 </td>
               </tr>
@@ -312,6 +319,9 @@ const Kabinetas = () => {
                     }}>
                       {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
                     </span>
+                  </td>
+                  <td style={{ padding: "12px 16px", fontSize: "13px", color: "#475569", maxWidth: "200px" }}>
+                    {o.message || "—"}
                   </td>
                   <td style={{ padding: "12px 16px" }}>
                     <button onClick={() => toggleStatus(o.id)} style={{

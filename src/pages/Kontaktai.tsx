@@ -165,6 +165,7 @@ function ContactForm({ t }: { t: any }) {
         qty: finalQty,
         unit: finalUnit,
         status: "laukiama" as const,
+        message: msg || "",
       };
       localStorage.setItem("belacor_orders", JSON.stringify([...existingOrders, newOrder]));
       
