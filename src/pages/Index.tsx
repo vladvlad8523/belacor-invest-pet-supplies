@@ -36,7 +36,15 @@ const Index = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // Only allow numbers for quantity
+    if (name === "quantity") {
+      if (value === "" || /^\d*[.,]?\d*$/.test(value)) {
+        setFormData({ ...formData, [name]: value });
+      }
+      return;
+    }
+    setFormData({ ...formData, [name]: value });
   };
   
   const handleSubmit = (e: React.FormEvent) => {
