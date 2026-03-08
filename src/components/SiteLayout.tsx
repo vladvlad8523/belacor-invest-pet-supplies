@@ -78,6 +78,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   const [showCookieModal, setShowCookieModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [hasPromo] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const contentRef = useRef<HTMLTableCellElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
