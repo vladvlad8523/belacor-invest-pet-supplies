@@ -273,6 +273,9 @@ const Kabinetas = () => {
                   <option value="atlikta">Atlikta</option>
                 </select>
               </td>
+              <td style={{ padding: "8px" }}>
+                <input type="text" placeholder="Žinutė" value={filters.message} onChange={(e) => setFilters({...filters, message: e.target.value})} style={filterInputStyle} />
+              </td>
               <td style={{ padding: "8px" }}></td>
             </tr>
           </thead>
