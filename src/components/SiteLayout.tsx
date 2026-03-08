@@ -335,7 +335,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td width="22%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "12px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
+                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 6px" }}>{t.footerSocial}</p>
                                 <table cellPadding={0} cellSpacing={0}>
                                   <tbody>
                                     <tr>
