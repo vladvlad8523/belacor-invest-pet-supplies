@@ -283,14 +283,14 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <table cellPadding={0} cellSpacing={0}>
                                   <tbody>
                                     <tr>
+                                      <td style={{ padding: "0 10px 0 0" }}>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "75px", height: "75px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
+                                      </td>
                                       <td style={{ padding: "0 6px 0 0" }}>
                                         <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
                                         <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "28px", height: "28px" }} /></a>
-                                      </td>
-                                      <td style={{ padding: "0 10px" }}>
-                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer"><img src="/brands/rekvizitai-qr.png" alt="Rekvizitai" style={{ width: "75px", height: "75px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} /></a>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -326,17 +326,17 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <a href="mailto:lina.sirvele@belacorinvest.lt" style={{ color: "#d4af37", textDecoration: "none" }}>lina.sirvele@belacorinvest.lt</a>
                                 </p>
                               </td>
-                              <td width="10%" style={{ verticalAlign: "middle", textAlign: "center", padding: "0 4px" }}>
-                                <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
-                                  <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "95px", height: "95px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
-                                </a>
-                              </td>
                               <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 8px", textAlign: "right" }}>
                                 <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                     <tr>
                                       <td style={{ padding: "0 6px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "36px", height: "36px" }} /></a></td>
                                       <td style={{ padding: "0 6px" }}><a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "36px", height: "36px" }} /></a></td>
+                                      <td style={{ padding: "0 0 0 10px" }}>
+                                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
+                                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "95px", height: "95px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
+                                        </a>
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
