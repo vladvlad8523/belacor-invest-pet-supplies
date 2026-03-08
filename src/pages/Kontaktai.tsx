@@ -90,7 +90,7 @@ function renderContactInfo(t: any) {
       <table width="100%" cellPadding={0} cellSpacing={0}>
         <tbody><tr><td>
           <h3 style={{ color: "#1e3a8a", fontSize: "18px", margin: "0 0 10px" }}>📍 {t.howToGet}</h3>
-          <p style={{ color: "#475569", fontSize: "14px", margin: 0 }}>Islandijos pl. 95-57, LT-49176 Kaunas</p>
+          <p style={{ color: "#475569", fontSize: "14px", margin: 0 }}>Veiverių g. 9B-41, LT-11346 Vilnius</p>
         </td></tr></tbody>
       </table>
     </>

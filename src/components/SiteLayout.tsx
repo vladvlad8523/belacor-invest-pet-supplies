@@ -461,6 +461,14 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                         </p>
                       </td>
                       <td width="25%" style={{ verticalAlign: "top", color: "white", padding: "0 10px", textAlign: "right" }}>
+                        <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>📇 Rekvizitai.lt</h3>
+                        <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block" }}>
+                          <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "120px", height: "120px", borderRadius: "8px", backgroundColor: "white", padding: "4px" }} />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colSpan={4} style={{ verticalAlign: "top", color: "white", padding: "20px 10px 0" }}>
                         <h3 style={{ color: "#d4af37", fontSize: "16px", marginTop: 0, marginBottom: "12px" }}>{t.footerSocial}</h3>
                         <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                           <tbody>
@@ -471,12 +479,12 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="mailto:info@belacor.lt">
+                                <a href="mailto:lina.sirvele@belacorinvest">
                                   <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
                               <td style={{ padding: "0 8px" }}>
-                                <a href="tel:+37068853541">
+                                <a href="tel:+37068577907">
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "28px", height: "28px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
