@@ -347,7 +347,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                 <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                      <tr>
-                                       <td style={{ padding: "0 45px 0 0" }}>
+                                       <td style={{ padding: "0 80px 0 0" }}>
                                          <a href="https://rekvizitai.vz.lt/imone/belacor_invest/" target="_blank" rel="noopener noreferrer">
                                            <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "95px", height: "95px", borderRadius: "6px", padding: "2px" }} />
                                          </a>
