@@ -334,6 +334,11 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
                                 </a>
                               </td>
+                              <td style={{ padding: "0 8px" }}>
+                                <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer">
+                                  <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "24px", height: "24px", verticalAlign: "middle" }} />
+                                </a>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
