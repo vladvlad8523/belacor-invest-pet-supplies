@@ -331,8 +331,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                   <img src="/brands/rekvizitai-qr.png" alt="Rekvizitai QR kodas" style={{ width: "80px", height: "80px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", padding: "2px" }} />
                                 </a>
                               </td>
-                              <td width="20%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <table cellPadding={0} cellSpacing={0}>
+                              <td width="20%" style={{ verticalAlign: "middle", color: "white", padding: "0 8px", textAlign: "right" }}>
+                                <table cellPadding={0} cellSpacing={0} style={{ display: "inline-table" }}>
                                   <tbody>
                                     <tr>
                                       <td style={{ padding: "0 5px 0 0" }}><a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "26px", height: "26px" }} /></a></td>
