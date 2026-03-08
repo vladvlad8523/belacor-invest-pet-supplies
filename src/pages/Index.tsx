@@ -110,7 +110,8 @@ const Index = () => {
                       <td style={{ backgroundColor: "#f8fafc", padding: "30px 16px", verticalAlign: "top" }}>
                         <h2 style={{ color: "#1e3a8a", fontSize: "22px", marginTop: 0, marginBottom: "8px" }}>{t.faqTitle}</h2>
                         <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "20px" }}>{t.faqSub}</p>
-                        {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderBrands(t, true)}
                       </td>
                     </tr>
                   </>
@@ -121,6 +122,7 @@ const Index = () => {
                       <h1 style={{ color: "#1e3a8a", fontSize: "28px", marginTop: 0, marginBottom: "8px" }}>{t.faqTitle}</h1>
                       <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "24px" }}>{t.faqSub}</p>
                       {renderFaq(faq, openFaq, setOpenFaq, hoveredFaq, setHoveredFaq)}
+                      {renderBrands(t, false)}
                     </td>
 
                     {/* RIGHT: Form */}
