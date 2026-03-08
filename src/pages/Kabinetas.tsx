@@ -11,6 +11,7 @@ interface Order {
   qty: number;
   unit: "kg" | "t";
   status: "laukiama" | "atlikta";
+  message?: string;
 }
 
 const PASSWORD_KEY = "belacor_admin_password";
