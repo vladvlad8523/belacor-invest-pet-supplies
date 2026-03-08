@@ -287,7 +287,7 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                                         <a href={fbUrl} target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
-                                        <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "24px", height: "24px" }} /></a>
+                                        <a href="https://www.linkedin.com/company/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" style={{ width: "28px", height: "28px" }} /></a>
                                       </td>
                                       <td style={{ padding: "0 6px" }}>
                                         <a href="https://www.instagram.com/belacor" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" style={{ width: "24px", height: "24px" }} /></a>
