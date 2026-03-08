@@ -90,16 +90,17 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
   }, []);
 
   useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
-    const onScroll = () => setShowScrollTop(el.scrollTop > 150);
-    el.addEventListener("scroll", onScroll);
-    // Also listen on window in case scroll bubbles differently
-    const onWindowScroll = () => setShowScrollTop(window.scrollY > 150);
-    window.addEventListener("scroll", onWindowScroll);
+    const checkScroll = () => {
+      const el = contentRef.current;
+      const scrolled = window.scrollY > 150 || document.documentElement.scrollTop > 150 || (el ? el.scrollTop > 150 : false);
+      setShowScrollTop(scrolled);
+    };
+    // Listen on all possible scroll targets
+    window.addEventListener("scroll", checkScroll, true); // capture phase catches all
+    const interval = setInterval(checkScroll, 500); // fallback polling
     return () => {
-      el.removeEventListener("scroll", onScroll);
-      window.removeEventListener("scroll", onWindowScroll);
+      window.removeEventListener("scroll", checkScroll, true);
+      clearInterval(interval);
     };
   }, []);
   useEffect(() => {
