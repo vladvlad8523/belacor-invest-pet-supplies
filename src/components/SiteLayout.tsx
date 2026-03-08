@@ -355,8 +355,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "6px 20px", textAlign: "center" }}>
-                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "10px", margin: 0 }}>{t.footerCopy}</p>
+                    <td style={{ borderTop: "1px solid rgba(255,255,255,0.15)", padding: "8px 20px", textAlign: "center" }}>
+                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", margin: 0 }}>{t.footerCopy}</p>
                     </td>
                   </tr>
                 </tbody>
