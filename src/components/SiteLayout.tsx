@@ -257,8 +257,8 @@ const SiteLayout = ({ children }: SiteLayoutProps) => {
                           <tbody>
                             <tr>
                               <td width="50%" style={{ verticalAlign: "top", color: "white", padding: "0 8px" }}>
-                                <p style={{ color: "#d4af37", fontSize: "14px", fontWeight: 700, margin: "0 0 4px" }}>🕐 {t.workHoursTitle}</p>
-                                <p style={{ fontSize: "12px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
+                                <p style={{ color: "#d4af37", fontSize: "16px", fontWeight: 700, margin: "0 0 5px" }}>🕐 {t.workHoursTitle}</p>
+                                <p style={{ fontSize: "14px", opacity: 0.85, lineHeight: 1.5, margin: 0 }}>
                                   {t.workHours1}<br />{t.workHours2}<br />{t.workHours3}
                                 </p>
                               </td>
