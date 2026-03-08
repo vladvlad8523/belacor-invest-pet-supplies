@@ -17,7 +17,7 @@ const Kontaktai = () => {
         <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white" }}>
           <tbody>
             <tr>
-              <td style={{ padding: isMobile ? "30px 16px" : "50px 30px" }}>
+              <td style={{ padding: isMobile ? "16px 16px 8px" : "24px 30px 12px" }}>
                 <table width={isMobile ? "100%" : "90%"} cellPadding={0} cellSpacing={0} style={{ margin: "0 auto" }}>
                   <tbody>
                     {isMobile ? (
@@ -49,7 +49,7 @@ const Kontaktai = () => {
                 </table>
               </td>
             </tr>
-            <tr><td style={{ height: "40px" }}></td></tr>
+            <tr><td style={{ height: "12px" }}></td></tr>
           </tbody>
         </table>
       )}

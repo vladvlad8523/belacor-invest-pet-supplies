@@ -17,22 +17,22 @@ const Privalumai = () => {
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white" }}>
             <tbody>
               <tr>
-                <td style={{ padding: isMobile ? "30px 16px" : "50px 30px", textAlign: "center" }}>
-                  <h1 style={{ color: "#1e3a8a", fontSize: isMobile ? "24px" : "32px", marginBottom: "10px" }}>{t.advTitle}</h1>
-                  <p style={{ color: "#64748b", marginBottom: "40px" }}>{t.advSub}</p>
+                <td style={{ padding: isMobile ? "16px 16px 8px" : "24px 30px 12px", textAlign: "center" }}>
+                  <h1 style={{ color: "#1e3a8a", fontSize: isMobile ? "22px" : "28px", marginBottom: "6px" }}>{t.advTitle}</h1>
+                  <p style={{ color: "#64748b", marginBottom: "16px", fontSize: isMobile ? "13px" : "14px" }}>{t.advSub}</p>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <table width={isMobile ? "100%" : "80%"} cellPadding={isMobile ? 12 : 20} cellSpacing={0} style={{ margin: "0 auto" }}>
+                  <table width={isMobile ? "100%" : "80%"} cellPadding={isMobile ? 8 : 14} cellSpacing={0} style={{ margin: "0 auto" }}>
                     <tbody>
                       {isMobile ? (
                         t.advantages.map((a) => (
                           <tr key={a.title}>
-                            <td style={{ textAlign: "center", verticalAlign: "top", paddingBottom: "16px" }}>
-                              <p style={{ fontSize: "40px", margin: "0 0 12px" }}>{a.icon}</p>
-                              <h3 style={{ color: "#1e3a8a", fontSize: "16px", margin: "0 0 8px" }}>{a.title}</h3>
-                              <p style={{ color: "#64748b", fontSize: "13px", margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
+                            <td style={{ textAlign: "center", verticalAlign: "top", paddingBottom: "10px" }}>
+                              <p style={{ fontSize: "32px", margin: "0 0 6px" }}>{a.icon}</p>
+                              <h3 style={{ color: "#1e3a8a", fontSize: "15px", margin: "0 0 4px" }}>{a.title}</h3>
+                              <p style={{ color: "#64748b", fontSize: "12px", margin: 0, lineHeight: 1.4 }}>{a.desc}</p>
                             </td>
                           </tr>
                         ))
@@ -40,9 +40,9 @@ const Privalumai = () => {
                         <tr>
                           {t.advantages.map((a) => (
                             <td key={a.title} width="25%" style={{ textAlign: "center", verticalAlign: "top" }}>
-                              <p style={{ fontSize: "40px", margin: "0 0 12px" }}>{a.icon}</p>
-                              <h3 style={{ color: "#1e3a8a", fontSize: "16px", margin: "0 0 8px" }}>{a.title}</h3>
-                              <p style={{ color: "#64748b", fontSize: "13px", margin: 0, lineHeight: 1.5 }}>{a.desc}</p>
+                              <p style={{ fontSize: "32px", margin: "0 0 6px" }}>{a.icon}</p>
+                              <h3 style={{ color: "#1e3a8a", fontSize: "15px", margin: "0 0 4px" }}>{a.title}</h3>
+                              <p style={{ color: "#64748b", fontSize: "12px", margin: 0, lineHeight: 1.4 }}>{a.desc}</p>
                             </td>
                           ))}
                         </tr>
@@ -51,7 +51,7 @@ const Privalumai = () => {
                   </table>
                 </td>
               </tr>
-              <tr><td style={{ height: "40px" }}></td></tr>
+              <tr><td style={{ height: "12px" }}></td></tr>
             </tbody>
           </table>
 
@@ -59,14 +59,14 @@ const Privalumai = () => {
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "#f8fafc" }}>
             <tbody>
               <tr>
-                <td style={{ padding: isMobile ? "30px 16px" : "40px 30px", textAlign: "center" }}>
-                  <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "22px" : "28px", marginBottom: "10px" }}>{t.clientsTitle}</h2>
-                  <p style={{ color: "#64748b", marginBottom: "30px" }}>{t.clientsSub}</p>
+                <td style={{ padding: isMobile ? "16px 16px 8px" : "24px 30px 12px", textAlign: "center" }}>
+                  <h2 style={{ color: "#1e3a8a", fontSize: isMobile ? "20px" : "24px", marginBottom: "6px" }}>{t.clientsTitle}</h2>
+                  <p style={{ color: "#64748b", marginBottom: "16px", fontSize: isMobile ? "13px" : "14px" }}>{t.clientsSub}</p>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <table width={isMobile ? "100%" : "70%"} cellPadding={isMobile ? 8 : 15} cellSpacing={0} style={{ margin: "0 auto" }}>
+                  <table width={isMobile ? "100%" : "70%"} cellPadding={isMobile ? 6 : 10} cellSpacing={0} style={{ margin: "0 auto" }}>
                     <tbody>
                       {isMobile ? (
                         t.clients.map((c) => (
@@ -105,7 +105,7 @@ const Privalumai = () => {
                   </table>
                 </td>
               </tr>
-              <tr><td style={{ height: "40px" }}></td></tr>
+              <tr><td style={{ height: "12px" }}></td></tr>
             </tbody>
           </table>
         </>
