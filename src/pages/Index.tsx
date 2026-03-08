@@ -176,9 +176,31 @@ const Index = () => {
                                 </td>
                               </tr>
                               <tr>
-                                <td width="50%">
+                                <td colSpan={2}>
                                   <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formQty}</p>
-                                  <input name="quantity" required value={formData.quantity} onChange={handleChange} placeholder={t.phQty} style={inputStyle} />
+                                  <table cellPadding={0} cellSpacing={0} style={{ marginBottom: "8px" }}>
+                                    <tbody>
+                                      <tr>
+                                        <td style={{ paddingRight: "20px" }}>
+                                          <label style={{ display: "flex", alignItems: "center", cursor: "pointer", fontSize: "13px", color: "#1e3a8a" }}>
+                                            <input type="radio" name="unit_desktop" checked={unit === "t"} onChange={() => setUnit("t")} style={{ marginRight: "6px", accentColor: "#1e3a8a" }} />
+                                            Tonos (t)
+                                          </label>
+                                        </td>
+                                        <td>
+                                          <label style={{ display: "flex", alignItems: "center", cursor: "pointer", fontSize: "13px", color: "#1e3a8a" }}>
+                                            <input type="radio" name="unit_desktop" checked={unit === "kg"} onChange={() => setUnit("kg")} style={{ marginRight: "6px", accentColor: "#1e3a8a" }} />
+                                            Kilogramai (kg)
+                                          </label>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="50%">
+                                  <input name="quantity" required value={formData.quantity} onChange={handleChange} placeholder={unit === "t" ? "pvz. 10" : "pvz. 500"} style={inputStyle} />
                                 </td>
                                 <td width="50%">
                                   <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "13px" }}>{t.formType}</p>
