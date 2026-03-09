@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import * as XLSX from "xlsx";
 import belacorLogo from "@/assets/belacor-logo.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Order {
   id: number;
@@ -18,6 +19,8 @@ interface Order {
 const PASSWORD_KEY = "belacor_admin_password";
 const PASSWORD_CHANGED_KEY = "belacor_password_changed_at";
 const PASSWORD_EXPIRY_DAYS = 30;
+const INACTIVITY_TIMEOUT = 5 * 60; // 5 minutes in seconds
+const SEEN_ORDERS_KEY = "belacor_seen_orders";
 
 const defaultOrders: Order[] = [
   { id: 1, date: "2026-03-01", company: "UAB Kurgama", product: "Bentonitinis kraikas", qty: 500, unit: "kg", status: "laukiama", message: "Pageidaujame pristatymo iki kovo 10 d." },
@@ -35,7 +38,7 @@ function getPasswordData() {
 
 function getDaysUntilExpiry(): number {
   const { changedDate } = getPasswordData();
-  if (!changedDate) return 0; // force change
+  if (!changedDate) return 0;
   const now = new Date();
   const diff = PASSWORD_EXPIRY_DAYS - Math.floor((now.getTime() - changedDate.getTime()) / (1000 * 60 * 60 * 24));
   return Math.max(0, diff);
@@ -50,8 +53,22 @@ function validatePassword(pwd: string): string[] {
   return errors;
 }
 
+function getSeenOrderIds(): number[] {
+  try {
+    const saved = localStorage.getItem(SEEN_ORDERS_KEY);
+    return saved ? JSON.parse(saved) : [];
+  } catch { return []; }
+}
+
+function markOrdersSeen(ids: number[]) {
+  const existing = getSeenOrderIds();
+  const merged = Array.from(new Set([...existing, ...ids]));
+  localStorage.setItem(SEEN_ORDERS_KEY, JSON.stringify(merged));
+}
+
 const Kabinetas = () => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const [orders, setOrders] = useState<Order[]>(() => {
     const saved = localStorage.getItem("belacor_orders");
     return saved ? JSON.parse(saved) : defaultOrders;
@@ -65,6 +82,49 @@ const Kabinetas = () => {
   const [daysLeft, setDaysLeft] = useState(getDaysUntilExpiry());
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 20;
+
+  // Inactivity timer
+  const [secondsLeft, setSecondsLeft] = useState(INACTIVITY_TIMEOUT);
+  const lastActivityRef = useRef(Date.now());
+
+  // Seen orders tracking
+  const [seenIds, setSeenIds] = useState<number[]>(getSeenOrderIds);
+
+  const resetTimer = useCallback(() => {
+    lastActivityRef.current = Date.now();
+    setSecondsLeft(INACTIVITY_TIMEOUT);
+  }, []);
+
+  // Track user activity
+  useEffect(() => {
+    const events = ["mousemove", "mousedown", "keydown", "touchstart", "scroll", "click"];
+    events.forEach(e => window.addEventListener(e, resetTimer));
+    return () => events.forEach(e => window.removeEventListener(e, resetTimer));
+  }, [resetTimer]);
+
+  // Countdown timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - lastActivityRef.current) / 1000);
+      const remaining = Math.max(0, INACTIVITY_TIMEOUT - elapsed);
+      setSecondsLeft(remaining);
+      if (remaining === 0) {
+        sessionStorage.removeItem("belacor_admin_logged_in");
+        navigate("/");
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [navigate]);
+
+  // Mark orders as seen after 3 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const orderIds = orders.map(o => o.id);
+      markOrdersSeen(orderIds);
+      setSeenIds(getSeenOrderIds());
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, [orders]);
 
   // Filter state
   const [filters, setFilters] = useState({
@@ -85,7 +145,6 @@ const Kabinetas = () => {
       navigate("/");
       return;
     }
-    // Check password expiry
     const days = getDaysUntilExpiry();
     setDaysLeft(days);
     if (days === 0) {
@@ -98,10 +157,8 @@ const Kabinetas = () => {
     localStorage.setItem("belacor_orders", JSON.stringify(orders));
   }, [orders]);
 
-  // Reset page when filters change
   useEffect(() => { setCurrentPage(1); }, [filters]);
 
-  // Filtered orders
   const filteredOrders = orders.filter(o => {
     if (filters.id && !o.id.toString().includes(filters.id)) return false;
     if (filters.date && !o.date.includes(filters.date)) return false;
@@ -175,7 +232,14 @@ const Kabinetas = () => {
     navigate("/");
   };
 
-  const isMobile = window.innerWidth < 768;
+  const isNewOrder = (id: number) => !seenIds.includes(id);
+
+  const formatTime = (s: number) => {
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return `${m}:${sec.toString().padStart(2, "0")}`;
+  };
+
   const inputStyle: React.CSSProperties = { width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #cbd5e1", fontSize: "14px", boxSizing: "border-box" as const };
 
   return (
@@ -190,9 +254,20 @@ const Kabinetas = () => {
                   <tr>
                     <td style={{ verticalAlign: "middle" }}>
                       <img src={belacorLogo} alt="Belacor" style={{ height: "36px", verticalAlign: "middle", marginRight: "12px", borderRadius: "4px" }} />
-                      <span style={{ color: "#d4af37", fontWeight: 700, fontSize: "18px", verticalAlign: "middle" }}>Administravimo kabinetas</span>
+                      {!isMobile && <span style={{ color: "#d4af37", fontWeight: 700, fontSize: "18px", verticalAlign: "middle" }}>Administravimo kabinetas</span>}
                     </td>
                     <td style={{ textAlign: "right", verticalAlign: "middle" }}>
+                      {/* Inactivity timer */}
+                      <span style={{
+                        color: secondsLeft <= 60 ? "#fca5a5" : "rgba(255,255,255,0.7)",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        marginRight: "12px",
+                        verticalAlign: "middle",
+                        animation: secondsLeft <= 30 ? "pulse 1s infinite" : undefined,
+                      }}>
+                        ⏱️ {formatTime(secondsLeft)}
+                      </span>
                       <button onClick={handleLogout} style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)", padding: "8px 20px", borderRadius: "6px", cursor: "pointer", fontWeight: 600, fontSize: "13px" }}>
                         Atsijungti
                       </button>
@@ -302,67 +377,92 @@ const Kabinetas = () => {
                 Nerasta užsakymų
               </div>
             ) : (
-              filteredOrders.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((o) => (
-                <div key={o.id} style={{
-                  backgroundColor: "white",
-                  borderRadius: "12px",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                  padding: "16px",
-                  borderLeft: `4px solid ${o.status === "atlikta" ? "#16a34a" : "#f59e0b"}`,
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
-                    <span style={{ fontWeight: 700, color: "#1e3a8a", fontSize: "15px" }}>#{o.id} — {o.company}</span>
-                    <span style={{
+              filteredOrders.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((o) => {
+                const isNew = isNewOrder(o.id);
+                return (
+                  <div key={o.id} style={{
+                    backgroundColor: isNew ? "#eff6ff" : "white",
+                    borderRadius: "12px",
+                    boxShadow: isNew ? "0 2px 12px rgba(30,58,138,0.15)" : "0 2px 8px rgba(0,0,0,0.08)",
+                    padding: "16px",
+                    borderLeft: `4px solid ${o.status === "atlikta" ? "#16a34a" : "#f59e0b"}`,
+                    position: "relative",
+                  }}>
+                    {isNew && (
+                      <span style={{
+                        position: "absolute",
+                        top: "8px",
+                        right: "8px",
+                        backgroundColor: "#1e3a8a",
+                        color: "white",
+                        fontSize: "10px",
+                        fontWeight: 700,
+                        padding: "2px 8px",
+                        borderRadius: "10px",
+                      }}>
+                        NAUJAS
+                      </span>
+                    )}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px", paddingRight: isNew ? "60px" : 0 }}>
+                      <span style={{ fontWeight: 700, color: "#1e3a8a", fontSize: "15px" }}>#{o.id} — {o.company}</span>
+                    </div>
+                    <div style={{
+                      display: "inline-block",
                       padding: "3px 10px",
                       borderRadius: "20px",
                       fontSize: "11px",
                       fontWeight: 700,
                       backgroundColor: o.status === "atlikta" ? "#dcfce7" : "#fef9c3",
                       color: o.status === "atlikta" ? "#166534" : "#854d0e",
+                      marginBottom: "10px",
                     }}>
                       {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
-                    </span>
+                    </div>
+                    <div style={{ fontSize: "13px", color: "#475569", lineHeight: "1.8" }}>
+                      <div>📅 <strong>Data:</strong> {o.date}</div>
+                      {o.contact && <div>👤 <strong>Kontaktas:</strong> {o.contact}</div>}
+                      <div>📦 <strong>Produktas:</strong> {o.product}</div>
+                      <div>⚖️ <strong>Kiekis:</strong> {o.qty} {o.unit === "t" ? "tonos" : "kg"}</div>
+                      {o.message && (
+                        <div style={{ marginTop: "6px", padding: "8px 10px", backgroundColor: "rgba(0,0,0,0.03)", borderRadius: "8px", borderLeft: "3px solid #cbd5e1" }}>
+                          💬 <strong>Žinutė:</strong> {o.message}
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ display: "flex", gap: "8px", marginTop: "12px" }}>
+                      <button onClick={() => toggleStatus(o.id)} style={{
+                        flex: 1,
+                        backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
+                        color: "white",
+                        border: "none",
+                        padding: "10px",
+                        borderRadius: "8px",
+                        cursor: "pointer",
+                        fontWeight: 700,
+                        fontSize: "13px",
+                      }}>
+                        {o.status === "laukiama" ? "✅ Pažymėti atlikta" : "🔄 Grąžinti laukiama"}
+                      </button>
+                      <button onClick={() => {
+                        if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
+                          setOrders(prev => prev.filter(order => order.id !== o.id));
+                        }
+                      }} style={{
+                        backgroundColor: "#dc2626",
+                        color: "white",
+                        border: "none",
+                        padding: "10px 14px",
+                        borderRadius: "8px",
+                        cursor: "pointer",
+                        fontWeight: 700,
+                        fontSize: "13px",
+                      }}>
+                        🗑️
+                      </button>
+                    </div>
                   </div>
-                  <div style={{ fontSize: "13px", color: "#475569", lineHeight: "1.7" }}>
-                    <div>📅 <strong>Data:</strong> {o.date}</div>
-                    {o.contact && <div>👤 <strong>Kontaktas:</strong> {o.contact}</div>}
-                    <div>📦 <strong>Produktas:</strong> {o.product}</div>
-                    <div>⚖️ <strong>Kiekis:</strong> {o.qty} {o.unit === "t" ? "tonos" : "kg"}</div>
-                    {o.message && <div>💬 <strong>Žinutė:</strong> {o.message}</div>}
-                  </div>
-                  <div style={{ display: "flex", gap: "8px", marginTop: "12px" }}>
-                    <button onClick={() => toggleStatus(o.id)} style={{
-                      flex: 1,
-                      backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
-                      color: "white",
-                      border: "none",
-                      padding: "10px",
-                      borderRadius: "8px",
-                      cursor: "pointer",
-                      fontWeight: 700,
-                      fontSize: "13px",
-                    }}>
-                      {o.status === "laukiama" ? "✅ Pažymėti atlikta" : "🔄 Grąžinti laukiama"}
-                    </button>
-                    <button onClick={() => {
-                      if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
-                        setOrders(prev => prev.filter(order => order.id !== o.id));
-                      }
-                    }} style={{
-                      backgroundColor: "#dc2626",
-                      color: "white",
-                      border: "none",
-                      padding: "10px 14px",
-                      borderRadius: "8px",
-                      cursor: "pointer",
-                      fontWeight: 700,
-                      fontSize: "13px",
-                    }}>
-                      🗑️
-                    </button>
-                  </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         ) : (
@@ -423,78 +523,88 @@ const Kabinetas = () => {
                   </td>
                 </tr>
               ) : (
-                filteredOrders.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((o, i) => (
-                  <tr key={o.id} style={{ backgroundColor: i % 2 === 0 ? "white" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                    <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.id}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.contact || "—"}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
-                    <td style={{ padding: "12px 16px", fontSize: "14px" }}>
-                      <span style={{
-                        display: "inline-block",
-                        padding: "2px 8px",
-                        borderRadius: "4px",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        backgroundColor: o.unit === "t" ? "#dbeafe" : "#f0fdf4",
-                        color: o.unit === "t" ? "#1e40af" : "#166534",
-                      }}>
-                        {o.unit === "t" ? "Tonos" : "kg"}
-                      </span>
-                    </td>
-                    <td style={{ padding: "12px 16px" }}>
-                      <span style={{
-                        display: "inline-block",
-                        padding: "4px 12px",
-                        borderRadius: "20px",
-                        fontSize: "12px",
-                        fontWeight: 700,
-                        backgroundColor: o.status === "atlikta" ? "#dcfce7" : "#fef9c3",
-                        color: o.status === "atlikta" ? "#166534" : "#854d0e",
-                      }}>
-                        {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
-                      </span>
-                    </td>
-                    <td style={{ padding: "12px 16px", fontSize: "13px", color: "#475569", maxWidth: "200px" }}>
-                      {o.message || "—"}
-                    </td>
-                    <td style={{ padding: "12px 16px" }}>
-                      <div style={{ display: "flex", gap: "6px", alignItems: "center", whiteSpace: "nowrap" }}>
-                        <button onClick={() => toggleStatus(o.id)} style={{
-                          backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
-                          color: "white",
-                          border: "none",
-                          padding: "5px 24px",
-                          borderRadius: "20px",
-                          cursor: "pointer",
-                          fontWeight: 600,
+                filteredOrders.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((o, i) => {
+                  const isNew = isNewOrder(o.id);
+                  return (
+                    <tr key={o.id} style={{
+                      backgroundColor: isNew ? "#eff6ff" : (i % 2 === 0 ? "white" : "#f8fafc"),
+                      borderBottom: "1px solid #e2e8f0",
+                      borderLeft: isNew ? "3px solid #1e3a8a" : undefined,
+                    }}>
+                      <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>
+                        {o.id}
+                        {isNew && <span style={{ marginLeft: "6px", backgroundColor: "#1e3a8a", color: "white", fontSize: "9px", fontWeight: 700, padding: "1px 6px", borderRadius: "8px", verticalAlign: "top" }}>NEW</span>}
+                      </td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.date}</td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 500 }}>{o.company}</td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.contact || "—"}</td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px" }}>{o.product}</td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px", fontWeight: 600 }}>{o.qty}</td>
+                      <td style={{ padding: "12px 16px", fontSize: "14px" }}>
+                        <span style={{
+                          display: "inline-block",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
                           fontSize: "12px",
-                          whiteSpace: "nowrap",
+                          fontWeight: 600,
+                          backgroundColor: o.unit === "t" ? "#dbeafe" : "#f0fdf4",
+                          color: o.unit === "t" ? "#1e40af" : "#166534",
                         }}>
-                          {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
-                        </button>
-                        <button onClick={() => {
-                            if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
-                              setOrders(prev => prev.filter(order => order.id !== o.id));
-                            }
-                          }} style={{
-                            backgroundColor: "#dc2626",
+                          {o.unit === "t" ? "Tonos" : "kg"}
+                        </span>
+                      </td>
+                      <td style={{ padding: "12px 16px" }}>
+                        <span style={{
+                          display: "inline-block",
+                          padding: "4px 12px",
+                          borderRadius: "20px",
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          backgroundColor: o.status === "atlikta" ? "#dcfce7" : "#fef9c3",
+                          color: o.status === "atlikta" ? "#166534" : "#854d0e",
+                        }}>
+                          {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
+                        </span>
+                      </td>
+                      <td style={{ padding: "12px 16px", fontSize: "13px", color: "#475569", maxWidth: "200px" }}>
+                        {o.message || "—"}
+                      </td>
+                      <td style={{ padding: "12px 16px" }}>
+                        <div style={{ display: "flex", gap: "6px", alignItems: "center", whiteSpace: "nowrap" }}>
+                          <button onClick={() => toggleStatus(o.id)} style={{
+                            backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
                             color: "white",
                             border: "none",
-                            padding: "6px 10px",
-                            borderRadius: "6px",
+                            padding: "5px 24px",
+                            borderRadius: "20px",
                             cursor: "pointer",
                             fontWeight: 600,
                             fontSize: "12px",
+                            whiteSpace: "nowrap",
                           }}>
-                            🗑️
+                            {o.status === "laukiama" ? "Pažymėti atlikta" : "Grąžinti laukiama"}
                           </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
+                          <button onClick={() => {
+                              if (window.confirm("Ar tikrai norite ištrinti šį užsakymą?")) {
+                                setOrders(prev => prev.filter(order => order.id !== o.id));
+                              }
+                            }} style={{
+                              backgroundColor: "#dc2626",
+                              color: "white",
+                              border: "none",
+                              padding: "6px 10px",
+                              borderRadius: "6px",
+                              cursor: "pointer",
+                              fontWeight: 600,
+                              fontSize: "12px",
+                            }}>
+                              🗑️
+                            </button>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>
@@ -532,8 +642,20 @@ const Kabinetas = () => {
           </table>
         )}
 
+        {/* Inactivity info */}
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "16px", backgroundColor: secondsLeft <= 60 ? "#fef2f2" : "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", transition: "background-color 0.3s" }}>
+          <tbody>
+            <tr>
+              <td style={{ padding: "14px 24px", fontSize: "13px", color: secondsLeft <= 60 ? "#dc2626" : "#64748b", fontWeight: secondsLeft <= 60 ? 700 : 400 }}>
+                ⏱️ Automatinis atsijungimas po neaktyvumo: <strong>{formatTime(secondsLeft)}</strong>
+                {secondsLeft <= 60 && " — Judinkite pelę arba spauskite klavišą!"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
         {/* Expiry info card */}
-        <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "24px", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
+        <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginTop: "12px", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
           <tbody>
             <tr>
               <td style={{ padding: "20px 24px" }}>
