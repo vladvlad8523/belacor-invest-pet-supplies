@@ -315,6 +315,11 @@ const Kabinetas = () => {
           <div style={{ marginBottom: "16px" }}>
             <h2 style={{ margin: "0 0 12px", color: "#1e3a8a", fontSize: "18px" }}>📦 Užsakymai ({filteredOrders.length}/{orders.length})</h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {orders.some(o => !seenIds.includes(o.id)) && (
+                <button onClick={markAllAsSeen} style={{ backgroundColor: "#7c3aed", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "12px" }}>
+                  👁️ Pažymėti visus matytais
+                </button>
+              )}
               {orders.length > 0 && (
                 <button onClick={() => {
                   const completedCount = orders.filter(o => o.status === "atlikta").length;
@@ -332,8 +337,8 @@ const Kabinetas = () => {
                   🗑️ Ištrinti {orders.some(o => o.status === "atlikta") ? `atliktus` : `visus`}
                 </button>
               )}
-              <button onClick={clearFilters} style={{ backgroundColor: "#64748b", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "12px" }}>
-                🔄 Filtrai
+              <button onClick={() => setShowMobileFilters(prev => !prev)} style={{ backgroundColor: showMobileFilters ? "#1e3a8a" : "#64748b", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "12px" }}>
+                🔍 Filtrai {showMobileFilters ? "▲" : "▼"}
               </button>
               <button onClick={exportToExcel} style={{ backgroundColor: "#16a34a", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "12px" }}>
                 📊 Excel
@@ -342,6 +347,47 @@ const Kabinetas = () => {
                 🔑 Slaptažodis
               </button>
             </div>
+            {/* Mobile filter panel */}
+            {showMobileFilters && (
+              <div style={{ marginTop: "12px", backgroundColor: "white", borderRadius: "12px", padding: "16px", boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                  <strong style={{ color: "#1e3a8a", fontSize: "14px" }}>🔍 Filtravimas</strong>
+                  <button onClick={() => { clearFilters(); }} style={{ backgroundColor: "#f1f5f9", border: "1px solid #cbd5e1", padding: "4px 12px", borderRadius: "6px", cursor: "pointer", fontSize: "12px", fontWeight: 600 }}>
+                    Išvalyti
+                  </button>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Įmonė</label>
+                    <input type="text" placeholder="Ieškoti..." value={filters.company} onChange={e => setFilters({...filters, company: e.target.value})} style={filterInputStyle} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Kontaktas</label>
+                    <input type="text" placeholder="Ieškoti..." value={filters.contact} onChange={e => setFilters({...filters, contact: e.target.value})} style={filterInputStyle} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Produktas</label>
+                    <input type="text" placeholder="Ieškoti..." value={filters.product} onChange={e => setFilters({...filters, product: e.target.value})} style={filterInputStyle} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Būsena</label>
+                    <select value={filters.status} onChange={e => setFilters({...filters, status: e.target.value})} style={filterInputStyle}>
+                      <option value="">Visi</option>
+                      <option value="laukiama">Laukiama</option>
+                      <option value="atlikta">Atlikta</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Data</label>
+                    <input type="date" value={filters.date} onChange={e => setFilters({...filters, date: e.target.value})} style={filterInputStyle} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "11px", fontWeight: 600, color: "#475569" }}>Nr.</label>
+                    <input type="text" placeholder="Nr." value={filters.id} onChange={e => setFilters({...filters, id: e.target.value})} style={filterInputStyle} />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: "20px" }}>
