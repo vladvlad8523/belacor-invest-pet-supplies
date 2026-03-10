@@ -177,6 +177,13 @@ const Kabinetas = () => {
     if (filters.status && o.status !== filters.status) return false;
     if (filters.message && !(o.message || "").toLowerCase().includes(filters.message.toLowerCase())) return false;
     return true;
+  }).sort((a, b) => {
+    // New orders first
+    const aNew = !seenIds.includes(a.id) ? 1 : 0;
+    const bNew = !seenIds.includes(b.id) ? 1 : 0;
+    if (bNew !== aNew) return bNew - aNew;
+    // Then by date descending
+    return b.date.localeCompare(a.date);
   });
 
   const toggleStatus = (id: number) => {
