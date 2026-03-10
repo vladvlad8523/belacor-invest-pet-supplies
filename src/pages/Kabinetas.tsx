@@ -118,15 +118,20 @@ const Kabinetas = () => {
     return () => clearInterval(interval);
   }, [navigate]);
 
-  // Mark orders as seen after 3 seconds
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const orderIds = orders.map(o => o.id);
-      markOrdersSeen(orderIds);
-      setSeenIds(getSeenOrderIds());
-    }, 3000);
-    return () => clearTimeout(timeout);
-  }, [orders]);
+  // Manual mark as seen
+  const markAsSeen = (id: number) => {
+    markOrdersSeen([id]);
+    setSeenIds(prev => [...prev, id]);
+  };
+
+  const markAllAsSeen = () => {
+    const allIds = orders.map(o => o.id);
+    markOrdersSeen(allIds);
+    setSeenIds(allIds);
+  };
+
+  // Mobile filter panel
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Filter state
   const [filters, setFilters] = useState({
