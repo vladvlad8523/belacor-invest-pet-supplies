@@ -67,6 +67,8 @@ const Index = () => {
       date: new Date().toISOString().slice(0, 10),
       company: formData.company,
       contact: formData.contact || "",
+      phone: formData.phone || "",
+      email: formData.email || "",
       product: formData.type || "Nenurodyta",
       qty: finalQty,
       unit: finalUnit,

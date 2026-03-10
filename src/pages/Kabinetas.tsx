@@ -196,6 +196,8 @@ const Kabinetas = () => {
       "Data": o.date,
       "Įmonė": o.company,
       "Kontaktinis asmuo": o.contact || "",
+      "Telefonas": o.phone || "",
+      "El. paštas": o.email || "",
       "Produktas": o.product,
       "Kiekis": o.qty,
       "Vnt.": o.unit === "t" ? "Tonos" : "Kilogramai",
