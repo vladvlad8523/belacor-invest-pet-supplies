@@ -162,6 +162,8 @@ function ContactForm({ t }: { t: any }) {
         date: new Date().toISOString().slice(0, 10),
         company: company,
         contact: contact || "",
+        phone: phone || "",
+        email: email || "",
         product: type || "Nenurodyta",
         qty: finalQty,
         unit: finalUnit,
