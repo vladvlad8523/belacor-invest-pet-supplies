@@ -449,7 +449,7 @@ const Kabinetas = () => {
                     position: "relative",
                   }}>
                     {isNew && (
-                      <span style={{
+                      <span onClick={() => markAsSeen(o.id)} style={{
                         position: "absolute",
                         top: "8px",
                         right: "8px",
@@ -457,10 +457,11 @@ const Kabinetas = () => {
                         color: "white",
                         fontSize: "10px",
                         fontWeight: 700,
-                        padding: "2px 8px",
+                        padding: "4px 10px",
                         borderRadius: "10px",
+                        cursor: "pointer",
                       }}>
-                        NAUJAS
+                        NAUJAS ✕
                       </span>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px", paddingRight: isNew ? "60px" : 0 }}>
