@@ -397,6 +397,11 @@ const Kabinetas = () => {
                   <h2 style={{ margin: 0, color: "#1e3a8a", fontSize: "22px" }}>📦 Užsakymai ({filteredOrders.length}/{orders.length})</h2>
                 </td>
                 <td style={{ textAlign: "right" }}>
+                  {orders.some(o => !seenIds.includes(o.id)) && (
+                    <button onClick={markAllAsSeen} style={{ backgroundColor: "#7c3aed", color: "white", border: "none", padding: "10px 20px", borderRadius: "8px", cursor: "pointer", fontWeight: 700, fontSize: "14px", marginRight: "8px" }}>
+                      👁️ Pažymėti visus matytais
+                    </button>
+                  )}
                   {orders.length > 0 && (
                     <button onClick={() => {
                       const completedCount = orders.filter(o => o.status === "atlikta").length;
