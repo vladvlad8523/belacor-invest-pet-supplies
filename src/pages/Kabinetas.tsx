@@ -481,6 +481,8 @@ const Kabinetas = () => {
                     <div style={{ fontSize: "13px", color: "#475569", lineHeight: "1.8" }}>
                       <div>📅 <strong>Data:</strong> {o.date}</div>
                       {o.contact && <div>👤 <strong>Kontaktas:</strong> {o.contact}</div>}
+                      {o.phone && <div>📞 <strong>Telefonas:</strong> <a href={`tel:${o.phone}`} style={{ color: "#1e3a8a", fontWeight: 600 }}>{o.phone}</a></div>}
+                      {o.email && <div>📧 <strong>El. paštas:</strong> <a href={`mailto:${o.email}`} style={{ color: "#1e3a8a", fontWeight: 600 }}>{o.email}</a></div>}
                       <div>📦 <strong>Produktas:</strong> {o.product}</div>
                       <div>⚖️ <strong>Kiekis:</strong> {o.qty} {o.unit === "t" ? "tonos" : "kg"}</div>
                       {o.message && (
