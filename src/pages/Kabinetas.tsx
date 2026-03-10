@@ -9,6 +9,8 @@ interface Order {
   date: string;
   company: string;
   contact?: string;
+  phone?: string;
+  email?: string;
   product: string;
   qty: number;
   unit: "kg" | "t";
