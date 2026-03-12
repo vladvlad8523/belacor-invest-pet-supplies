@@ -540,17 +540,17 @@ const Kabinetas = () => {
           <div style={{ overflowX: "auto", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
           <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", overflow: "hidden", tableLayout: "fixed", width: "100%" }}>
             <colgroup>
-              <col style={{ width: "4%" }} />
               <col style={{ width: "7%" }} />
-              <col style={{ width: "12%" }} />
+              <col style={{ width: "7%" }} />
+              <col style={{ width: "11%" }} />
               <col style={{ width: "9%" }} />
               <col style={{ width: "8%" }} />
               <col style={{ width: "10%" }} />
-              <col style={{ width: "12%" }} />
+              <col style={{ width: "11%" }} />
               <col style={{ width: "5%" }} />
-              <col style={{ width: "5%" }} />
-              <col style={{ width: "8%" }} />
-              <col style={{ width: "12%" }} />
+              <col style={{ width: "4%" }} />
+              <col style={{ width: "7%" }} />
+              <col style={{ width: "13%" }} />
               <col style={{ width: "8%" }} />
             </colgroup>
             <thead>
