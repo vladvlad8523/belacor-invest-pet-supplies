@@ -603,44 +603,44 @@ const Kabinetas = () => {
                       borderBottom: "1px solid #e2e8f0",
                       borderLeft: isNew ? "3px solid #1e3a8a" : undefined,
                     }}>
-                      <td style={{ padding: "10px 12px", fontSize: "13px", fontWeight: 600 }}>
+                      <td style={{ padding: "8px 6px", fontSize: "12px", fontWeight: 600 }}>
                         {o.id}
                         {isNew && (
-                          <span onClick={() => markAsSeen(o.id)} style={{ marginLeft: "6px", backgroundColor: "#1e3a8a", color: "white", fontSize: "9px", fontWeight: 700, padding: "2px 6px", borderRadius: "8px", verticalAlign: "top", cursor: "pointer" }} title="Pažymėti kaip matytą">
+                          <span onClick={() => markAsSeen(o.id)} style={{ marginLeft: "4px", backgroundColor: "#1e3a8a", color: "white", fontSize: "8px", fontWeight: 700, padding: "2px 4px", borderRadius: "8px", verticalAlign: "top", cursor: "pointer" }} title="Pažymėti kaip matytą">
                             NEW ✕
                           </span>
                         )}
                       </td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px" }}>{o.date}</td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px", fontWeight: 500 }}>{o.company}</td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px" }}>{o.contact || "—"}</td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px" }}>
+                      <td style={{ padding: "8px 6px", fontSize: "12px" }}>{o.date}</td>
+                      <td style={{ padding: "8px 6px", fontSize: "12px", fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{o.company}</td>
+                      <td style={{ padding: "8px 6px", fontSize: "12px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{o.contact || "—"}</td>
+                      <td style={{ padding: "8px 6px", fontSize: "11px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {o.phone ? <a href={`tel:${o.phone}`} style={{ color: "#1e3a8a", fontWeight: 600, textDecoration: "none" }}>{o.phone}</a> : "—"}
                       </td>
-                      <td style={{ padding: "10px 12px", fontSize: "12px" }}>
+                      <td style={{ padding: "8px 6px", fontSize: "11px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {o.email ? <a href={`mailto:${o.email}`} style={{ color: "#1e3a8a", fontWeight: 600, textDecoration: "none" }}>{o.email}</a> : "—"}
                       </td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px" }}>{o.product}</td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px", fontWeight: 600 }}>{o.qty}</td>
-                      <td style={{ padding: "10px 12px", fontSize: "13px" }}>
+                      <td style={{ padding: "8px 6px", fontSize: "12px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{o.product}</td>
+                      <td style={{ padding: "8px 6px", fontSize: "12px", fontWeight: 600 }}>{o.qty}</td>
+                      <td style={{ padding: "8px 6px", fontSize: "11px" }}>
                         <span style={{
-                          display: "inline-block", padding: "2px 8px", borderRadius: "4px", fontSize: "11px", fontWeight: 600,
+                          display: "inline-block", padding: "2px 6px", borderRadius: "4px", fontSize: "10px", fontWeight: 600,
                           backgroundColor: o.unit === "t" ? "#dbeafe" : "#f0fdf4",
                           color: o.unit === "t" ? "#1e40af" : "#166534",
                         }}>
                           {o.unit === "t" ? "Tonos" : "kg"}
                         </span>
                       </td>
-                      <td style={{ padding: "10px 12px" }}>
+                      <td style={{ padding: "8px 6px" }}>
                         <span style={{
-                          display: "inline-block", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: 700,
+                          display: "inline-block", padding: "2px 8px", borderRadius: "20px", fontSize: "10px", fontWeight: 700,
                           backgroundColor: o.status === "atlikta" ? "#dcfce7" : "#fef9c3",
                           color: o.status === "atlikta" ? "#166534" : "#854d0e",
                         }}>
                           {o.status === "atlikta" ? "✅ Atlikta" : "⏳ Laukiama"}
                         </span>
                       </td>
-                      <td style={{ padding: "10px 12px", fontSize: "12px", color: "#475569", maxWidth: "180px" }}>
+                      <td style={{ padding: "8px 6px", fontSize: "11px", color: "#475569", overflow: "hidden", textOverflow: "ellipsis", wordBreak: "break-word" as const }}>
                         {o.message || "—"}
                       </td>
                       <td style={{ padding: "10px 12px" }}>
