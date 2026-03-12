@@ -538,7 +538,21 @@ const Kabinetas = () => {
         ) : (
           /* Desktop: table view */
           <div style={{ overflowX: "auto", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}>
-          <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", overflow: "hidden", tableLayout: "auto", minWidth: "1600px" }}>
+          <table width="100%" cellPadding={0} cellSpacing={0} style={{ backgroundColor: "white", borderCollapse: "collapse", overflow: "hidden", tableLayout: "fixed", width: "100%" }}>
+            <colgroup>
+              <col style={{ width: "4%" }} />
+              <col style={{ width: "7%" }} />
+              <col style={{ width: "12%" }} />
+              <col style={{ width: "9%" }} />
+              <col style={{ width: "8%" }} />
+              <col style={{ width: "10%" }} />
+              <col style={{ width: "12%" }} />
+              <col style={{ width: "5%" }} />
+              <col style={{ width: "5%" }} />
+              <col style={{ width: "8%" }} />
+              <col style={{ width: "12%" }} />
+              <col style={{ width: "8%" }} />
+            </colgroup>
             <thead>
               <tr style={{ backgroundColor: "#1e3a8a" }}>
                 {["Nr.", "Data", "Įmonė", "Kontaktinis asmuo", "Telefonas", "El. paštas", "Produktas", "Kiekis", "Vnt.", "Būsena", "Žinutė", "Veiksmas"].map(h => (
