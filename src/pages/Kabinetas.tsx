@@ -643,12 +643,12 @@ const Kabinetas = () => {
                       <td style={{ padding: "8px 6px", fontSize: "11px", color: "#475569", overflow: "hidden", textOverflow: "ellipsis", wordBreak: "break-word" as const }}>
                         {o.message || "—"}
                       </td>
-                      <td style={{ padding: "10px 12px" }}>
-                        <div style={{ display: "flex", gap: "4px", alignItems: "center", whiteSpace: "nowrap" }}>
+                      <td style={{ padding: "8px 6px" }}>
+                        <div style={{ display: "flex", gap: "3px", alignItems: "center", whiteSpace: "nowrap" }}>
                           <button onClick={() => toggleStatus(o.id)} style={{
                             backgroundColor: o.status === "laukiama" ? "#16a34a" : "#f59e0b",
-                            color: "white", border: "none", padding: "4px 16px", borderRadius: "20px",
-                            cursor: "pointer", fontWeight: 600, fontSize: "11px", whiteSpace: "nowrap",
+                            color: "white", border: "none", padding: "3px 10px", borderRadius: "20px",
+                            cursor: "pointer", fontWeight: 600, fontSize: "10px", whiteSpace: "nowrap",
                           }}>
                             {o.status === "laukiama" ? "Atlikta" : "Grąžinti"}
                           </button>
@@ -658,7 +658,7 @@ const Kabinetas = () => {
                             }
                           }} style={{
                             backgroundColor: "#dc2626", color: "white", border: "none",
-                            padding: "4px 8px", borderRadius: "6px", cursor: "pointer", fontWeight: 600, fontSize: "11px",
+                            padding: "3px 6px", borderRadius: "6px", cursor: "pointer", fontWeight: 600, fontSize: "10px",
                           }}>
                             🗑️
                           </button>
